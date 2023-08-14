@@ -43,9 +43,9 @@ const SmallDevices = ({session}:{session:any}) => {
             </div>
             <div className={"z-10"}>
                 {open && (
-                    <div className={"z-10 fixed top-0 left-0 px-[20px] pt-[16px] pb-[8px] w-[100vw] h-[100vh] bg-white"}>
+                    <div className={"z-10 fixed top-0 left-0 pt-[20px] px-[20px] w-[100vw] h-[100vh] bg-white"}>
                         <div className={"w-full h-[8vh]"}>
-                            <Link href={"/"} className={"font-bold 2xl:text-[1.1vw]"} style={{letterSpacing: "-1px"}}>
+                            <Link href={"/"} className={"font-bold 2xl:text-[1.1vw] pb-[8px]"} style={{letterSpacing: "-1px"}}>
                                 Survival Server
                             </Link>
                         </div>
@@ -54,7 +54,7 @@ const SmallDevices = ({session}:{session:any}) => {
                                 {
                                     !session ?
                                         <SignInButton>
-                                            <Button variant={"outline"}  className={"mx-1 2xl:mx-[.4vw] font-bold text-[#444] 2xl:text-[.9vw]"}>
+                                            <Button variant={"outline"}  className={"2xl:mx-[.4vw] w-full font-bold text-[#444] 2xl:text-[.9vw]"}>
                                                 <UserCircle2 className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.8vw]"} />
                                                 Staňte se členem
                                             </Button>

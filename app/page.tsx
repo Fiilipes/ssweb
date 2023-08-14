@@ -57,11 +57,13 @@ export default async function Home() {
           </div>
         </div>
 
-        <Image src={backgroundBlur} alt={"background"} className={"absolute top-[8vw] z-0 opacity-60 w-[45vw]"} />
 
         <Content />
 
         <Introduction />
+
+          <Image src={backgroundBlur} alt={"background"} className={"absolute top-[8vw] z-0 opacity-70 w-[65vw]"} />
+
 
       </main>
   )
