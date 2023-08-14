@@ -21,6 +21,8 @@ const Header = async () => {
     // @ts-ignore
     const session = await getServerSession(authOptions)
 
+
+
     return (
         <>
             <header className={"fixed z-50 flex flex-row justify-between w-[100%]   px-[5vw]  pt-[2.2vw] pb-[1vw]"} style={{backdropFilter: "blur(12px)", backgroundColor: "rgba(255,255,255,.7)"}}>
@@ -55,7 +57,7 @@ const Header = async () => {
                             </Link>
                     }
                 </section>
-                <SmallDevices />
+                <SmallDevices session={session} />
             </header>
             <HeightGap height={"h-[8vw]"} />
         </>
