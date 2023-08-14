@@ -5,6 +5,10 @@ import { getSS } from "@/assets/settings/firebase";
 import {useSession} from "next-auth/react";
 import NotVerifiedWithServerCard from "@/components/reusable/discord/NotVerifiedWithServerCard";
 import discordServers from "@/assets/settings/content/discordServers";
+import PageTitle from "@/components/reusable/composition/PageTitle";
+import pages from "@/assets/settings/content/pages";
+import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
+import ShopItems from "@/components/layout/shop/ShopItems";
 
 
 const Page = () => {
@@ -21,7 +25,7 @@ const Page = () => {
                 getSS(["users", "shop"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id)
+                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Survival Server")?.verified
 
                     setVerified(myUser)
 
@@ -33,35 +37,16 @@ const Page = () => {
 
     return (
         <>
-            {
-                verified === null ? <>
-                        Načítání...
-                    </> :
-                    // @ts-ignore
-                    !verified.servers.find(server => server.name === "Survival Server") ? <>
-                            <NotVerifiedWithServerCard discordServer={discordServers.find(server => server.name === "Survival Server")} />
-                        </> : <>
+            <div className="hidden flex-col md:flex">
 
-                            <div className="hidden flex-col md:flex">
+                <div className="flex-1 space-y-4 p-8 pt-6">
+                    <PageTitle title={pages.obchod.title} description={pages.obchod.description} />
+                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")}>
+                        <ShopItems shop={shop} />
+                    </PageContentWrap>
 
-                                <div className="flex-1 space-y-4 p-8 pt-6">
-                                    <div>
-                                        <h1 className={"text-[2vw] font-bold"}>
-                                            Obchod
-                                        </h1>
-                                        <p className={"font-medium text-[.9vw] text-[#333]"}>
-                                            V obchodě si za své SS coiny můžete nakoupit nejrůznější itemy
-                                        </p>
-                                    </div>
-
-
-
-
-                                </div>
-                            </div>
-                        </>
-            }
-
+                </div>
+            </div>
         </>
     )
 }

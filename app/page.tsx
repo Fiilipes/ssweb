@@ -32,7 +32,7 @@ export default async function Home() {
               {pages.homepage.description}
           </p>
 
-          <div className={"mt-16"}>
+          <div className={"mt-16 flex flex-row items-end"}>
 
             <ExploreButton/>
 
@@ -49,7 +49,7 @@ export default async function Home() {
                       <SignInButton>
                           <Button variant={"outline"}  className={"mx-1 2xl:mx-[.4vw] font-bold text-[#444] 2xl:text-[.9vw]"}>
                               <UserCircle2 className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.8vw]"} />
-                              Jump In
+                              Připojte se
                           </Button>
                       </SignInButton>
               }

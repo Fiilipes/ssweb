@@ -143,9 +143,9 @@ const NavMenu = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/support" legacyBehavior passHref>
-                            <NavigationMenuLink className={"transition-colors hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw]"}>
-                                Support
+                        <Link href="/soutezetryhard" legacyBehavior passHref>
+                            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw]"}>
+                                Soutěže Tryhard
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
