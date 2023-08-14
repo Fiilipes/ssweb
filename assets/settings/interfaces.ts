@@ -71,3 +71,7 @@ export interface SortedCompetition {
     }[];
 }
 
+export interface DiscordServer {
+    name: string;
+    link: string;
+}

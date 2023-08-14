@@ -9,7 +9,7 @@ import {UserCircle2} from "lucide-react";
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(auth)/api/auth/[...nextauth]/route'
 
-import SignInButton from "@/components/auth/SignInButton";
+import SignInButton from "@/components/reusable/auth/SignInButton";
 import SmallDevices from "@/components/layout/header/SmallDevices";
 import LargeDevices from "@/components/layout/header/LargeDevices";
 
@@ -76,7 +76,7 @@ const Header = async () => {
                                 </Button>
                             </SignInButton>
                         </> : <>
-                            <Link href={"/profile"}>
+                            <Link href={"/profil"}>
                                 <Button variant={"outline"} className={"mx-1 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:mx-[.4vw] font-bold text-[#444] 2xl:text-[.9vw]"}>
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src={session?.user?.image ? session?.user?.image : ""} alt={"userImage"} className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.6vw] rounded-full"} />
