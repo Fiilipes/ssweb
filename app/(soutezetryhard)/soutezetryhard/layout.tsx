@@ -1,10 +1,9 @@
 import {Metadata} from "next";
 import React from "react";
-import {Separator} from "@/components/ui/separator";
 import SideBar from "@/components/layout/soutezetryhard/SideBar";
 export const metadata: Metadata = {
-    title: 'Survival Server',
-    description: 'Survival Server web',
+    title: 'Soutěže Tryhard',
+    description: 'Soutěže Tryhard web',
 }
 
 

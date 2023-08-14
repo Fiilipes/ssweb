@@ -40,7 +40,7 @@ const Page = () => {
             <div className="hidden flex-col md:flex">
 
                 <div className="flex-1 space-y-4 p-8 pt-6">
-                    <PageTitle title={pages.obchod.title} description={pages.obchod.description} />
+                    <PageTitle status={verified} buttons={[]} title={pages.obchod.title} description={pages.obchod.description} />
                     <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")}>
                         <ShopItems shop={shop} />
                     </PageContentWrap>

@@ -25,7 +25,7 @@ const NotVerifiedWithServerCard = ({ discordServer }: { discordServer: DiscordSe
             }>
                 <div className={"mr-[12vw]"}>
                     <CardHeader>
-                        <CardTitle>Nejste ověření</CardTitle>
+                        <CardTitle>Nejste ověřen</CardTitle>
                         <CardDescription className={"opacity-100 text-[#ccc]"}>Pro získání přístupu k této stránce je nutné získat plnou verifikaci na {discordServer?.name} discordu</CardDescription>
                     </CardHeader>
                     <CardFooter className={"mt-[1.5vw]"}>

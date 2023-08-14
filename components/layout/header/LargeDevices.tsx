@@ -100,7 +100,7 @@ const NavMenu = () => {
                                 </li>
                                 <li>
                                     <NavigationMenuLink asChild>
-                                        <Link href={"/docs"} className={"block select-none space-y-1 2xl:space-y-[.6vw] rounded-md p-3 2xl:p-[.6vw] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>
+                                        <Link href={"/#content"} className={"block select-none space-y-1 2xl:space-y-[.6vw] rounded-md p-3 2xl:p-[.6vw] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>
                                             <div className="text-[.95vw] font-medium leading-none">Obsah</div>
                                             <p className="line-clamp-2 text-[.85vw] leading-snug text-muted-foreground">
                                                 Seznam všeho co Vám web může nabídnout.

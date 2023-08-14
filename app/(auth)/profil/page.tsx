@@ -13,6 +13,7 @@ import {Separator} from "@/components/ui/separator";
 import UserCard from "@/components/reusable/profil/UserCard";
 import UserBadges from "@/components/reusable/profil/UserBadges";
 import NotVerified from "@/components/reusable/discord/NotVerified";
+import PageTitle from "@/components/reusable/composition/PageTitle";
 
 export default function SoutezeTryhard() {
 
@@ -26,7 +27,7 @@ export default function SoutezeTryhard() {
                 getSS(["users"]).then((res: any) => {
 
                     // @ts-ignore
-                    setVerified(res["users"].users.list.find((u:any) => u.discordID === session.id))
+                    setVerified(res["users"].users.list.find((u:any) => u.discordID === session.id).servers?.some(s=>s.verified))
 
                 })
             }
@@ -36,16 +37,7 @@ export default function SoutezeTryhard() {
     return (
         <div className={"w-[90%] mx-auto"}>
 
-            <div>
-                <h1 className={"text-[3vw] font-bold"}>
-                    {pages.profil.title}
-                </h1>
-                <p className={"font-medium text-[#222]"}>
-                    {pages.profil.description}
-                </p>
-            </div>
-            
-            <Separator className={"my-4"}/>
+            <PageTitle status={verified} title={"Profil"} description={"Zde můžete vidět informace o Vás"} buttons={[]} />
 
             {
                 verified !== false ? <>
