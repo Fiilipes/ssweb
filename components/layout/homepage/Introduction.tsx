@@ -6,7 +6,7 @@ import {CalendarHeart, Globe, Megaphone, Scale, User, User2} from "lucide-react"
 
 const Introduction = () => {
     return (
-        <div id={"introduction"} className={"flex flex-row justify-start w-[80%] h-[100vh] mt-[7vw]"}>
+        <div id={"introduction"} className={"flex flex-row justify-start w-[80%] h-[100vh] pt-[8vw] "}>
             <div>
                 <div className="pb-[2vw]">
                     <div>

@@ -5,8 +5,15 @@ import {ScrollArea} from "@/components/ui/scroll-area";
 import Link from "next/link";
 import SignInButton from "@/components/reusable/auth/SignInButton";
 import {Button} from "@/components/ui/button";
-import {UserCircle2} from "lucide-react";
+import {LayoutPanelLeft, UserCircle2} from "lucide-react";
 import {usePathname} from "next/navigation";
+import {
+    NavigationMenu,
+    NavigationMenuContent, NavigationMenuItem, NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger
+} from '@/components/ui/navigation-menu';
+import navigation from "@/assets/settings/content/navigation";
 
 const SmallDevices = ({session}:{session:any}) => {
 
@@ -68,6 +75,39 @@ const SmallDevices = ({session}:{session:any}) => {
                                             </Button>
                                         </Link>
                                 }
+                            </div>
+                            <div>
+                                <NavigationMenu>
+                                    <NavigationMenuList>
+                                        <NavigationMenuItem className={"z-90"}>
+                                            <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
+                                            <NavigationMenuContent>
+                                                <ul className="grid gap-[1vw] 2xl:p-[1.2vw] md:w-[25vw] lg:w-[30vw] lg:grid-cols-[.75fr_1fr]">
+                                                    <li className="row-span-3">
+                                                        <NavigationMenuLink asChild>
+                                                            <Link
+                                                                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 2xl:p-[2vw] no-underline outline-none focus:shadow-md"
+                                                                href={navigation.gettingStarted.components.widget.link}
+                                                                scroll={true}
+                                                            >
+                                                                <LayoutPanelLeft className={"2xl:w-[4vw] 2xl:h-[4vw]"}/>
+                                                                <div className="mb-[.6vw] mt-[1.2vw] text-[1.2vw] font-medium">
+                                                                    {navigation.gettingStarted.components.widget.title}
+                                                                </div>
+                                                                <p className="text-[.9vw] leading-tight text-muted-foreground">
+                                                                    {navigation.gettingStarted.components.widget.content}
+                                                                </p>
+                                                            </Link>
+                                                        </NavigationMenuLink>
+                                                    </li>
+
+                                                </ul>
+                                            </NavigationMenuContent>
+                                        </NavigationMenuItem>
+                                    </NavigationMenuList>
+                                </NavigationMenu>
+
+
                             </div>
                         </ScrollArea>
                     </div>

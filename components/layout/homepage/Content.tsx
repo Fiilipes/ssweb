@@ -7,7 +7,7 @@ import SubscriptionCard from "@/components/reusable/subscription/SubscriptionCar
 
 const Content = () => {
     return (
-        <div id={"content"} className={"mt-[15vw]"}>
+        <div id={"content"} className={"pt-[10vw] mt-[5vw]"}>
             <div>
                 <div className="pb-[2vw]">
                     <div>

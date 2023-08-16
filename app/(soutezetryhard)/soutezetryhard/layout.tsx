@@ -1,6 +1,7 @@
 import {Metadata} from "next";
 import React from "react";
 import SideBar from "@/components/layout/soutezetryhard/SideBar";
+import BasicWrap from "@/components/layout/wrap/BasicWrap";
 export const metadata: Metadata = {
     title: 'Soutěže Tryhard',
     description: 'Soutěže Tryhard web',
@@ -16,9 +17,7 @@ export default async function Layout({
 
     return (
         <div>
-
-            <div className={"w-[90%] mx-auto flex flex-col pt-8"}>
-
+            <BasicWrap>
 
                 <div className={"flex flex-row w-full"}>
                     <SideBar />
@@ -27,7 +26,8 @@ export default async function Layout({
                         {children}
                     </div>
                 </div>
-            </div>
+
+            </BasicWrap>
         </div>
     )
 }
