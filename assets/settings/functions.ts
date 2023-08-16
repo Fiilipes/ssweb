@@ -1,6 +1,26 @@
 import db, {getSS} from "./firebase";
 import {doc, setDoc} from "@firebase/firestore";
 import {Competition, CompetitionValues,CompetitionFirebase, User} from "./interfaces";
+import {ReactNodeViewRenderer, useEditor} from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import {Mathematics} from "@tiptap-pro/extension-mathematics";
+import CharacterCount from "@tiptap/extension-character-count";
+import Code from "@tiptap/extension-code";
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
+import CodeBlockComponent from "@/components/notes/editor/editorextensions/codeblock/CodeBlockComponent";
+import {lowlight} from "lowlight";
+import {ColorHighlighter} from "@/components/notes/editor/editorextensions/clevereditor/colorhighlighter";
+import Document from "@tiptap/extension-document";
+import Emoji, {gitHubEmojis} from "@tiptap-pro/extension-emoji";
+import emojiSuggestion from "@/components/notes/editor/editorextensions/emojis/suggestion";
+import {Mention} from "@tiptap/extension-mention";
+import mentionSuggestion from "@/components/notes/editor/editorextensions/mentions/suggestion";
+import {SmilieReplacer} from "@/components/notes/editor/editorextensions/clevereditor/smilereplacer";
+import Placeholder from "@tiptap/extension-placeholder";
+import Typography from "@tiptap/extension-typography";
+import Underline from "@tiptap/extension-underline";
+// @ts-ignore
+import TurndownService from "turndown";
 
 
 
@@ -99,6 +119,99 @@ class Functions {
         });
 
         return transformedArray;
+    }
+
+    getTimeAgo(timestamp:number) {
+        const now = new Date().getTime();
+        const diffInMillis = now - timestamp;
+
+        console.log(now)
+        console.log(timestamp)
+        console.log(diffInMillis / (60 * 60 * 1000))
+
+        const minuteInMillis = 60 * 1000;
+        const hourInMillis = 60 * minuteInMillis;
+        const dayInMillis = 24 * hourInMillis;
+        const monthInMillis = 30 * dayInMillis;
+        const yearInMillis = 12 * monthInMillis;
+
+        if (diffInMillis < minuteInMillis) {
+            const minutesAgo = Math.floor(diffInMillis / (1000));
+            return `${minutesAgo} minute${minutesAgo === 1 ? '' : 's'} ago`;
+        } else if (diffInMillis < hourInMillis) {
+            const hoursAgo = Math.round(diffInMillis / (60 * 60 * 1000));
+            return `${hoursAgo} hour${hoursAgo === 1 ? '' : 's'} ago`;
+        } else if (diffInMillis < dayInMillis) {
+            const daysAgo = Math.round(diffInMillis / dayInMillis);
+            return `${daysAgo} day${daysAgo === 1 ? '' : 's'} ago`;
+        } else if (diffInMillis < monthInMillis) {
+            const monthsAgo = Math.round(diffInMillis / monthInMillis);
+            return `${monthsAgo} month${monthsAgo === 1 ? '' : 's'} ago`;
+        } else {
+            const yearsAgo = Math.round(diffInMillis / yearInMillis);
+            return `${yearsAgo} year${yearsAgo === 1 ? '' : 's'} ago`;
+        }
+    }
+
+    createEditor({originContent = "", placeholder = {placeholder: 'Write something …'}, document = {} }: {originContent: string, placeholder: any, document: any}) {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const editor = useEditor({
+            content: originContent,
+            editorProps: {
+                attributes: {
+                    spellCheck: "false",
+                    class: "outline-none focus:outline-none"
+                },
+            },
+            extensions: [
+                StarterKit,
+                Mathematics,
+                CharacterCount,
+                Code,
+                CodeBlockLowlight
+                    .extend({
+                        addNodeView() {
+                            return ReactNodeViewRenderer(CodeBlockComponent)
+                        },
+                    })
+                    .configure({lowlight}),
+                ColorHighlighter,
+                Document.extend(document),
+                Emoji.configure({
+                    emojis: gitHubEmojis,
+                    enableEmoticons: true,
+                    suggestion: emojiSuggestion,
+                }),
+                Mention.configure({
+                    HTMLAttributes: {
+                        class: 'mention',
+                    },
+                    suggestion: mentionSuggestion,
+                }),
+                SmilieReplacer,
+                Placeholder.configure(placeholder),
+                Typography,
+                Underline
+
+            ],
+        })
+
+        return editor
+    }
+
+    convertHtmlToMarkdown(html: string) {
+        const mytext = html.replace(/<p>/g, "").replace(/<\/p>/g, "").replace(
+            /<mark[^>]*>/g, ""
+        ).replace(/<\/mark>/g, "")
+
+        const turndownService = new TurndownService(
+            {
+                headingStyle: "atx",
+            }
+        )
+        const markdown = turndownService.turndown(mytext).replace(/######/g, "###").replace(/#####/g, "###").replace(/####/g, "###")
+
+        return markdown
     }
 
 

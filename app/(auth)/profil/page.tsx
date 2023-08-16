@@ -44,7 +44,9 @@ export default function SoutezeTryhard() {
                     <UserCard session={session} loading={verified === null}/>
                     <UserBadges session={session} loading={verified === null}/>
                 </> : <>
-                    <NotVerified />
+                    <NotVerified>
+                        <UserCard session={session} loading={verified === null}/>
+                    </NotVerified>
                 </>
             }
 

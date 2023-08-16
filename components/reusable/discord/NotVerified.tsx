@@ -5,10 +5,10 @@ import {BadgePlus, ChevronLeftCircle} from "lucide-react";
 import {Card, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import discordServers from "@/assets/settings/content/discordServers";
 
-const NotVerified = () => {
+const NotVerified = ({children}:{children:any}) => {
     return (
         <article className={"flex flex-col"}>
-            <section className={"flex flex-row mt-[1.5vw]"}>
+            <section className={"flex flex-row mt-[1.5vw] mb-[2vw]"}>
                 <Link href={"/"}>
                     <Button className={"flex flex-row"}>
                         <ChevronLeftCircle className={"w-[1vw] h-[1vw] opacity-90 mr-[.5vw]"} />
@@ -16,6 +16,9 @@ const NotVerified = () => {
                     </Button>
                 </Link>
             </section>
+            {
+                children
+            }
             <Card className={"w-full mt-[2vw] bg-black text-white flex flex-row"} style={
                 {
                     backgroundImage: `linear-gradient(310deg, #000 60%, rgba(50, 200, 155,0.5) 100%)`,
