@@ -15,7 +15,8 @@ export default  {
     items: async ({query}: { query: any }) => {
         if (myUsers.timestamp + timeStampFifteenMinutes < new Date().getTime()) {
             const res = await getSS(["users"]);
-            const users = res["users"].users.list.map(item => {
+
+            const users = res["users"].users.list.map((item:any) => {
                 return {
                     discordUsername: item.discordUsername
                 };
