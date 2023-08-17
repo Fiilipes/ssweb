@@ -3,7 +3,7 @@
 import React from 'react'
 import {Bold, Italic, SquareDashedBottomCode, Strikethrough, Underline} from "lucide-react";
 
-const MenuBar = ({ editor }:{editor:any}) => {
+const MenuBar = ({ editor, menubar }:{editor:any, menubar:any[]}) => {
     if (!editor) {
         return null
     }
@@ -15,36 +15,36 @@ const MenuBar = ({ editor }:{editor:any}) => {
     React.useEffect(() => {
         const iconClass = 'text-white w-[1.2vw] h-[1.2vw]'
 
-        setOptions(
-            [
-                // {
-                //     name: 'codeBlock',
-                //     icon: <SquareDashedBottomCode className={iconClass} />,
-                //     onClick: () => editor.chain().focus().toggleCodeBlock().run()
-                // },
-                {
-                    name: 'bold',
-                    icon: <Bold className={iconClass} />,
-                    onClick: () => editor.chain().focus().toggleBold().run()
-                },
-                {
-                    name: 'italic',
-                    icon: <Italic className={iconClass} />,
-                    onClick: () => editor.chain().focus().toggleItalic().run()
-                },
-                {
-                    name: 'underline',
-                    icon: <Underline className={iconClass} />,
-                    onClick: () => editor.chain().focus().toggleUnderline().run()
-                },
-                {
-                    name: 'strike',
-                    icon: <Strikethrough className={iconClass} />,
-                    onClick: () => editor.chain().focus().toggleStrike().run()
-                },
-            ]
-        )
-    }, [editor])
+        const menuOptions = [
+            {
+                name: 'codeBlock',
+                icon: <SquareDashedBottomCode className={iconClass} />,
+                onClick: () => editor.chain().focus().toggleCodeBlock().run()
+            },
+            {
+                name: 'bold',
+                icon: <Bold className={iconClass} />,
+                onClick: () => editor.chain().focus().toggleBold().run()
+            },
+            {
+                name: 'italic',
+                icon: <Italic className={iconClass} />,
+                onClick: () => editor.chain().focus().toggleItalic().run()
+            },
+            {
+                name: 'underline',
+                icon: <Underline className={iconClass} />,
+                onClick: () => editor.chain().focus().toggleUnderline().run()
+            },
+            {
+                name: 'strike',
+                icon: <Strikethrough className={iconClass} />,
+                onClick: () => editor.chain().focus().toggleStrike().run()
+            },
+        ]
+
+        setOptions(menuOptions.filter(option => menubar.includes(option.name)))
+    }, [editor, menubar])
 
     return (
         <div className={"bg-[#111] flex flex-row items-center p-[.8vw] gap-x-[.5vw] "}>

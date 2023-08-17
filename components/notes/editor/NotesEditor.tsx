@@ -75,7 +75,7 @@ import {Mention} from "@tiptap/extension-mention";
 
 
 
-const NotesEditor = ({editor}:{editor:any}) => {
+const NotesEditor = ({editor, menubar}:{editor:any, menubar:any[]}) => {
 
 
 
@@ -105,7 +105,7 @@ const NotesEditor = ({editor}:{editor:any}) => {
 
             {/*<ContentSpecs editor={editor} />*/}
 
-            <MenuBar editor={editor} />
+            <MenuBar editor={editor} menubar={menubar} />
 
             <div className={"p-[1vw]"}>
                 <EditorContent editor={editor} />

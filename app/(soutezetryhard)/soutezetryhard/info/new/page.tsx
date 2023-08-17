@@ -11,6 +11,7 @@ import functions from "@/assets/settings/functions";
 import {useEditor} from "@tiptap/react";
 import {Button} from "@/components/ui/button";
 import {doc, setDoc} from "@firebase/firestore";
+import {useRouter} from "next/navigation";
 
 
 const Page = () => {
@@ -18,6 +19,7 @@ const Page = () => {
 
     const [verified, setVerified] = React.useState(null)
     const [informations, setInformations] = React.useState<any[]>([])
+    const router = useRouter()
 
     React.useEffect(
         () => {
@@ -52,7 +54,8 @@ const Page = () => {
         },
         document: {
             content: 'heading block*',
-        }
+        },
+        menubar: ["bold", "italic", "underline"]
     })
 
     return (
@@ -62,12 +65,15 @@ const Page = () => {
                 <PageTitle status={verified} title={"Nová zpráva"} description={"Vytvořte novou zprávu na server Soutěže Tryhard"} buttons={[]} />
 
                 <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
-                    <NotesEditor editor={editor}  />
+                    <NotesEditor editor={editor.editor} menubar={editor.menubar}  />
                     <Button onClick={() => {
                         // @ts-ignore
-                        setDoc(doc(db, "ssbot", "informations"), {list: [...informations, {author: {discordAvatar: session?.user?.image, discordUsername: session?.user?.name, discordDiscriminator: session?.discriminator, discordID: session?.id}, messageId: null, time: new Date().getTime(), type: "announcment", value: {content: functions.convertHtmlToMarkdown(editor?.getHTML() ? editor?.getHTML() : "")}}]})
+                        setDoc(doc(db, "ssbot", "informations"), {list: [...informations, {author: {discordAvatar: session?.user?.image, discordUsername: session?.user?.name, discordDiscriminator: session?.discriminator, discordID: session?.id}, messageId: null, time: new Date().getTime(), type: "announcment", value: {content: functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : "")}}]})
+                        router.push("/soutezetryhard/info")
 
-                    }}>
+
+
+                    }} className={"mt-[2vw]"}>
                         Odeslat
                     </Button>
                 </PageContentWrap>

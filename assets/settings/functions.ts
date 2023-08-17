@@ -123,11 +123,11 @@ class Functions {
 
     getTimeAgo(timestamp:number) {
         const now = new Date().getTime();
-        const diffInMillis = now - timestamp;
+        const diffInMillis = (now - timestamp) / 100;
 
         console.log(now)
         console.log(timestamp)
-        console.log(diffInMillis / (60 * 60 * 1000))
+        console.log(diffInMillis)
 
         const minuteInMillis = 60 * 1000;
         const hourInMillis = 60 * minuteInMillis;
@@ -136,10 +136,10 @@ class Functions {
         const yearInMillis = 12 * monthInMillis;
 
         if (diffInMillis < minuteInMillis) {
-            const minutesAgo = Math.floor(diffInMillis / (1000));
+            const minutesAgo = Math.round(diffInMillis / (1000));
             return `${minutesAgo} minute${minutesAgo === 1 ? '' : 's'} ago`;
         } else if (diffInMillis < hourInMillis) {
-            const hoursAgo = Math.round(diffInMillis / (60 * 60 * 1000));
+            const hoursAgo = Math.round(diffInMillis / (60 * 1000));
             return `${hoursAgo} hour${hoursAgo === 1 ? '' : 's'} ago`;
         } else if (diffInMillis < dayInMillis) {
             const daysAgo = Math.round(diffInMillis / dayInMillis);
@@ -153,7 +153,7 @@ class Functions {
         }
     }
 
-    createEditor({originContent = "", placeholder = {placeholder: 'Write something …'}, document = {} }: {originContent: string, placeholder: any, document: any}) {
+    createEditor({originContent = "", placeholder = {placeholder: 'Write something …'}, document = {}, menubar = [] }: {originContent: string, placeholder: any, document: any, menubar:any[]}) {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const editor = useEditor({
             content: originContent,
@@ -196,7 +196,10 @@ class Functions {
             ],
         })
 
-        return editor
+        return {
+            editor: editor,
+            menubar: menubar
+        }
     }
 
     convertHtmlToMarkdown(html: string) {
