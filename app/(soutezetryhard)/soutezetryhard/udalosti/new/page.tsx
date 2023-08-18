@@ -54,6 +54,7 @@ import CompetitionPlace from "@/components/layout/soutezetryhard/udalosti/new/Co
 import CompetitionDescription from "@/components/layout/soutezetryhard/udalosti/new/CompetitionDescription";
 import {CompetitionLinks} from "@/components/layout/soutezetryhard/udalosti/new/CompetitionLinks";
 import {Server, User } from "@/assets/settings/interfaces"
+import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
 
 
 export default function Page() {
@@ -348,23 +349,23 @@ export default function Page() {
                                                     </div>
                                                 </div>
                                             </>:
-                                            preview__Type === "olympiáda" ? <>
-                                                    olympiáda
-
-                                                </>:
-                                                preview__Type === "seminář" ? <>
-                                                        seminář
-
-                                                    </>:
-                                                    preview__Type === "soustředění" ? <>
-                                                            soustředění
-
-                                                        </>:
-                                                        preview__Type === "přednáška" ? <>
-                                                                přednáška
-
-                                                            </>:
-                                                            <> Invalid type </>
+                                            preview__Type === "olympiáda" ?
+                                            <>
+                                                <UnderConstruction />
+                                            </>:
+                                            preview__Type === "seminář" ?
+                                            <>
+                                                <UnderConstruction />
+                                            </>:
+                                            preview__Type === "soustředění" ?
+                                            <>
+                                                <UnderConstruction />
+                                            </>:
+                                            preview__Type === "přednáška" ?
+                                            <>
+                                                <UnderConstruction />
+                                            </>:
+                                            <> Invalid type </>
 
                                     }
 

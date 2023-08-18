@@ -21,6 +21,8 @@ import Typography from "@tiptap/extension-typography";
 import Underline from "@tiptap/extension-underline";
 // @ts-ignore
 import TurndownService from "turndown";
+// @ts-ignore
+import diacritics from "diacritics";
 
 
 
@@ -217,7 +219,9 @@ class Functions {
         return markdown
     }
 
-
+    removeDiacritics(inputString) {
+        return diacritics.remove(inputString);
+    }
 
 
 
