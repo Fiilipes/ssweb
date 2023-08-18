@@ -27,6 +27,13 @@ export const metadata: Metadata = {
             },
         ],
     },
+    authors: [
+        {
+            name: 'Survival server',
+            url: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png",
+        }
+    ],
+    themeColor: "#000000",
 
 }
 
