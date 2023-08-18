@@ -10,7 +10,7 @@ import ShowUserProfile from "@/components/reusable/discord/ShowUserProfile";
 const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
 
     return (
-        <Alert className={"flex flex-row justify-between items-end mb-4"}>
+        <Alert className={"flex flex-row justify-between items-end mb-4 lg:p-[1.2vw]"}>
             {
                 loading ?
                     <div>
@@ -28,8 +28,8 @@ const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
                                     {session?.user?.name ? session?.user?.name.slice(0, 2) : "??"}
                                 </AvatarFallback>
                             </Avatar>
-                            <AlertTitle>@{session?.user?.name}</AlertTitle>
-                            <AlertDescription>
+                            <AlertTitle className={"lg:text-[1vw]"}>@{session?.user?.name}</AlertTitle>
+                            <AlertDescription className={"lg:text-[.8vw]"}>
                                 {session?.user?.email}
                             </AlertDescription>
                         </div>
