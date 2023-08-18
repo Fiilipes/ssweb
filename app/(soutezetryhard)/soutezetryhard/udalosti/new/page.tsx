@@ -187,7 +187,7 @@ export default function Page() {
 
                                         preview__Type === "soutěž" ? <>
                                                 <div className={"flex flex-row "}>
-                                                    <ScrollArea className={"h-[50vh] pr-8"}>
+                                                    <ScrollArea className={"h-[57vh] pr-8"}>
                                                         <div className={"mb-4 px-2"}>
                                                             <CompetitionName  form={form} setPreview__Name={setPreview__Name}/>
                                                         </div>

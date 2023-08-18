@@ -18,6 +18,7 @@ import {Activity, CalendarClock, Clock, Terminal, Users2} from "lucide-react";
 import {useSession} from "next-auth/react";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import discordServers from "@/assets/settings/content/discordServers";
+import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
 
 export default function SoutezeTryhard() {
 
@@ -52,7 +53,7 @@ export default function SoutezeTryhard() {
 
                     <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
 
-                        <div className={"font-semibold mb-1"}>
+                        <div className={"font-semibold mb-[1vw]"}>
                             Vítejte
                             <span className={"font-bold text-[1.5vw] mx-2"}>
                                 @{session?.user?.name}
@@ -104,30 +105,32 @@ export default function SoutezeTryhard() {
                                 </CardContent>
                             </Card>
                         </div>
-                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                            <Card className="col-span-4">
-                                <CardHeader>
-                                    <CardTitle>Seznam</CardTitle>
-                                    <CardDescription>
-                                        Interaktivní zobrazení všech událostí.
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="pl-2">
-                                    overview
-                                </CardContent>
-                            </Card>
-                            <Card className="col-span-3">
-                                <CardHeader>
-                                    <CardTitle>Váš status</CardTitle>
-                                    <CardDescription>
-                                        Jak si vedete v událostech.
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    analytics
-                                </CardContent>
-                            </Card>
-                        </div>
+                        {/*<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">*/}
+                        {/*    <Card className="col-span-4">*/}
+                        {/*        <CardHeader>*/}
+                        {/*            <CardTitle>Seznam</CardTitle>*/}
+                        {/*            <CardDescription>*/}
+                        {/*                Interaktivní zobrazení všech událostí.*/}
+                        {/*            </CardDescription>*/}
+                        {/*        </CardHeader>*/}
+                        {/*        <CardContent className="pl-2">*/}
+                        {/*            overview*/}
+                        {/*        </CardContent>*/}
+                        {/*    </Card>*/}
+                        {/*    <Card className="col-span-3">*/}
+                        {/*        <CardHeader>*/}
+                        {/*            <CardTitle>Váš status</CardTitle>*/}
+                        {/*            <CardDescription>*/}
+                        {/*                Jak si vedete v událostech.*/}
+                        {/*            </CardDescription>*/}
+                        {/*        </CardHeader>*/}
+                        {/*        <CardContent>*/}
+                        {/*            analytics*/}
+                        {/*        </CardContent>*/}
+                        {/*    </Card>*/}
+                        {/*</div>*/}
+                        <UnderConstruction />
+
                     </PageContentWrap>
 
                 </div>

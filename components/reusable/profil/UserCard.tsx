@@ -23,14 +23,14 @@ const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
                     <>
                         <div>
                             <Avatar className={"w-[2vw] h-[2vw] mb-[1vw]"}>
-                                <AvatarImage src={`${session?.user?.image}`} alt={`@${session?.user?.name}`} width={320} height={320} />
+                                <AvatarImage src={`${session?.image}`} alt={`@${session?.username}`} width={320} height={320} />
                                 <AvatarFallback>
-                                    {session?.user?.name ? session?.user?.name.slice(0, 2) : "??"}
+                                    {session?.username ? session?.username.slice(0, 2) : "??"}
                                 </AvatarFallback>
                             </Avatar>
-                            <AlertTitle className={"lg:text-[1vw]"}>@{session?.user?.name}</AlertTitle>
+                            <AlertTitle className={"lg:text-[1vw]"}>@{session?.username}</AlertTitle>
                             <AlertDescription className={"lg:text-[.8vw]"}>
-                                {session?.user?.email}
+                                {session?.email}
                             </AlertDescription>
                         </div>
 

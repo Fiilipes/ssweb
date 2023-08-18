@@ -14,6 +14,8 @@ export const authOptions = {
     ],
     secret: process.env.SECRET,
     callbacks: {
+
+
         async jwt({ token, account, profile }) {
             if (account) {
                 token.accessToken = account.access_token
@@ -22,7 +24,14 @@ export const authOptions = {
             if (profile) {
                 token.id = profile.id
                 token.discriminator = profile.discriminator
+                token.username = profile.username
+                token.email = profile.email
+                token.image = profile.image_url
+
             }
+
+
+
 
             return token
         },
@@ -31,6 +40,13 @@ export const authOptions = {
             session.accessToken = token.accessToken
             session.id = token.id
             session.discriminator = token.discriminator
+            session.username = token.username
+            session.email = token.email
+            session.image = token.image
+
+
+
+
 
             return session
         }
