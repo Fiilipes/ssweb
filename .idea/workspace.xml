@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/settings/content/months.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/new/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/info/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/obchod/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/obchod/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/info/Information.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/info/Information.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +49,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -47,6 +60,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\udalosti\[slug]\edit" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\soutezetryhard\udalosti\new" />
     </key>
@@ -77,7 +93,9 @@
       <workItem from="1692318276156" duration="36000" />
       <workItem from="1692318336885" duration="155000" />
       <workItem from="1692319383286" duration="621000" />
-      <workItem from="1692352909003" duration="11095000" />
+      <workItem from="1692352909003" duration="19551000" />
+      <workItem from="1692701840624" duration="6866000" />
+      <workItem from="1692712271884" duration="4781000" />
     </task>
     <servers />
   </component>

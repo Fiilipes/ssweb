@@ -25,21 +25,19 @@ const Page = ({ params }: { params: { slug: string } }) => {
                 getSS(["users", "soutěže"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Soutěže Tryhard")?.verified
+                    functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
+                        setVerified(verified)
+                        if (verified) {
+                            setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
 
-                    setVerified(myUser)
+                            const myCompetition = res["soutěže"].list.added.find((c:Competition) => functions.removeDiacritics(c.name.toLowerCase()) === functions.removeDiacritics(decodeURIComponent(params.slug).toLowerCase()))
 
-
-                    if (myUser) {
-                        setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
-
-                        const myCompetition = res["soutěže"].list.added.find((c:Competition) => functions.removeDiacritics(c.name.toLowerCase()) === functions.removeDiacritics(decodeURIComponent(params.slug).toLowerCase()))
-
-                        if (myCompetition) {
-                            setMyCompetition(myCompetition)
+                            if (myCompetition) {
+                                setMyCompetition(myCompetition)
+                            }
                         }
+                    })
 
-                    }
 
                 })
             }

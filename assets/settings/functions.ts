@@ -219,8 +219,21 @@ class Functions {
         return markdown
     }
 
-    removeDiacritics(inputString) {
+    removeDiacritics(inputString:string) {
         return diacritics.remove(inputString);
+    }
+
+    async verifyUserById(users:any,id: string, server: string | null) {
+        const userInDatabase = await users.list.some((u:any) => u.discordID === id)
+        if (userInDatabase) {
+            if (server) {
+                return users.list.find((u:any) => u.discordID === id).servers.find((s:any) => s.name === server)?.verified
+            } else {
+                return users.list.find((u:any) => u.discordID === id)?.servers?.some((s: { verified: any; })=>s.verified)
+            }
+        } else {
+            return userInDatabase
+        }
     }
 
 

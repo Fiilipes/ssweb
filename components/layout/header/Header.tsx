@@ -1,7 +1,5 @@
 import React from 'react'
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import Link from "next/link";
-import Image from "next/image";
 import imgGithub from "@/assets/img/github.svg";
 import imgDiscord from "@/assets/img/discord.svg";
 import {Button} from "@/components/ui/button";
@@ -15,14 +13,7 @@ import LargeDevices from "@/components/layout/header/LargeDevices";
 import discordServers from "@/assets/settings/content/discordServers";
 import SocialIcon from "@/components/reusable/social/SocialIcon";
 import HeightGap from "@/components/reusable/composition/HeightGap";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 import UserMenu from './UserMenu';
 const Header = async () => {
 

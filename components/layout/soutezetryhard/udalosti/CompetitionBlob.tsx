@@ -4,7 +4,7 @@ import {Alert} from "@/components/ui/alert";
 import {AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import functions from "@/assets/settings/functions";
 import {Separator} from "@/components/ui/separator";
-import {MapPin, Shapes} from "lucide-react";
+import {Construction, Info, MapPin, MessagesSquare, Shapes, Users2} from "lucide-react";
 import {
     AlertDialog, AlertDialogAction, AlertDialogCancel,
     AlertDialogContent, AlertDialogDescription, AlertDialogFooter,
@@ -12,20 +12,24 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger
 } from "@/components/ui/alert-dialog";
+import { User } from '@/assets/settings/interfaces';
+import UserMention from "@/components/reusable/profil/UserMention";
+import Link from 'next/link';
+import {Button} from "@/components/ui/button";
 
 const CompetitionBlob = ({competition}: {competition: any}) => {
     return (
         <ContextMenu>
             <ContextMenuTrigger>
-                <Alert className={"mt-4 p-2 overflow-hidden"} style={
+                <Alert className={"mt-4 px-[3vw] py-[.5vw] overflow-hidden"} style={
                     competition.type === "olympiáda" ?
                         {
-                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(255,100,200,0.5) 100%)",
+                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(255,200,100,0.5) 100%)",
                             // filter: "blur(100px)",
                             backdropFilter: "blur(100px)",
 
                         } : {
-                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(50,0,200,0.4) 100%)",
+                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(250,150,50,0.4) 100%)",
                             // filter: "blur(100px)",
                             backdropFilter: "blur(100px)",
 
@@ -48,15 +52,28 @@ const CompetitionBlob = ({competition}: {competition: any}) => {
                                     </div>
                                 </div>
                                 <Separator className={"transform rotate-90 w-[4vw] opacity-100 bg-[#ccc]"} />
-                                <div className={"text-[1.8vw] font-bold"}>
+                                <div className={"text-[1.5vw] h-[2vw] font-bold w-[15vw] max-w-[15vw] overflow-hidden flex-row justify-start text-left"}>
                                     {competition.name}
                                 </div>
                                 <Separator className={"transform rotate-90 w-[4vw]"} />
-                                <div className={"flex flex-col"}>
+                                <div className={"grid grid-cols-2 gap-x-[4vw]"}>
                                     <div className={"flex flex-row items-center my-1"}>
                                         <Shapes className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
                                         <div>
-                                            {competition.type}
+                                            {//first letter capitalized
+                                                competition.type.charAt(0).toUpperCase() + competition.type.slice(1)
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className={"flex flex-row items-center my-1"}>
+                                        <Users2 className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
+                                        <div className={"flex flex-row "}>
+                                            {
+                                                competition.users.map((user: User) => {
+                                                    // eslint-disable-next-line react/jsx-key,@next/next/no-img-element
+                                                    return <img src={user.discordAvatar} alt={"userImage"} className={"h-[2vw] w-[2vw] opacity-90 rounded-full mr-[-1vw]"} />
+                                                })
+                                            }
                                         </div>
                                     </div>
                                     <div className={"flex flex-row items-center my-1"}>
@@ -65,15 +82,25 @@ const CompetitionBlob = ({competition}: {competition: any}) => {
                                             {competition.place}
                                         </div>
                                     </div>
-
                                 </div>
 
 
 
                             </div>
                         </AccordionTrigger>
-                        <AccordionContent>
-                            Yes. It adheres to the WAI-ARIA design pattern.
+                        <AccordionContent className={"pt-[1vw]"}>
+                            <div className={"flex flex-row gap-x-[1vw]"}>
+                                <Link href={"/soutezetryhard/udalosti/" + competition.name}>
+                                    <Button variant={"outline"} className={"flex flex-row items-center"}>
+                                        <Info className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Zobrazit bližší informace
+                                    </Button>
+                                </Link>
+                                <Link target={"_blank"} href={"https://discord.com/channels/1130637842276683909/" + competition.postId}>
+                                    <Button variant={"outline"} className={"flex flex-row items-center"}>
+                                        <MessagesSquare className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Discord
+                                    </Button>
+                                </Link>
+                            </div>
                         </AccordionContent>
                     </AccordionItem>
                 </Alert>

@@ -27,16 +27,12 @@ const Page = () => {
                 getSS(["users", "informations"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Soutěže Tryhard")?.verified
-
-                    setVerified(myUser)
-
-                    console.log(session)
-                    if (myUser) {
-                        setInformations(res["informations"].list)
-                    }
-
-
+                    functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
+                        setVerified(verified)
+                        if (verified) {
+                            setInformations(res["informations"].list)
+                        }
+                    })
 
                 })
             }

@@ -15,8 +15,10 @@ import functions from '@/assets/settings/functions';
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import UserMention from "@/components/reusable/profil/UserMention";
+import NotesEditor from "@/components/notes/editor/NotesEditor";
 
 const Information = ({info}:{info:any}) => {
+    console.log(info)
     switch (info.type) {
         case "punishment": {
             return (
@@ -100,6 +102,7 @@ const Information = ({info}:{info:any}) => {
             )
         }
         case "announcment": {
+
             return (
                 <div>
                     <Card >

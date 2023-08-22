@@ -8,6 +8,7 @@ import Header from "@/components/layout/header/Header";
 const inter = Inter({ subsets: ['latin'] })
 
 import notesLogo from "@/assets/img/notes2.png";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
     title: 'Survival Server',
@@ -50,6 +51,7 @@ export default function RootLayout({
           <Header />
 
         {children}
+          <Analytics />
 
       </Provider>
       </body>

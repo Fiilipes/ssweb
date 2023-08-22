@@ -9,6 +9,7 @@ import PageTitle from "@/components/reusable/composition/PageTitle";
 import pages from "@/assets/settings/content/pages";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import ShopItems from "@/components/layout/shop/ShopItems";
+import functions from "@/assets/settings/functions";
 
 
 const Page = () => {
@@ -25,9 +26,8 @@ const Page = () => {
                 getSS(["users", "shop"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Survival Server")?.verified
+                    functions.verifyUserById(res["users"],session.id,"Survival Server").then(verified => setVerified(verified))
 
-                    setVerified(myUser)
 
                     setShop(res["shop"].shop.list)
                 })

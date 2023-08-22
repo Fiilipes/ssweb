@@ -9,6 +9,7 @@ import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import discordServers from "@/assets/settings/content/discordServers";
 import ShopItems from "@/components/layout/shop/ShopItems";
 import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
+import functions from "@/assets/settings/functions";
 
 const Page = () => {
 
@@ -22,9 +23,7 @@ const Page = () => {
                 getSS(["users"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Survival Server")?.verified
-
-                    setVerified(myUser)
+                    functions.verifyUserById(res["users"],session.id,"Survival Server").then(verified => setVerified(verified))
 
                 })
             }

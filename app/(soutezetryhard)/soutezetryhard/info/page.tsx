@@ -7,6 +7,7 @@ import PageTitle from "@/components/reusable/composition/PageTitle";
 import discordServers from "@/assets/settings/content/discordServers";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import Information from "@/components/layout/info/Information";
+import functions from "@/assets/settings/functions";
 
 const Page = () => {
     const {data:session} = useSession()
@@ -20,13 +21,12 @@ const Page = () => {
                 getSS(["users", "informations"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Soutěže Tryhard")?.verified
-
-                    setVerified(myUser)
-
-                    if (myUser) {
-                        setInformations(res["informations"].list.reverse())
-                    }
+                    functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
+                        setVerified(verified)
+                        if (verified) {
+                            setInformations(res["informations"].list)
+                        }
+                    })
                 })
             }
         }, [session]

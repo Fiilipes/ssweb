@@ -17,6 +17,8 @@ import {useSession} from "next-auth/react";
 import PageTitle from "@/components/reusable/composition/PageTitle";
 import discordServers from "@/assets/settings/content/discordServers";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
+import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
+import { monthNames } from '@/assets/settings/content/months';
 
 const Page = () => {
 
@@ -66,20 +68,26 @@ const Page = () => {
                         <TabsContent value={"list"} className={"w-full"}>
 
                             <Accordion type="single" collapsible className="w-full">
-                                <ScrollArea className={"w-full h-[50vh] pr-[2vw]"}>
+                                <ScrollArea className={"w-full h-[55vh] pr-[2vw]"}>
 
                                     {
                                         competitions ? competitions.map((competition: any) => {
                                             return (
                                                 // eslint-disable-next-line react/jsx-key
                                                 <div>
-                                                    {competition.year}
+                                                    {
+                                                        competition.year !== new Date().getFullYear()  && <div className={"text-[3.5vw] font-bold mb-[1vw] mt-[5vw]"}>
+                                                            {competition.year}
+                                                        </div>
+                                                    }
                                                     {
                                                         competition.competitions.map((comp: any) => {
                                                             return (
                                                                 // eslint-disable-next-line react/jsx-key
                                                                 <div>
-                                                                    {comp.month}
+                                                                    <div className={"text-[1.5vw] text-[#333] font-bold"}>
+                                                                        {monthNames[comp.month]}
+                                                                    </div>
                                                                     {
                                                                         comp.competitions.map((c: any) => {
                                                                             // eslint-disable-next-line react/jsx-key
@@ -101,7 +109,7 @@ const Page = () => {
                         </TabsContent>
 
                         <TabsContent value={"calendar"}>
-                            idk
+                            <UnderConstruction />
                         </TabsContent>
                     </Tabs>
                 </PageContentWrap>

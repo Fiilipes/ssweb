@@ -14,6 +14,7 @@ import UserCard from "@/components/reusable/profil/UserCard";
 import UserBadges from "@/components/reusable/profil/UserBadges";
 import NotVerified from "@/components/reusable/discord/NotVerified";
 import PageTitle from "@/components/reusable/composition/PageTitle";
+import functions from "@/assets/settings/functions";
 
 export default function SoutezeTryhard() {
 
@@ -25,10 +26,8 @@ export default function SoutezeTryhard() {
         () => {
             if (session) {
                 getSS(["users"]).then((res: any) => {
-
                     // @ts-ignore
-                    setVerified(res["users"].users.list.find((u:any) => u.discordID === session.id).servers?.some(s=>s.verified))
-
+                    functions.verifyUserById(res["users"],session.id,null).then(verified => setVerified(verified))
                 })
             }
         }, [session]
@@ -43,6 +42,7 @@ export default function SoutezeTryhard() {
                 verified !== false ? <>
                     <UserCard session={session} loading={verified === null}/>
                     <UserBadges session={session} loading={verified === null}/>
+                    not verified
                 </> : <>
                     <NotVerified>
                         <UserCard session={session} loading={verified === null}/>
