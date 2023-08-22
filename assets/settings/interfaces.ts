@@ -11,6 +11,8 @@ export interface User {
     discordDiscriminator: string;
     discordUsername: string;
     discordAvatar: string;
+    ssCoins?: number;
+    inventory?: any
     servers?: Server[];
 }
 
