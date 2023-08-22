@@ -51,9 +51,10 @@ export default function RootLayout({
           <Header />
 
         {children}
-          <Analytics />
 
       </Provider>
+      <Analytics mode={"production"} />
+
       </body>
     </html>
   )

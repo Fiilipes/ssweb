@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/settings/content/months.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/new/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/info/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/obchod/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/obchod/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/info/Information.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/info/Information.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +81,7 @@
       <workItem from="1692319383286" duration="621000" />
       <workItem from="1692352909003" duration="19551000" />
       <workItem from="1692701840624" duration="6866000" />
-      <workItem from="1692712271884" duration="4781000" />
+      <workItem from="1692712271884" duration="5297000" />
     </task>
     <servers />
   </component>
