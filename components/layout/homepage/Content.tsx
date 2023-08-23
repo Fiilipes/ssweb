@@ -12,15 +12,15 @@ const Content = () => {
             <div>
                 <div className="pb-[2vw]">
                     <div>
-                        <h1 className={"text-[2vw] font-bold"}>
+                        <h1 className={"text-[30px] text-center lg:text-[2vw] font-bold"}>
                             Obsah
                         </h1>
-                        <p className={"font-medium text-[.9vw] text-[#333]"}>
+                        <p className={"font-semibold text-[12px] lg:font-medium text-center lg:text-[.9vw] text-[#333]"}>
                             Hlavní části našeho serveru
                         </p>
                     </div>
                 </div>
-                <div className={"flex flex-row justify-center items-center gap-x-[1.5vw]"}>
+                <div className={"flex flex-col lg:flex-row justify-center items-center gap-y-[10px] lg:gap-y-0 lg:gap-x-[1.5vw]"}>
                     <RouteCard title={"Obchod"} description={"Místo plné Survival Server itemů"} link={"/obchod"}>
                         <Store className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>

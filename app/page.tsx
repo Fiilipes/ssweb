@@ -21,7 +21,7 @@ export default async function Home() {
     const session = await getServerSession()
 
   return (
-      <main className="flex min-h-screen flex-col items-center justify-start scroll-smooth">
+      <main className="flex min-h-screen flex-col items-center justify-center lg:justify-start scroll-smooth">
 
 
         <div className={"flex flex-col items-center justify-start h-fit w-full z-10"}>
