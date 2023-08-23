@@ -4,23 +4,15 @@ import React from 'react'
 
 import {ChevronDownCircle} from "lucide-react";
 import {Button} from "@/components/ui/button";
+import Link from 'next/link';
 
 const ExploreButton = () => {
     return (
         <Button className={"mt-4 mx-2"}>
-            <div onClick={
-                () => {
-                    window.scrollTo(
-                        {
-                            top: 580,
-                            behavior: 'smooth'
-                        }
-                    )
-                }
-            } className={"flex flex-row items-center"} >
+            <Link href={"#content"} className={"flex flex-row items-center"} >
                 <ChevronDownCircle className={"h-4 w-4 mr-2"} />
                 Prozkoumat
-            </div>
+            </Link>
         </Button>
     )
 }

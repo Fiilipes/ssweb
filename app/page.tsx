@@ -24,7 +24,7 @@ export default async function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center lg:justify-start scroll-smooth">
 
 
-        <div className={"flex flex-col items-center justify-start h-fit w-full z-10"}>
+        <div className={"flex flex-col items-center justify-start h-fit w-full z-10 my-[100px] lg:my-0"}>
           <h1 className={"text-[50px] lg:text-[6vw] font-bold mt-[8vw]"}>
               {pages.homepage.title}
           </h1>

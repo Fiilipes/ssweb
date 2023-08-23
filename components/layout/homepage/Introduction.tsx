@@ -7,14 +7,14 @@ import RouteCard from "@/components/layout/homepage/RouteCard";
 
 const Introduction = () => {
     return (
-        <div id={"introduction"} className={"flex flex-row justify-start w-[80%] h-[100vh] pt-[8vw] "}>
+        <div id={"introduction"} className={"flex flex-row justify-start  pt-[8vw] "}>
             <div>
-                <div className="pb-[2vw]">
+                <div className="pb-[20px] lg:pb-[2vw]">
                     <div>
-                        <h1 className={"text-[2vw] font-bold"}>
+                        <h1 className={"text-[30px] text-center lg:text-[2vw] font-bold"}>
                             Představení
                         </h1>
-                        <p className={"font-medium text-[.9vw] text-[#333]"}>
+                        <p className={"font-semibold text-[12px] lg:font-medium text-center lg:text-[.9vw] text-[#333]"}>
                             Ukázka našeho serveru
                         </p>
                     </div>
@@ -22,16 +22,16 @@ const Introduction = () => {
                 <div className={"font-medium text-[.95vw] text-[#111] my-[1vw]"}>
                     Survival Server je komunitní discord server zaměřený na společné hraní a zábavu.
                 </div>
-                <div className={"flex flex-row w-full justify-center items-center gap-x-[1.5vw]"}>
+                <div className={"flex flex-col lg:flex-row justify-center items-center gap-y-[10px] lg:gap-y-0 lg:gap-x-[1.5vw]"}>
 
                     <RouteCard title={"Pravidla"} description={"Pravidla našeho Survival Serveru"} link={"/pravidla"}>
-                        <Scale className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <Scale className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                     <RouteCard title={"Informace"} description={"Novinky a důležité zprávy ze serveru"} link={"/info"}>
-                        <Megaphone className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <Megaphone className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                     <RouteCard title={"Zdroje"} description={"Odkazy na důležité stránky spojené se serverem"} link={"/zdroje"}>
-                        <Globe className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <Globe className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
 
                 </div>

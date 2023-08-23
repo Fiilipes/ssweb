@@ -10,7 +10,7 @@ const Content = () => {
     return (
         <div id={"content"} className={"pt-[10vw] mt-[5vw]"}>
             <div>
-                <div className="pb-[2vw]">
+                <div className="pb-[20px] lg:pb-[2vw]">
                     <div>
                         <h1 className={"text-[30px] text-center lg:text-[2vw] font-bold"}>
                             Obsah
@@ -22,13 +22,13 @@ const Content = () => {
                 </div>
                 <div className={"flex flex-col lg:flex-row justify-center items-center gap-y-[10px] lg:gap-y-0 lg:gap-x-[1.5vw]"}>
                     <RouteCard title={"Obchod"} description={"Místo plné Survival Server itemů"} link={"/obchod"}>
-                        <Store className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <Store className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                     <RouteCard title={"Pravidla"} description={"Pravidla našeho Survival Serveru"} link={"/pravidla"}>
-                        <StickyNote className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <StickyNote className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                     <RouteCard title={"Eventy"} description={"Informace o všech eventech na serveru"} link={"/eventy"}>
-                        <CalendarRange className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                        <CalendarRange className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                 </div>
                 <SubscriptionCard />

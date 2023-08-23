@@ -8,7 +8,7 @@ const RouteCard = ({title,description,link,children}: { title:string, descriptio
     return (
         <Link href={link} >
 
-        <Card className={"w-[90%] lg:w-[25vw]"}>
+        <Card className={"w-[90vw] lg:w-[25vw]"}>
             <CardHeader>
                 <CardTitle>{title}</CardTitle>
                 <CardDescription>{description}</CardDescription>
