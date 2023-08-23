@@ -32,17 +32,14 @@ const Page = () => {
             if (session) {
                 getSS(["users", "soutěže"]).then((res: any) => {
 
-                    console.log(functions.removeDiacritics("Šťastný nový rok"))
-
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Soutěže Tryhard")?.verified
+                    functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
+                        setVerified(verified)
+                        if (verified) {
+                            setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
 
-                    setVerified(myUser)
-
-                    if (myUser) {
-                        setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
-                    }
-
+                        }
+                    })
                 })
             }
         }, [session]

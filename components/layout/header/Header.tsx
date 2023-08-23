@@ -30,10 +30,9 @@ const Header = async () => {
                     Survival Server
                 </Link>
 
-                <section className={"flex-row w-fit hidden lg:flex 2xl:px-[.8vw] items-center"}>
+                <section className={"flex-row w-fit hidden lg:flex 2xl:px-[.8vw] items-start h-full"}>
                     <LargeDevices />
-                    <section className={"2xl:ml-[5vw] 2xl:mr-[1.2vw] flex flex-row items-center"}>
-
+                    <section className={"2xl:ml-[5vw] 2xl:mr-[1.2vw] flex flex-row h-full"}>
                         <SocialIcon icon={imgGithub} alt={"github"} link={"https://github.com/Fiilipes/ssweb"} title={"Github repository"} />
                         <SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />
 
@@ -53,7 +52,7 @@ const Header = async () => {
                 </section>
                 <SmallDevices session={session} />
             </header>
-            <HeightGap height={"h-[6vw]"} />
+            <HeightGap height={"h-[80px] lg:h-[6vw]"} />
         </>
     )
 }

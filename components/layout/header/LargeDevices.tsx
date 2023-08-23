@@ -13,44 +13,7 @@ import React from 'react'
 import Link from "next/link";
 import {LayoutPanelLeft} from "lucide-react";
 import navigation from "@/assets/settings/content/navigation";
-
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "Obchod",
-        href: "/obchod",
-        description:
-            "Místo plné Survival Server itemů",
-    },
-    {
-        title: "Leaderboard",
-        href: "/leaderboard",
-        description:
-            "Žebříček aktivních členů serveru",
-    },
-    {
-        title: "Eventy",
-        href: "/events",
-        description:
-            "Informace o všech eventech na serveru",
-    },
-    {
-        title: "Pravidla",
-        href: "/pravidla",
-        description: "Každý člen serveru je povinný znát pravidla",
-    },
-    {
-        title: "Informace",
-        href: "/info",
-        description:
-            "Novinky a důležité zprávy ze serveru",
-    },
-    {
-        title: "Zdroje",
-        href: "/zdroje",
-        description:
-            "Odkazy na důležité stránky spojené se serverem",
-    },
-]
+import {Badge} from "@/components/ui/badge";
 
 
 
@@ -59,7 +22,7 @@ const NavMenu = () => {
         <div>
 
             <NavigationMenu className={"z-50"}>
-                <NavigationMenuList>
+                <NavigationMenuList className={"items-start"}>
 
                     <NavigationMenuItem>
                         <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
@@ -124,12 +87,29 @@ const NavMenu = () => {
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link href={navigation.soutěžeTryhard.link} legacyBehavior passHref>
-                            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw]"}>
+                            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw] "}>
                                 {navigation.soutěžeTryhard.title}
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
+                    <div className={"flex flex-row items-center"}>
+                        <NavigationMenuItem>
+                            <Link href={navigation.ms.link} legacyBehavior passHref>
+                                <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw]"}>
+                                    <Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>
+                                        New
+                                    </Badge>
+                                    <div className={"font-bold"}>
+                                        {navigation.ms.title}
+                                    </div>
+
+
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
+                    </div>
                 </NavigationMenuList>
+
             </NavigationMenu>
 
         </div>

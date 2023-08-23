@@ -59,13 +59,22 @@ const navigation = {
                     title: "Zdroje",
                     link: "/zdroje",
                     content: "Odkazy na důležité stránky spojené se serverem",
-                }
+                },
+                {
+                    title: "Módovaný Survival",
+                    link: "/ms",
+                    content: "Nový minecraft survival server",
+                },
             ]
         }
     },
     soutěžeTryhard: {
         title: 'Soutěže Tryhard',
         link: "/soutezetryhard"
+    },
+    ms: {
+        title: 'MS',
+        link: "/ms"
     }
 }
 

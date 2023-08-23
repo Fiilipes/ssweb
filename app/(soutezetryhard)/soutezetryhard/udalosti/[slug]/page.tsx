@@ -52,7 +52,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     // @ts-ignore
                     myCompetition !== false ?
                         <>
-                            <PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}.`} buttons={[{content:"Upravit událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />
+                            <PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}.`} buttons={[{content:"Uprav událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />
 
                             <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
                                 něco

@@ -19,6 +19,8 @@ import {useSession} from "next-auth/react";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import discordServers from "@/assets/settings/content/discordServers";
 import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
+import functions from "@/assets/settings/functions";
+import {Competition} from "@/assets/settings/interfaces";
 
 export default function SoutezeTryhard() {
 
@@ -34,12 +36,13 @@ export default function SoutezeTryhard() {
                 getSS(["users", "soutěže"]).then((res: any) => {
 
                     // @ts-ignore
-                    const myUser = res["users"].users.list.find((u:any) => u.discordID === session?.id).servers.find((s:any) => s.name === "Soutěže Tryhard")?.verified
+                    functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
+                        setVerified(verified)
+                        if (verified) {
+                            setCompetitions(res["soutěže"].list.added)
 
-                    setVerified(myUser)
-
-                    setCompetitions(res["soutěže"].list.added)
-
+                        }
+                    })
                 })
             }
         }, [session]

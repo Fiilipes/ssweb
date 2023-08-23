@@ -6,6 +6,8 @@ import {BadgePlus, Coins, Palette, StickyNote} from "lucide-react";
 
 const SubscriptionCard = () => {
     return (
+        <Link href={"/pro"}>
+
         <Card className={"w-full mt-[2vw] bg-black text-white flex flex-row"} style={
             {
                 backgroundImage: "linear-gradient(310deg, #000 60%, rgba(222, 112, 255,0.5) 100%)",
@@ -19,11 +21,9 @@ const SubscriptionCard = () => {
                     <CardDescription className={"opacity-100 text-[#ccc]"}>Objevte plný potenciál Survival Serveru s předplatným Pro</CardDescription>
                 </CardHeader>
                 <CardFooter className={"mt-[1.5vw]"}>
-                    <Link href={"/pro"}>
                         <Button variant={"secondary"} className={"flex flex-row items-center"}>
                             <BadgePlus className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Zjistit více
                         </Button>
-                    </Link>
                 </CardFooter>
             </div>
             <div className={"pt-[2vw] grid grid-cols-2 gap-x-[1vw]"}>
@@ -73,6 +73,8 @@ const SubscriptionCard = () => {
                 </div>
             </div>
         </Card>
+        </Link>
+
     )
 }
 export default SubscriptionCard

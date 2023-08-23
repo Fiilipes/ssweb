@@ -9,24 +9,24 @@ import { usePathname } from 'next/navigation';
 const links = [
     {
         name: "Přehled",
-        href: "/soutezetryhard"
+        href: "/ms"
+    },
+    {
+        name: "Jak začít",
+        href: "/ms/start"
     },
     {
         name: "Informace",
-        href: "/soutezetryhard/info"
+        href: "/ms/info"
     },
     {
-        name: "Zdroje",
-        href: "/soutezetryhard/zdroje"
+        name: "Pravidla",
+        href: "/ms/pravidla"
     },
     {
-        name: "Události",
-        href: "/soutezetryhard/udalosti"
-    },
-    {
-        name: "Váš status",
-        href: "/soutezetryhard/status"
-    },
+        name: "Módy",
+        href: "/ms/mods"
+    }
 
 ]
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className={"w-[18vw] flex flex-col pt-[2.3vw]"}>
             {links.map((link, i) => (
                 <Link href={link.href} key={i}>
-                    <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>
+                    <Button variant={pathname === link.href ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>
                         {link.name}
                     </Button>
                 </Link>

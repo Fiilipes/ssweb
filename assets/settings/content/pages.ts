@@ -14,6 +14,10 @@ const pages = {
     leaderboard: {
         title: "Leaderboard",
         description: "Celkové pořadí všech aktivních členů Survival Serveru"
+    },
+    ms: {
+        title: "Módovaný Survival",
+        description: "Aktuálně probíhající minecraft server s nejrozmanitějšími módy"
     }
 
 }

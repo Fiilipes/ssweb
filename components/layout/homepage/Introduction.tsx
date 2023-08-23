@@ -2,7 +2,8 @@ import React from 'react'
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
-import {CalendarHeart, Globe, Megaphone, Scale, User, User2} from "lucide-react";
+import {CalendarHeart, Globe, Megaphone, Scale, Store, User, User2} from "lucide-react";
+import RouteCard from "@/components/layout/homepage/RouteCard";
 
 const Introduction = () => {
     return (
@@ -23,48 +24,16 @@ const Introduction = () => {
                 </div>
                 <div className={"flex flex-row w-full justify-center items-center gap-x-[1.5vw]"}>
 
-                    <Card className={"w-[25vw]"}>
-                        <CardHeader>
-                            <CardTitle>Pravidla</CardTitle>
-                            <CardDescription>Každý člen serveru je povinný znát pravidla</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Link href={"/pravidla"} >
-                                <Button variant={"secondary"} className={"flex flex-row items-center"}>
-                                    <Scale className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Přečíst
-                                </Button>
+                    <RouteCard title={"Pravidla"} description={"Pravidla našeho Survival Serveru"} link={"/pravidla"}>
+                        <Scale className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                    </RouteCard>
+                    <RouteCard title={"Informace"} description={"Novinky a důležité zprávy ze serveru"} link={"/info"}>
+                        <Megaphone className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                    </RouteCard>
+                    <RouteCard title={"Zdroje"} description={"Odkazy na důležité stránky spojené se serverem"} link={"/zdroje"}>
+                        <Globe className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                    </RouteCard>
 
-                            </Link>
-                        </CardContent>
-                    </Card>
-                    <Card className={"w-[25vw]"}>
-                        <CardHeader>
-                            <CardTitle>Informace</CardTitle>
-                            <CardDescription>Novinky a důležité zprávy ze serveru</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Link href={"/info"} >
-                                <Button variant={"secondary"} className={"flex flex-row items-center"}>
-                                    <Megaphone className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Přečíst
-                                </Button>
-
-                            </Link>
-                        </CardContent>
-                    </Card>
-                    <Card className={"w-[25vw]"}>
-                        <CardHeader>
-                            <CardTitle>Zdroje</CardTitle>
-                            <CardDescription>Odkazy na důležité stránky spojené se serverem</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Link href={"/zdroje"} >
-                                <Button variant={"secondary"} className={"flex flex-row items-center"}>
-                                    <Globe className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Přečíst
-                                </Button>
-
-                            </Link>
-                        </CardContent>
-                    </Card>
                 </div>
                 <div className={"font-medium text-[.95vw] text-[#111] mt-[2vw] mb-[1vw]"}>
                     Server již přes dva roky funguje a má za sebou bohatou historii

@@ -25,14 +25,14 @@ export default async function Home() {
 
 
         <div className={"flex flex-col items-center justify-start h-fit w-full z-10"}>
-          <h1 className={"text-[6vw] font-bold mt-[8vw]"}>
+          <h1 className={"text-[50px] lg:text-[6vw] font-bold mt-[8vw]"}>
               {pages.homepage.title}
           </h1>
-          <p className={"text-[1.2vw] font-medium"}>
+          <p className={"text-[15px] text-center lg:text-[1.2vw] font-bold lg:font-medium"}>
               {pages.homepage.description}
           </p>
 
-          <div className={"mt-16 flex flex-row items-end"}>
+          <div className={"mt-[40px] lg:mt-[4vw] flex flex-row items-end"}>
 
             <ExploreButton/>
 
@@ -62,7 +62,7 @@ export default async function Home() {
 
         <Introduction />
 
-          <Image src={backgroundBlur} alt={"background"} className={"absolute top-[8vw] z-0 opacity-70 w-[65vw]"} />
+          <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[8vw] z-0 opacity-70 w-[65vw]"} />
 
 
       </main>
