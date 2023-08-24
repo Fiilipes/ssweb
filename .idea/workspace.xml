@@ -5,9 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/eventy/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/eventy/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/data-table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/pravidla/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/pravidla/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/content/navigation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/navigation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/content/pages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/pages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/registration/CompetitionRegistrationDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/registration/CompetitionRegistrationDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserBadges.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserBadges.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/navigation-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/navigation-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +54,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2U5SqQ6kcB0yhMUjbW9Z1j3L4dH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,13 +64,14 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/components/layout/ms&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(survivalserver)&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -49,10 +83,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)" />
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\eventy" />
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\ms" />
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\ms" />
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\leaderboard" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\udalosti\[slug]\edit" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\soutezetryhard\udalosti\new" />
@@ -88,7 +123,11 @@
       <workItem from="1692701840624" duration="6866000" />
       <workItem from="1692712271884" duration="8070000" />
       <workItem from="1692801841070" duration="3145000" />
-      <workItem from="1692823038700" duration="7504000" />
+      <workItem from="1692823038700" duration="8091000" />
+      <workItem from="1692871879473" duration="5089000" />
+      <workItem from="1692882074683" duration="18576000" />
+      <workItem from="1692904432067" duration="109000" />
+      <workItem from="1692904571630" duration="74000" />
     </task>
     <servers />
   </component>
@@ -99,5 +138,8 @@
         <option value="$PROJECT_DIR$/tailwind.config.js" />
       </list>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

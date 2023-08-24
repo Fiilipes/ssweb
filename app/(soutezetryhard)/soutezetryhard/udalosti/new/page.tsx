@@ -105,7 +105,7 @@ export default function Page() {
             <PageTitle status={verified} title={"Vytvořit událost"} description={"Vytvořte novou událost a přidejte jí do Soutěží Tryhard."} buttons={[]} />
 
             <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
-                <CompetitionForm defaultValues={{}} users={users} />
+                <CompetitionForm defaultValues={undefined} chooseType={true} users={users} />
             </PageContentWrap>
         </section>
     )

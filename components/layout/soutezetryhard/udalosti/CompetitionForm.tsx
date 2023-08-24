@@ -32,25 +32,25 @@ import UnderConstruction from "@/components/reusable/composition/UnderConstructi
 import {Button} from "@/components/ui/button";
 import {Form} from "@/components/ui/form";
 
-const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) => {
+const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,chooseType: boolean, users:any}) => {
 
 
-    const [competitionUsers, setCompetitionUsers] = React.useState([]);
-    const [competitionLinks, setCompetitionLinks] = React.useState([]);
+    const [competitionUsers, setCompetitionUsers] = React.useState(defaultValues?.users ? defaultValues?.users : []);
+    const [competitionLinks, setCompetitionLinks] = React.useState(defaultValues?.links ? defaultValues?.links : []);
 
     const [preview__CreateChannel, setPreview__CreateChannel] = React.useState(false);
-    const [registrationSwitch, setRegistrationSwitch] = React.useState(false);
-    const [moreDaysSwitch, setMoreDaysSwitch] = React.useState(false);
-    const [createChannelSwitch, setCreateChannelSwitch] = React.useState(false);
-    const [preview__Name, setPreview__Name] = React.useState("");
+    const [registrationSwitch, setRegistrationSwitch] = React.useState(defaultValues?.registration ? defaultValues?.registration : false);
+    const [moreDaysSwitch, setMoreDaysSwitch] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
+    const [createChannelSwitch, setCreateChannelSwitch] = React.useState(defaultValues?.createChannel ? defaultValues?.createChannel : false);
+    const [preview__Name, setPreview__Name] = React.useState(defaultValues?.name ? defaultValues?.name : "");
     const [preview__Place, setPreview__Place] = React.useState("");
     const [preview__Description, setPreview__Description] = React.useState("");
-    const [preview__Type, setPreview__Type] = React.useState("");
-    const [preview__Registration, setPreview__Registration] = React.useState(false);
-    const [preview__MoreDays, setPreview__MoreDays] = React.useState(false);
-    const [preview__RegistrationDate, setPreview__RegistrationDate] = React.useState(undefined);
-    const [preview__CompetitionDate, setPreview__CompetitionDate] = React.useState(undefined);
-    const [preview__CompetitionDateRange, setPreview__CompetitionDateRange] = React.useState({from: undefined, to: undefined});
+    const [preview__Type, setPreview__Type] = React.useState(defaultValues?.type ? defaultValues?.type : "");
+    const [preview__Registration, setPreview__Registration] = React.useState(defaultValues?.registration ? defaultValues?.registration : false);
+    const [preview__MoreDays, setPreview__MoreDays] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
+    const [preview__RegistrationDate, setPreview__RegistrationDate] = React.useState(defaultValues?.registrationDate ? defaultValues?.registrationDate : undefined);
+    const [preview__CompetitionDate, setPreview__CompetitionDate] = React.useState(defaultValues?.moredays ? undefined : defaultValues?.competitionDate ? defaultValues?.competitionDate : undefined);
+    const [preview__CompetitionDateRange, setPreview__CompetitionDateRange] = React.useState(defaultValues?.moredays ? defaultValues?.competitionDate ? defaultValues?.competitionDate : {from: undefined, to: undefined} :  {from: undefined, to: undefined});
 
     // ref to the registration date
     const registrationDateRef = React.useRef<HTMLDivElement>(null);
@@ -60,27 +60,34 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
     const formSchema = z.object({
         name: z.string().min(2, {
             message: "Name must be at least 2 characters.",
-        }),
-        type: z.enum(["soutěž", "olympiáda", "seminář", "soustředění", "přednáška"]),
-        registration: z.boolean().default(false).optional(),
-        moredays: z.boolean().default(false).optional(),
+        }).default(defaultValues?.name ? defaultValues?.name : undefined),
+        type: z.enum(["soutěž", "olympiáda", "seminář", "soustředění", "přednáška"]).default(defaultValues?.type ? defaultValues?.type : undefined),
+        registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
+        moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
         registrationDate: registrationSwitch? z.date() : z.date().optional(),
         competitionDate: !moreDaysSwitch ? z.date() : z.date().optional(),
         // object of two dates
         competitionDateRange: moreDaysSwitch ? z.object({ from: z.date(), to: z.date() }) : z.object({ from: z.date(), to: z.date() }).optional(),
         user: z.string().optional(),
-        createChannel: z.boolean().default(false).optional(),
-        place: z.string().optional(),
-        description: z.string().optional(),
+        createChannel: z.boolean().default(defaultValues?.createChannel ? defaultValues?.createChannel : false).optional(),
+        place: z.string().default(defaultValues?.place ? defaultValues?.place : undefined),
+        description: z.string().default(defaultValues?.description ? defaultValues?.description : undefined).optional(),
     })
 
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            registration: false,
-            moredays: false,
-            createChannel: false,
+            type: defaultValues?.type ? defaultValues?.type : undefined,
+            name: defaultValues?.name ? defaultValues?.name : undefined,
+            registration: defaultValues?.registration ? defaultValues?.registration : false,
+            moredays: defaultValues?.moredays ? defaultValues?.moredays : false,
+            createChannel: defaultValues?.createChannel ? defaultValues?.createChannel : false,
+            registrationDate: defaultValues?.registrationDate ? defaultValues?.registrationDate : undefined,
+            competitionDate: defaultValues?.moredays ? undefined : defaultValues?.competitionDate ? defaultValues?.competitionDate : undefined,
+            competitionDateRange: defaultValues?.moredays ? defaultValues?.competitionDate ? defaultValues?.competitionDate : {from: undefined, to: undefined} :  {from: undefined, to: undefined},
+            place: defaultValues?.place ? defaultValues?.place : undefined,
+            description: defaultValues?.description ? defaultValues?.description : undefined,
 
         }
     })
@@ -91,29 +98,34 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
         // ✅ This will be type-safe and validated.
         console.log(values)
 
-        functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
-
-
+        if (defaultValues) {
+            console.log("old")
+            functions.editCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
+        } else {
+            console.log("new")
+            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
+        }
     }
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 
 
-                <Tabs defaultValue="division" className="space-y-4">
+                <Tabs defaultValue={chooseType ? "division" : "finaltouch"} className="space-y-4">
                     <TabsContent value="division" className="space-y-4">
 
 
-                        <CompetitionType form={form} setPreview__Type={setPreview__Type} />
+                            <CompetitionType form={form} setPreview__Type={setPreview__Type} />
 
-                        <TabsList>
-                            <TabsTrigger value="finaltouch" disabled={!form.getValues().type} >
-                                Pokračovat
-                            </TabsTrigger>
-                        </TabsList>
+                            <TabsList>
+                                <TabsTrigger value="finaltouch" disabled={!form.getValues().type} >
+                                    Pokračovat
+                                </TabsTrigger>
+                            </TabsList>
 
 
-                    </TabsContent>
+                        </TabsContent>
                     <TabsContent value="finaltouch" className="space-y-4">
                         {
 
@@ -121,14 +133,14 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
                                     <div className={"flex flex-row "}>
                                         <ScrollArea className={"h-[57vh] pr-8"}>
                                             <div className={"mb-4 px-2"}>
-                                                <CompetitionName  form={form} setPreview__Name={setPreview__Name}/>
+                                                <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
                                             </div>
 
                                             <div className={"flex flex-row mb-8 pl-2"}>
 
-                                                <CompetitionRegistrationSwitch form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />
+                                                <CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />
 
-                                                <CompetitionMoredaysSwitch form={form} setPreview__MoreDays={setPreview__MoreDays} moreDaysSwitch={moreDaysSwitch} setMoreDaysSwitch={setMoreDaysSwitch} />
+                                                <CompetitionMoredaysSwitch  form={form} setPreview__MoreDays={setPreview__MoreDays} moreDaysSwitch={moreDaysSwitch} setMoreDaysSwitch={setMoreDaysSwitch} />
 
                                             </div>
                                             <div className={"flex flex-col px-2"}>
@@ -142,7 +154,7 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
 
 
                                                 <CompetitionUsers form={form} users={users} competitionUsers={competitionUsers} setCompetitionUsers={setCompetitionUsers} usersRef={usersRef} />
-                                                <div className={"mt-4 flex flex-row flex-wrap opacity-0 transition-all duration-500"} ref={usersRef}>
+                                                <div className={`mt-4 flex flex-row flex-wrap ${defaultValues?.users ? "opacity-1" : "opacity-0"} transition-all duration-500`} ref={usersRef}>
                                                     {
                                                         competitionUsers.map((user:User) => (
                                                             // eslint-disable-next-line react/jsx-key
@@ -190,7 +202,7 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
                                                         <CompetitionLinks linksRef={linksRef}  competitionLinks={competitionLinks} setCompetitionLinks={setCompetitionLinks}/>
                                                     </div>
 
-                                                    <div ref={linksRef} className={"mt-4 flex flex-row flex-wrap opacity-0 transition-all duration-500"}>
+                                                    <div ref={linksRef} className={`mt-4 flex flex-row flex-wrap ${defaultValues?.links ? "opacity-100" : "opacity-0"} transition-all duration-500`}>
                                                         {
                                                             competitionLinks.map((link:any) => (
                                                                     // eslint-disable-next-line react/jsx-key
@@ -301,12 +313,14 @@ const CompetitionForm = ({defaultValues,users}:{defaultValues:any,users:any}) =>
                         }
 
                         <div>
-                            <TabsList className={"mx-1"}>
-                                <TabsTrigger value="division">
-                                    Jít zpět
-                                </TabsTrigger>
-                            </TabsList>
-                            <Button type="submit" className={"mx-1"}>Submit</Button>
+                            {
+                                chooseType && <TabsList className={"mx-1"}>
+                                    <TabsTrigger value="division">
+                                        Jít zpět
+                                    </TabsTrigger>
+                                </TabsList>
+                            }
+                            <Button type="submit" className={"mx-1"}>Potvrdit</Button>
                         </div>
                     </TabsContent>
                 </Tabs>

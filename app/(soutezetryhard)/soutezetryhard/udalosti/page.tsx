@@ -58,6 +58,7 @@ const Page = () => {
                         <div className={"flex flex-row justify-between w-full items-center mb-8"}>
                             <TabsList>
                                 <TabsTrigger value="list">List</TabsTrigger>
+                                <TabsTrigger value="table">Tabulka</TabsTrigger>
                                 <TabsTrigger value="calendar">Kalendář</TabsTrigger>
                             </TabsList>
                         </div>
@@ -105,6 +106,9 @@ const Page = () => {
 
                         </TabsContent>
 
+                        <TabsContent value={"table"}>
+                            <UnderConstruction />
+                        </TabsContent>
                         <TabsContent value={"calendar"}>
                             <UnderConstruction />
                         </TabsContent>

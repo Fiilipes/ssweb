@@ -42,7 +42,7 @@ const navigation = {
                 },
                 {
                     title: "Eventy",
-                    link: "/events",
+                    link: "/eventy",
                     content: "Informace o všech eventech na serveru",
                 },
                 {
@@ -65,12 +65,13 @@ const navigation = {
                     link: "/ms",
                     content: "Nový minecraft survival server",
                 },
+                {
+                    title: "Soutěže Tryhard",
+                    link: "/soutezetryhard",
+                    content: "Partnerský server Survival Serveru zaměřený na soutěže",
+                }
             ]
         }
-    },
-    soutěžeTryhard: {
-        title: 'Soutěže Tryhard',
-        link: "/soutezetryhard"
     },
     ms: {
         title: 'MS',

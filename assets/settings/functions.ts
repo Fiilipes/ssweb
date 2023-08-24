@@ -71,6 +71,10 @@ class Functions {
         })
     }
 
+    editCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, redirect: boolean) {
+        console.log(values)
+    }
+
     getDateArrayFromTimestamp(timestamp: string | number | Date) {
         const date = new Date(Number(timestamp) * 1000);
         console.log(date)

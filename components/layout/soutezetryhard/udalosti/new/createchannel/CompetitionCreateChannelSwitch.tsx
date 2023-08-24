@@ -6,7 +6,7 @@ const CompetitionCreateChannelSwitch = ({form, setPreview__CreateChannel, create
     return (
         <FormField
             control={form.control}
-            name="createchannel"
+            name="createChannel"
             render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4 mx-2">
                     <div className="space-y-0.5 mr-8">

@@ -3,7 +3,7 @@
 import React from 'react'
 
 import {useSession} from "next-auth/react";
-import {Competition} from "@/assets/settings/interfaces";
+import {Competition, Server, User} from "@/assets/settings/interfaces";
 import {getSS} from "@/assets/settings/firebase";
 import functions from "@/assets/settings/functions";
 import PageTitle from "@/components/reusable/composition/PageTitle";
@@ -11,6 +11,7 @@ import discordServers from "@/assets/settings/content/discordServers";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import {useRouter} from "next/navigation";
 import CompetitionNotFound from "@/components/layout/soutezetryhard/udalosti/CompetitionNotFound";
+import CompetitionForm from "@/components/layout/soutezetryhard/udalosti/CompetitionForm";
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const {data:session} = useSession()
@@ -18,6 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<Competition[]>([])
     const [myCompetition, setMyCompetition] = React.useState<Competition | null>(null)
+    const [users, setUsers] = React.useState<User[]>([]);
 
     React.useEffect(
         () => {
@@ -35,6 +37,21 @@ const Page = ({ params }: { params: { slug: string } }) => {
                             if (myCompetition) {
                                 setMyCompetition(myCompetition)
                             }
+
+                            const databaseUsers = res["users"]?.list.filter((user: User) => user?.servers?.find((server: Server) => server?.name === "Soutěže Tryhard")?.verified)
+
+                            let myUsers: User[] = []
+
+                            databaseUsers.forEach((user: User) => {
+                                myUsers.push({
+                                    discordUsername: user?.discordUsername,
+                                    discordID: user?.discordID,
+                                    discordAvatar: `https://cdn.discordapp.com/avatars/${user?.discordID}/${user?.discordAvatar}.webp?size=512`,
+                                    discordDiscriminator: user?.discordDiscriminator
+                                })
+                            })
+
+                            setUsers(myUsers)
                         }
                     })
 
@@ -54,7 +71,23 @@ const Page = ({ params }: { params: { slug: string } }) => {
                             <PageTitle status={ verified } title={`Upravit událost`} description={`Nyní upravujete událost ${myCompetition?.name}`} buttons={[]} />
 
                             <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
-                                něco
+                                <CompetitionForm defaultValues={
+                                    {
+                                        type: myCompetition?.type,
+                                        name: myCompetition?.name,
+                                        registration: myCompetition?.registration?.enabled,
+                                        moredays: myCompetition?.competition?.dateType === "range",
+                                        // @ts-ignore
+                                        registrationDate: new Date(myCompetition?.registration.date.seconds * 1000),
+                                        // @ts-ignore
+                                        competitionDate: myCompetition?.competition?.dateType === "range" ? {from: new Date(myCompetition?.competition?.date?.from?.seconds * 1000), to: new Date(myCompetition?.competition?.date?.to?.seconds * 1000)} : new Date(myCompetition?.competition?.date?.seconds *1000),
+                                        place: myCompetition?.place,
+                                        description: myCompetition?.description,
+                                        createChannel: myCompetition?.createChannel,
+                                        links: myCompetition?.links,
+                                        users: myCompetition?.users,
+                                    }
+                                } chooseType={false} users={users} />
                             </PageContentWrap>
                         </> :
                         <>

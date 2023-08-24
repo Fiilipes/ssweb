@@ -12,10 +12,10 @@ const Content = () => {
             <div>
                 <div className="pb-[20px] lg:pb-[2vw]">
                     <div>
-                        <h1 className={"text-[30px] text-center lg:text-[2vw] font-bold"}>
+                        <h1 className={"text-[30px] text-center lg:text-left lg:text-[2vw] font-bold"}>
                             Obsah
                         </h1>
-                        <p className={"font-semibold text-[12px] lg:font-medium text-center lg:text-[.9vw] text-[#333]"}>
+                        <p className={"font-semibold text-[12px] lg:font-medium text-center lg:text-left lg:text-[.9vw] text-[#333]"}>
                             Hlavní části našeho serveru
                         </p>
                     </div>

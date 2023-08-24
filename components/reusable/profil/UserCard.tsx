@@ -37,11 +37,11 @@ const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
                         <div className={"flex flex-row"}>
 
                             <ShowUserProfile discordId={session?.id}>
-                                View on discord
+                                Zobrazit na discordu
                             </ShowUserProfile>
 
                             <SignOutButton>
-                                Logout
+                                Odhlásit se
                             </SignOutButton>
 
                         </div>

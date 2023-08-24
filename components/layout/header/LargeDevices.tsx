@@ -14,14 +14,17 @@ import Link from "next/link";
 import {LayoutPanelLeft} from "lucide-react";
 import navigation from "@/assets/settings/content/navigation";
 import {Badge} from "@/components/ui/badge";
+import {CommandDialogDemo} from "@/components/layout/wrap/CommandMenu";
 
 
 
 const NavMenu = () => {
+
+    const [open, setOpen] = React.useState(false)
     return (
         <div>
 
-            <NavigationMenu className={"z-50"}>
+            <NavigationMenu className={`z-50`}>
                 <NavigationMenuList className={"items-start"}>
 
                     <NavigationMenuItem>
@@ -85,13 +88,13 @@ const NavMenu = () => {
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <Link href={navigation.soutěžeTryhard.link} legacyBehavior passHref>
-                            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw] "}>
-                                {navigation.soutěžeTryhard.title}
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
+                    <div className={"flex flex-row items-center"}>
+                        <NavigationMenuItem onClick={() => setOpen(!open)}>
+                            <div className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw] cursor-pointer "}>
+                                Hledat
+                            </div>
+                        </NavigationMenuItem>
+                    </div>
                     <div className={"flex flex-row items-center"}>
                         <NavigationMenuItem>
                             <Link href={navigation.ms.link} legacyBehavior passHref>
@@ -108,10 +111,11 @@ const NavMenu = () => {
                             </Link>
                         </NavigationMenuItem>
                     </div>
+
                 </NavigationMenuList>
 
             </NavigationMenu>
-
+<CommandDialogDemo open={open} setOpen={setOpen}/>
         </div>
     )
 }

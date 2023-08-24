@@ -13,7 +13,7 @@ const CompetitionRegistrationDate = ({form, registrationDateRef, setPreview__Reg
             control={form.control}
             name="registrationDate"
             render={({ field }) => (
-                <FormItem className="flex flex-col opacity-0 overflow-hidden pointer-events-none h-0 duration-700 transition-all mb-2" ref={registrationDateRef}>
+                <FormItem className={`flex flex-col ${field.value ? "opacity-100 h-full pointer-events-all" : "opacity-0 h-0 pointer-events-none"} overflow-hidden   duration-700 transition-all mb-2`} ref={registrationDateRef}>
                     <FormLabel>Datum registrace</FormLabel>
                     <Popover>
                         <PopoverTrigger asChild>
@@ -40,6 +40,8 @@ const CompetitionRegistrationDate = ({form, registrationDateRef, setPreview__Reg
                                     field.onChange(event)
                                     // @ts-ignore
                                     setPreview__RegistrationDate(event)
+
+                                    console.log(event)
                                 }}
                                 disabled={(date) =>
                                     date < new Date()

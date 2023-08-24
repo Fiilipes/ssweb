@@ -22,9 +22,10 @@ const Header = async () => {
 
 
 
+
     return (
         <>
-            <header className={"fixed z-50 flex flex-row justify-between w-[100%] px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[2.2vw] lg:pb-[1vw]"} style={{backdropFilter: "blur(12px)", backgroundColor: "rgba(255,255,255,.7)"}}>
+            <header className={"fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[2.2vw] lg:pb-[1vw]"} style={{backdropFilter: "blur(12px)", backgroundColor: "rgba(255,255,255,.7)"}}>
 
                 <Link href={"/"} className={"font-bold 2xl:text-[1.1vw] pt-[10px] pb-[8px] lg:pt-0 lg:pb-0"} style={{letterSpacing: "-1px"}}>
                     Survival Server
