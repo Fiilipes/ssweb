@@ -32,7 +32,7 @@ const Page = () => {
 
     return (
         <>
-            <div className="hidden flex-col md:flex">
+            <div className=" flex-col flex">
 
                 <div className="flex-1 space-y-4 p-8 pt-6">
                     <PageTitle status={verified} title={"Informace"} description={"Novinky a důležité zprávy ze Survival Serveru"} buttons={[{content:"Nová zpráva", link:"/info/new", variant:"default"}]} />

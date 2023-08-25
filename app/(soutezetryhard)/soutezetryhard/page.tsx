@@ -51,7 +51,7 @@ export default function SoutezeTryhard() {
 
     return (
         <>
-            <div className="hidden flex-col md:flex">
+            <div className=" flex-col flex">
                 <div className="flex-1 space-y-4 p-8 pt-6">
 
                     <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>

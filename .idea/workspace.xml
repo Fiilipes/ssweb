@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/wigym.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/settings/content/routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/reusable/profil/UserAvatar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/reusable/profil/UserDialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/SmallDevices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/SmallDevices.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserMention.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserMention.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/command.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/command.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +98,7 @@
       <workItem from="1692904432067" duration="109000" />
       <workItem from="1692904571630" duration="74000" />
       <workItem from="1692916480095" duration="2592000" />
-      <workItem from="1692942423851" duration="8781000" />
+      <workItem from="1692942423851" duration="9230000" />
     </task>
     <servers />
   </component>
