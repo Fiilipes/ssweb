@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     // discord embed
     openGraph: {
         type: 'website',
-        url: 'https://survivalserver.vercel.app/',
+        url: 'https://survivalserver.cz/',
         title: 'Survival Server',
         description: 'Survival Server Website',
         images: [

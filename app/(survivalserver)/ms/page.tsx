@@ -3,22 +3,17 @@
 import React from 'react'
 import { getSS } from "@/assets/settings/firebase";
 import {useSession} from "next-auth/react";
-import NotVerifiedWithServerCard from "@/components/reusable/discord/NotVerifiedWithServerCard";
 import discordServers from "@/assets/settings/content/discordServers";
-import PageTitle from "@/components/reusable/composition/PageTitle";
-import pages from "@/assets/settings/content/pages";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
-import ShopItems from "@/components/layout/shop/ShopItems";
 import functions from "@/assets/settings/functions";
 import { User } from '@/assets/settings/interfaces';
-import UserMention from "@/components/reusable/profil/UserMention";
-import RouteCard from "@/components/layout/homepage/RouteCard";
 import {Activity, CalendarClock, Clock, Globe, Link2, Megaphone, Scale, Users2} from "lucide-react";
-import GettingStartedCard from "@/components/layout/ms/GettingStartedCard";
-import ServerStatus from "@/components/layout/ms/ServerStatus";
 
 import * as mcs from "node-mcstatus"
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+
+// @ts-ignore
+import { saveAs } from "file-saver";
 
 const Page = () => {
 
@@ -72,8 +67,15 @@ const Page = () => {
         }, [session]
     )
 
+    const saveFile = () => {
+
+        saveAs(
+            "https://cdn.discordapp.com/attachments/1130282572946092134/1144569856616841258/ms1Mods.zip",
+            "mods.zip"
+        );
+    };
+
     return (
-        <>
             <div className=" flex-col flex">
 
                 <div className="flex-1 space-y-4 p-8 pt-6">
@@ -133,13 +135,12 @@ const Page = () => {
                                 </Card>
                             </div> : null
                         }
-                        {/*<GettingStartedCard/>*/}
-
+                        <div>
+                            <button onClick={saveFile}>download</button>
+                        </div>
                     </PageContentWrap>
-
                 </div>
             </div>
-        </>
     )
 }
 export default Page

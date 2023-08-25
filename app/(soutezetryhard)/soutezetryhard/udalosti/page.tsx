@@ -19,6 +19,8 @@ import discordServers from "@/assets/settings/content/discordServers";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
 import { monthNames } from '@/assets/settings/content/months';
+import {DataTable} from "./data-table";
+import {columns} from "./columns";
 
 const Page = () => {
 
@@ -26,6 +28,7 @@ const Page = () => {
 
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<Competition[]>([])
+    const [competitionsOrganized, setCompetitionsOrganized] = React.useState<Competition[]>([])
     const [users, setUsers] = React.useState<User[]>([])
 
     React.useEffect(
@@ -37,7 +40,8 @@ const Page = () => {
                     functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
                         setVerified(verified)
                         if (verified) {
-                            setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
+                            setCompetitionsOrganized(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
+                            setCompetitions(res["soutěže"].list.added)
                             setUsers(res["users"].list)
                         }
                     })
@@ -70,7 +74,7 @@ const Page = () => {
                                 <ScrollArea className={"w-full h-[55vh] pr-[2vw]"}>
 
                                     {
-                                        competitions ? competitions.map((competition: any) => {
+                                        competitionsOrganized ? competitionsOrganized.map((competition: any) => {
                                             return (
                                                 // eslint-disable-next-line react/jsx-key
                                                 <div>
@@ -108,7 +112,8 @@ const Page = () => {
                         </TabsContent>
 
                         <TabsContent value={"table"}>
-                            <UnderConstruction />
+                            <DataTable columns={columns} data={competitions} />
+
                         </TabsContent>
                         <TabsContent value={"calendar"}>
                             <UnderConstruction />
