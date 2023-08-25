@@ -31,6 +31,7 @@ const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
                             <AlertTitle className={"lg:text-[1vw]"}>@{session?.username}</AlertTitle>
                             <AlertDescription className={"lg:text-[.8vw]"}>
                                 {session?.email}
+                                {session?.image}
                             </AlertDescription>
                         </div>
 

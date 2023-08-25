@@ -24,8 +24,8 @@ const Content = () => {
                     <RouteCard title={"Obchod"} description={"Místo plné Survival Server itemů"} link={"/obchod"}>
                         <Store className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
-                    <RouteCard title={"Pravidla"} description={"Pravidla našeho Survival Serveru"} link={"/pravidla"}>
-                        <StickyNote className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
+                    <RouteCard title={"Leaderboard"} description={"Žebříček aktivních lidí Survival Serveru"} link={"/leaderboard"}>
+                        <Trophy className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit
                     </RouteCard>
                     <RouteCard title={"Eventy"} description={"Informace o všech eventech na serveru"} link={"/eventy"}>
                         <CalendarRange className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/> Navštívit

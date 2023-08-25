@@ -5,39 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/eventy/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/eventy/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/pravidla/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/pravidla/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/wigym.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/settings/content/routes.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/reusable/profil/UserAvatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/reusable/profil/UserDialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/profil/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/edit/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/new/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/columns.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/content/navigation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/navigation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/content/pages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/pages.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/SmallDevices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/SmallDevices.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/registration/CompetitionRegistrationDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/registration/CompetitionRegistrationDate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserBadges.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserBadges.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/CommandMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/navigation-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/navigation-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/profil/UserMention.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/profil/UserMention.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/command.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/command.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,32 +51,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(survivalserver)&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/assets/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\assets\img" />
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard" />
+      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\status" />
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)" />
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\eventy" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\ms" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\ms" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\leaderboard" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\soutezetryhard\udalosti\new" />
@@ -128,6 +118,8 @@
       <workItem from="1692882074683" duration="18576000" />
       <workItem from="1692904432067" duration="109000" />
       <workItem from="1692904571630" duration="74000" />
+      <workItem from="1692916480095" duration="2592000" />
+      <workItem from="1692942423851" duration="8781000" />
     </task>
     <servers />
   </component>

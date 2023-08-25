@@ -38,6 +38,8 @@ const Page = () => {
                     setUsers(sortedList.map((obj:any) => {
                         return {
                             username: obj.discordUsername,
+                            avatar: obj.discordAvatar,
+                            id: obj.discordID,
                             sscoins: obj.ssCoins,
                             tier: "pro"
                         };

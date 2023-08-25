@@ -2,6 +2,7 @@ import React from 'react'
 import Link from "next/link";
 import imgGithub from "@/assets/img/github.svg";
 import imgDiscord from "@/assets/img/discord.svg";
+import imgWigym from "@/assets/img/wigym.svg";
 import {Button} from "@/components/ui/button";
 import {UserCircle2} from "lucide-react";
 import { getServerSession } from 'next-auth'
@@ -36,6 +37,7 @@ const Header = async () => {
                     <section className={"2xl:ml-[5vw] 2xl:mr-[1.2vw] flex flex-row h-full"}>
                         <SocialIcon icon={imgGithub} alt={"github"} link={"https://github.com/Fiilipes/ssweb"} title={"Github repository"} />
                         <SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />
+                        <SocialIcon icon={imgWigym} alt={"wigym"} link={"https://wigym.cz"} title={"Wichterlovo Gymnázium"} />
 
                     </section>
                     {

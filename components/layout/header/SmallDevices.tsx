@@ -14,6 +14,16 @@ import {
     NavigationMenuTrigger
 } from '@/components/ui/navigation-menu';
 import navigation from "@/assets/settings/content/navigation";
+import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandShortcut
+} from "@/components/ui/command";
+import {routes} from "@/assets/settings/content/routes";
 
 const SmallDevices = ({session}:{session:any}) => {
 
@@ -57,7 +67,7 @@ const SmallDevices = ({session}:{session:any}) => {
                             </Link>
                         </div>
                         <ScrollArea className={"flex flex-col"}>
-                            <div className={"flex flex-col px-2"}>
+                            <div className={"flex flex-col p-4"}>
                                 {
                                     !session ?
                                         <SignInButton>
@@ -76,38 +86,36 @@ const SmallDevices = ({session}:{session:any}) => {
                                         </Link>
                                 }
                             </div>
-                            <div>
-                                <NavigationMenu>
-                                    <NavigationMenuList>
-                                        <NavigationMenuItem className={"z-90"}>
-                                            <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
-                                            <NavigationMenuContent>
-                                                <ul className="grid gap-[1vw] 2xl:p-[1.2vw] md:w-[25vw] lg:w-[30vw] lg:grid-cols-[.75fr_1fr]">
-                                                    <li className="row-span-3">
-                                                        <NavigationMenuLink asChild>
-                                                            <Link
-                                                                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 2xl:p-[2vw] no-underline outline-none focus:shadow-md"
-                                                                href={navigation.gettingStarted.components.widget.link}
-                                                                scroll={true}
-                                                            >
-                                                                <LayoutPanelLeft className={"2xl:w-[4vw] 2xl:h-[4vw]"}/>
-                                                                <div className="mb-[.6vw] mt-[1.2vw] text-[1.2vw] font-medium">
-                                                                    {navigation.gettingStarted.components.widget.title}
-                                                                </div>
-                                                                <p className="text-[.9vw] leading-tight text-muted-foreground">
-                                                                    {navigation.gettingStarted.components.widget.content}
-                                                                </p>
+                            <div className={"p-4 pt-[20px]"}>
+                                <Command className="rounded-lg border shadow-md">
+                                    <CommandInput placeholder="Napište co hledáte..." />
+                                    <CommandList>
+                                        <CommandEmpty>Pro hledaný výraz jsme nenašli žádný výsledek.</CommandEmpty>
+                                        {
+                                            routes.map((route) => (
+                                                // eslint-disable-next-line react/jsx-key
+                                                <CommandGroup heading={route.category}>
+                                                    {
+                                                        route.items.map((item) => (
+                                                            // eslint-disable-next-line react/jsx-key
+                                                            <Link href={item.link}>
+                                                                <CommandItem>
+                                                                    {item.icon}
+                                                                    <span>{item.title}</span>
+                                                                    {item.shortcut && (
+                                                                        <CommandShortcut>
+                                                                            {item.shortcut}
+                                                                        </CommandShortcut>
+                                                                    )}
+                                                                </CommandItem>
                                                             </Link>
-                                                        </NavigationMenuLink>
-                                                    </li>
-
-                                                </ul>
-                                            </NavigationMenuContent>
-                                        </NavigationMenuItem>
-                                    </NavigationMenuList>
-                                </NavigationMenu>
-
-
+                                                        ))
+                                                    }
+                                                </CommandGroup>
+                                            ))
+                                        }
+                                    </CommandList>
+                                </Command>
                             </div>
                         </ScrollArea>
                     </div>

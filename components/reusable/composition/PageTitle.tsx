@@ -8,12 +8,12 @@ const PageTitle = ({status, title, description, buttons=[]}: {status:boolean | n
       <>
           <div className={"flex flex-row justify-between w-full items-center"}>
               <div>
-                  <h1 className={"text-[2vw] font-bold"}>
+                  <h1 className={"text-[30px] lg:text-[2vw] font-bold"}>
                       {title}
                   </h1>
                   {
                       status &&
-                      <p className={"font-medium text-[.9vw] text-[#333]"}>
+                      <p className={"font-semibold lg:font-medium text-[12px] lg:text-[.9vw] text-[#333]"}>
                           {description}
                       </p>
                   }

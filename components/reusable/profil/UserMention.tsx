@@ -10,6 +10,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import UserDialog from "@/components/reusable/profil/UserDialog";
 const UserMention = ({user}:{user:User}) => {
     return (
 
@@ -19,16 +20,7 @@ const UserMention = ({user}:{user:User}) => {
                 @{user.discordUsername}
             </div>
         </DialogTrigger>
-        <DialogContent>
-            <DialogHeader>
-                <DialogTitle className={"flex flex-row items-center"}>
-                    <img src={user.discordAvatar} alt={"userImage"} className={"h-8 w-8 rounded-full mr-2"} />
-                    <div>
-                        @{user.discordUsername}
-                    </div>
-                </DialogTitle>
-            </DialogHeader>
-        </DialogContent>
+        <UserDialog user={user} />
     </Dialog>
     )
 }

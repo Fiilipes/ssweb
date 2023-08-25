@@ -240,6 +240,10 @@ class Functions {
         }
     }
 
+    avatarToAvatarUrl(discordAvatar: string,discordID:string|number) {
+        return `https://cdn.discordapp.com/avatars/${discordID}/${discordAvatar}.png?size=128`
+    }
+
 
 
 }

@@ -12,7 +12,7 @@ import {ScrollArea} from "@/components/ui/scroll-area";
 
 import functions from "@/assets/settings/functions";
 import CompetitionBlob from "@/components/layout/soutezetryhard/udalosti/CompetitionBlob";
-import {Competition} from "@/assets/settings/interfaces";
+import {Competition, User} from "@/assets/settings/interfaces";
 import {useSession} from "next-auth/react";
 import PageTitle from "@/components/reusable/composition/PageTitle";
 import discordServers from "@/assets/settings/content/discordServers";
@@ -26,6 +26,7 @@ const Page = () => {
 
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<Competition[]>([])
+    const [users, setUsers] = React.useState<User[]>([])
 
     React.useEffect(
         () => {
@@ -37,7 +38,7 @@ const Page = () => {
                         setVerified(verified)
                         if (verified) {
                             setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
-
+                            setUsers(res["users"].list)
                         }
                     })
                 })
@@ -89,7 +90,7 @@ const Page = () => {
                                                                     {
                                                                         comp.competitions.map((c: any) => {
                                                                             // eslint-disable-next-line react/jsx-key
-                                                                            return <CompetitionBlob competition={c} />
+                                                                            return <CompetitionBlob competition={c} users={users} />
                                                                         })
                                                                     }
                                                                 </div>

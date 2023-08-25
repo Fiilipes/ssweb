@@ -132,8 +132,13 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                             preview__Type === "soutěž" ? <>
                                     <div className={"flex flex-row "}>
                                         <ScrollArea className={"h-[57vh] pr-8"}>
-                                            <div className={"mb-4 px-2"}>
+                                            <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
+                                                Potřebné informace
+                                            </div>
+                                            <div className={"mb-4 px-2 gap-y-[1vw] flex flex-col"}>
                                                 <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
+                                                <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
+
                                             </div>
 
                                             <div className={"flex flex-row mb-8 pl-2"}>
@@ -150,6 +155,10 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                                 <CompetitionDate form={form} moreDaysSwitch={moreDaysSwitch} setPreview__CompetitionDate={setPreview__CompetitionDate} setPreview__CompetitionDateRange={setPreview__CompetitionDateRange} />
 
                                             </div>
+                                            <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
+                                                Dodatečné informace
+                                            </div>
+
                                             <div className={"px-2 mt-8"}>
 
 
@@ -195,7 +204,6 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                                 <CompetitionCreateChannelSwitch form={form} createChannelSwitch={createChannelSwitch} setCreateChannelSwitch={setCreateChannelSwitch} setPreview__CreateChannel={setPreview__CreateChannel}  />
 
                                                 <div className={"mb-4 mt-2 px-2 w-full"}>
-                                                    <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
 
                                                     <div className={"flex flex-row my-2 items-end w-full"}>
                                                         <CompetitionDescription form={form} setPreview__Description={setPreview__Description}/>
@@ -313,14 +321,18 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                         }
 
                         <div>
+
+                            <Button type="submit" className={"mx-1"}>Upravit</Button>
                             {
-                                chooseType && <TabsList className={"mx-1"}>
+                                chooseType ? <TabsList className={"mx-1"}>
                                     <TabsTrigger value="division">
                                         Jít zpět
                                     </TabsTrigger>
-                                </TabsList>
+                                </TabsList> : <Link href={`/soutezetryhard/udalosti/${
+                                    defaultValues ? defaultValues?.name : ""}`}>
+                                    <Button variant={"outline"} className={"mx-1"}>Zobrazit událost</Button>
+                                </Link>
                             }
-                            <Button type="submit" className={"mx-1"}>Potvrdit</Button>
                         </div>
                     </TabsContent>
                 </Tabs>

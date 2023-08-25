@@ -16,8 +16,9 @@ import { User } from '@/assets/settings/interfaces';
 import UserMention from "@/components/reusable/profil/UserMention";
 import Link from 'next/link';
 import {Button} from "@/components/ui/button";
+import UserAvatar from "@/components/reusable/profil/UserAvatar";
 
-const CompetitionBlob = ({competition}: {competition: any}) => {
+const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}) => {
     return (
         <ContextMenu>
             <ContextMenuTrigger>
@@ -67,11 +68,11 @@ const CompetitionBlob = ({competition}: {competition: any}) => {
                                     </div>
                                     <div className={"flex flex-row items-center my-1"}>
                                         <Users2 className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
-                                        <div className={"flex flex-row "}>
+                                        <div className={"flex flex-row items-center w-fit"}>
                                             {
                                                 competition.users.map((user: User) => {
                                                     // eslint-disable-next-line react/jsx-key,@next/next/no-img-element
-                                                    return <img src={user.discordAvatar} alt={"userImage"} className={"h-[2vw] w-[2vw] opacity-90 rounded-full mr-[-1vw]"} />
+                                                    return <UserAvatar className={"mr-[-1vw] h-[2vw] w-[2vw] opacity-90 rounded-full"} username={users.find(u=>user.discordID===u.discordID)?.discordUsername} avatarUrl={`https://cdn.discordapp.com/avatars/${user.discordID}/${users.find(u=>user.discordID===u.discordID)?.discordAvatar}.png?size=128`} />
                                                 })
                                             }
                                         </div>
@@ -79,7 +80,9 @@ const CompetitionBlob = ({competition}: {competition: any}) => {
                                     <div className={"flex flex-row items-center my-1"}>
                                         <MapPin className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
                                         <div>
-                                            {competition.place}
+                                            {
+                                                competition.place.charAt(0).toUpperCase() + competition.place.slice(1)
+                                            }
                                         </div>
                                     </div>
                                 </div>

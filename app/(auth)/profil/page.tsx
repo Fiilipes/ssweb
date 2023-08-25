@@ -16,7 +16,7 @@ import NotVerified from "@/components/reusable/discord/NotVerified";
 import PageTitle from "@/components/reusable/composition/PageTitle";
 import functions from "@/assets/settings/functions";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {CalendarClock, Clock, Users2} from "lucide-react";
+import {CalendarClock, Clock, Coins, Target, Trophy, Users2} from "lucide-react";
 import { User } from "@/assets/settings/interfaces";
 
 export default function SoutezeTryhard() {
@@ -60,7 +60,7 @@ export default function SoutezeTryhard() {
                                 <CardTitle className="text-sm font-medium">
                                     SS Coiny
                                 </CardTitle>
-                                <CalendarClock className={"opacity-60 w-4 h-4"}  />
+                                <Coins className={"opacity-60 w-4 h-4"}  />
                             </CardHeader>
                             <CardContent>
                                 <div className="text-2xl font-bold">
@@ -75,7 +75,7 @@ export default function SoutezeTryhard() {
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">Pořadí</CardTitle>
-                                <Clock className={"opacity-60 w-4 h-4"} />
+                                <Trophy className={"opacity-60 w-4 h-4"} />
                             </CardHeader>
                             <CardContent>
                                 <div className="text-2xl font-bold">4.</div>
@@ -89,7 +89,7 @@ export default function SoutezeTryhard() {
                                 <CardTitle className="text-sm font-medium">
                                     Status
                                 </CardTitle>
-                                <Users2 className={"opacity-60 w-4 h-4"} />
+                                <Target     className={"opacity-60 w-4 h-4"} />
                             </CardHeader>
                             <CardContent>
                                 <div className="text-2xl font-bold">Basic</div>
