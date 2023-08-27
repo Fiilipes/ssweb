@@ -55,7 +55,7 @@ const Header = async () => {
                 </section>
                 <SmallDevices session={session} />
             </header>
-            <HeightGap height={"h-[80px] lg:h-[6vw]"} />
+            <HeightGap height={"h-[15vh]"} />
         </>
     )
 }

@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
     return (
-        <div className={"w-[18vw] flex flex-col pt-[2.3vw]"}>
+        <div className={"w-[18vw] flex-col hidden md:flex pt-[2.3vw]"}>
             {links.map((link, i) => (
                 <Link href={link.href} key={i}>
                     <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>

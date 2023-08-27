@@ -56,7 +56,7 @@ const Page = () => {
 
                 <PageTitle status={verified} title={"Události"} description={"Všechny dostupné informace k událostem."} buttons={[{content:"Nová událost", link:"/soutezetryhard/udalosti/new", variant:"default"}]} />
 
-                <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
+                <PageContentWrap disableScroll={true} status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
 
                     <Tabs defaultValue="list" className="w-full">
 
@@ -72,12 +72,13 @@ const Page = () => {
 
                             <Accordion type="single" collapsible className="w-full">
                                 <ScrollArea className={"w-full h-[55vh] pr-[2vw]"}>
+                                    <div className={"pb-[10vh]"}>
 
                                     {
                                         competitionsOrganized ? competitionsOrganized.map((competition: any) => {
                                             return (
                                                 // eslint-disable-next-line react/jsx-key
-                                                <div>
+                                                <div >
                                                     {
                                                         competition.year !== new Date().getFullYear()  && <div className={"text-[3.5vw] font-bold mb-[1vw] mt-[5vw]"}>
                                                             {competition.year}
@@ -105,6 +106,7 @@ const Page = () => {
                                             )
                                         }) : <></>
                                     }
+                                    </div>
                                 </ScrollArea>
 
                             </Accordion>

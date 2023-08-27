@@ -76,16 +76,16 @@ const Page = () => {
     };
 
     return (
-            <div className=" flex-col flex">
+            <div className="flex-col flex">
 
-                <div className="flex-1 space-y-4 p-8 pt-6">
-                    <div className={"font-semibold mb-[1vw]"}>
+                <div className="flex-1 space-y-[2vh] p-[2.5vh] pt-[2vh]">
+                    <div className={"font-semibold mb-[1vw] h-[5vh]"}>
                         Vítejte na hlavní stránce
                         <span className={"font-bold text-[1.5vw] mx-2"}>
                                 Módovaného Survivalu
                         </span>
                     </div>
-                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")}>
+                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")} special={true}>
                         {
                             serverStatus ? <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
                                 <Card>
@@ -138,7 +138,10 @@ const Page = () => {
                         <div>
                             <button onClick={saveFile}>download</button>
                         </div>
+
+
                     </PageContentWrap>
+
                 </div>
             </div>
     )

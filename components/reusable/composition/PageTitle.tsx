@@ -6,7 +6,7 @@ import Link from "next/link";
 const PageTitle = ({status, title, description, buttons=[]}: {status:boolean | null, title:string, description:string, buttons:{content:string,link:string|undefined,variant:"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined}[]}) => {
     return (
       <>
-          <div className={"flex flex-row justify-between w-full items-center"}>
+          <div className={"flex flex-row justify-between w-full items-center "}>
               <div>
                   <h1 className={"text-[30px] lg:text-[2vw] font-bold"}>
                       {title}

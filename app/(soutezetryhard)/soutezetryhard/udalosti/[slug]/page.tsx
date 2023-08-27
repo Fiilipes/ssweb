@@ -75,7 +75,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                         <>
                             <PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}`} buttons={[{content:"Upravit událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />
 
-                            <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
+                            <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")} >
                                 <ScrollArea className={"h-[65vh] max-h-[65vh] min-h-[65vh]"}>
                                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
                                         <Card>

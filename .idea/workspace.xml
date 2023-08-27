@@ -5,24 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/columns.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/columns.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/start/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/start/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/sadEmoji.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/wumpus-discord.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,26 +39,26 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(survivalserver)/ms/start",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(survivalserver)/ms/start&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\ms\start" />
@@ -116,7 +108,9 @@
       <workItem from="1692904432067" duration="109000" />
       <workItem from="1692904571630" duration="74000" />
       <workItem from="1692916480095" duration="2592000" />
-      <workItem from="1692942423851" duration="17035000" />
+      <workItem from="1692942423851" duration="18148000" />
+      <workItem from="1692968301811" duration="4840000" />
+      <workItem from="1693127117398" duration="391000" />
     </task>
     <servers />
   </component>
