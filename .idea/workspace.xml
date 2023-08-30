@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/firebase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +106,10 @@
       <workItem from="1692916480095" duration="2592000" />
       <workItem from="1692942423851" duration="18148000" />
       <workItem from="1692968301811" duration="4840000" />
-      <workItem from="1693127117398" duration="391000" />
+      <workItem from="1693127117398" duration="5332000" />
+      <workItem from="1693221272374" duration="583000" />
+      <workItem from="1693350625897" duration="184000" />
+      <workItem from="1693388601831" duration="23000" />
     </task>
     <servers />
   </component>
@@ -118,6 +117,7 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
+        <option value="$PROJECT_DIR$/tailwind.config.js" />
         <option value="$PROJECT_DIR$/tailwind.config.js" />
       </list>
     </option>

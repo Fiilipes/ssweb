@@ -54,11 +54,11 @@ export default function SoutezeTryhard() {
             <div className=" flex-col flex">
                 <div className="flex-1 space-y-4 p-4 lg:p-[2vw] pt-[1.5vw]">
 
-                    <PageContentWrap status={verified} special={true} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
+                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
 
-                        <div className={"font-semibold mb-[1vw] h-[5vh]"}>
+                        <div className={"font-semibold mb-[25px] lg:mb-[1vw] text-[18px] lg:text-[1vw]"}>
                             Vítejte
-                            <span className={"font-bold text-[1.5vw] mx-2"}>
+                            <span className={"font-bold  text-[25px] lg:text-[1.5vw] mx-2"}>
                                 @{session?.user?.name}
                             </span>
                         </div>
