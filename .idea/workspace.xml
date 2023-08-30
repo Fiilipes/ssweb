@@ -9,6 +9,7 @@
       <change afterPath="$PROJECT_DIR$/app/(notes)/notes/page.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/assets/settings/content/notes/menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
@@ -21,6 +22,13 @@
       <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/firebase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
+>>>>>>> 92525acc4a43b62704c802d4cf8118af8361d67b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,8 +127,12 @@
       <workItem from="1693127117398" duration="5332000" />
       <workItem from="1693221272374" duration="583000" />
       <workItem from="1693350625897" duration="184000" />
+<<<<<<< HEAD
       <workItem from="1693405052643" duration="3745000" />
       <workItem from="1693435608715" duration="2352000" />
+=======
+      <workItem from="1693388601831" duration="23000" />
+>>>>>>> 92525acc4a43b62704c802d4cf8118af8361d67b
     </task>
     <servers />
   </component>
