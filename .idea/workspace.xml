@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(notes)/notes/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(notes)/notes/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/settings/content/notes/menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/ms/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/firebase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/BasicWrap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +54,14 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie/app/(survivalserver)/ms/start&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie - kopie&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie - kopie\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -110,7 +116,11 @@
       <workItem from="1692916480095" duration="2592000" />
       <workItem from="1692942423851" duration="18148000" />
       <workItem from="1692968301811" duration="4840000" />
-      <workItem from="1693127117398" duration="391000" />
+      <workItem from="1693127117398" duration="5332000" />
+      <workItem from="1693221272374" duration="583000" />
+      <workItem from="1693350625897" duration="184000" />
+      <workItem from="1693405052643" duration="3745000" />
+      <workItem from="1693435608715" duration="2352000" />
     </task>
     <servers />
   </component>
@@ -118,6 +128,7 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
+        <option value="$PROJECT_DIR$/tailwind.config.js" />
         <option value="$PROJECT_DIR$/tailwind.config.js" />
       </list>
     </option>

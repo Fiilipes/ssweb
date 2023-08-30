@@ -34,15 +34,20 @@ const Navbar = () => {
 
 
     return (
-        <div className={"w-[18vw] flex-col hidden md:flex pt-[2.3vw]"}>
-            {links.map((link, i) => (
-                <Link href={link.href} key={i}>
-                    <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>
-                        {link.name}
-                    </Button>
-                </Link>
-            ))}
-        </div>
+        <>
+            <div className={"w-[18vw] mx-0 px-0 hidden md:flex"}>
+
+            </div>
+            <div className={"w-[18vw] flex-col hidden md:flex fixed pt-[2.3vw] "}>
+                {links.map((link, i) => (
+                    <Link href={link.href} key={i}>
+                        <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>
+                            {link.name}
+                        </Button>
+                    </Link>
+                ))}
+            </div>
+        </>
     )
 }
 export default Navbar

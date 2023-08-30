@@ -56,7 +56,7 @@ const Page = () => {
 
                 <PageTitle status={verified} title={"Události"} description={"Všechny dostupné informace k událostem."} buttons={[{content:"Nová událost", link:"/soutezetryhard/udalosti/new", variant:"default"}]} />
 
-                <PageContentWrap disableScroll={true} status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
+                <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
 
                     <Tabs defaultValue="list" className="w-full">
 
@@ -71,7 +71,6 @@ const Page = () => {
                         <TabsContent value={"list"} className={"w-full"}>
 
                             <Accordion type="single" collapsible className="w-full">
-                                <ScrollArea className={"w-full h-[55vh] pr-[2vw]"}>
                                     <div className={"pb-[10vh]"}>
 
                                     {
@@ -89,7 +88,7 @@ const Page = () => {
                                                             return (
                                                                 // eslint-disable-next-line react/jsx-key
                                                                 <div>
-                                                                    <div className={"text-[1.5vw] text-[#333] font-bold"}>
+                                                                    <div className={"text-[1.5vw] mt-[2.5vw] text-[#333] font-bold"}>
                                                                         {monthNames[comp.month]}
                                                                     </div>
                                                                     {
@@ -107,7 +106,6 @@ const Page = () => {
                                         }) : <></>
                                     }
                                     </div>
-                                </ScrollArea>
 
                             </Accordion>
 

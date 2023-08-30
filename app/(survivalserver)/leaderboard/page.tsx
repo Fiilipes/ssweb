@@ -31,8 +31,9 @@ const Page = () => {
                     functions.verifyUserById(res["users"],session.id,"Survival Server").then(verified => setVerified(verified))
 
                     const data = res["users"]
+                    console.log(data)
                     // @ts-ignore
-                    const sortedList = data.list.filter((user:User) => user.servers.find(server => server.name === "Survival Server").verified).sort((a, b) => b.ssCoins - a.ssCoins)
+                    const sortedList = data.list.filter((user:User) => user.servers.find(server => server.name === "Survival Server")?.verified).sort((a, b) => b.ssCoins - a.ssCoins)
 
 
                     setUsers(sortedList.map((obj:any) => {
@@ -70,6 +71,7 @@ const Page = () => {
                         <div className="container mx-auto py-10">
                             <DataTable columns={columns} data={users} currentUsername={"filipjarolim"} />
                         </div>
+
 
                     </PageContentWrap>
 

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import {Bold, Italic, SquareDashedBottomCode, Strikethrough, Underline} from "lucide-react";
+import menuOptions  from '@/assets/settings/content/notes/menu';
 
 const MenuBar = ({ editor, menubar }:{editor:any, menubar:any[]}) => {
     if (!editor) {
@@ -13,37 +14,23 @@ const MenuBar = ({ editor, menubar }:{editor:any, menubar:any[]}) => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     React.useEffect(() => {
-        const iconClass = 'text-white w-[1.2vw] h-[1.2vw]'
 
-        const menuOptions = [
-            {
-                name: 'codeBlock',
-                icon: <SquareDashedBottomCode className={iconClass} />,
-                onClick: () => editor.chain().focus().toggleCodeBlock().run()
-            },
-            {
-                name: 'bold',
-                icon: <Bold className={iconClass} />,
-                onClick: () => editor.chain().focus().toggleBold().run()
-            },
-            {
-                name: 'italic',
-                icon: <Italic className={iconClass} />,
-                onClick: () => editor.chain().focus().toggleItalic().run()
-            },
-            {
-                name: 'underline',
-                icon: <Underline className={iconClass} />,
-                onClick: () => editor.chain().focus().toggleUnderline().run()
-            },
-            {
-                name: 'strike',
-                icon: <Strikethrough className={iconClass} />,
-                onClick: () => editor.chain().focus().toggleStrike().run()
-            },
-        ]
+        const menuOptionsArray = menuOptions(editor)
 
-        setOptions(menuOptions.filter(option => menubar.includes(option.name)))
+        const modifyOptionsWithEditor = (optionsArray:any[], editor:any) => {
+            return optionsArray.map(option => {
+                // @ts-ignore
+                const modifiedOption = menuOptionsArray[option.name]
+
+                return modifiedOption;
+            });
+        };
+
+        const modifiedOptions = modifyOptionsWithEditor(menubar, editor);
+
+        setOptions(modifiedOptions)
+
+
     }, [editor, menubar])
 
     return (

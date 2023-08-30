@@ -85,7 +85,7 @@ const Page = () => {
                                 Módovaného Survivalu
                         </span>
                     </div>
-                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")} special={true}>
+                    <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")} >
                         {
                             serverStatus ? <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
                                 <Card>

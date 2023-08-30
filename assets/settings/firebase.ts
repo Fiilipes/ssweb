@@ -1,11 +1,14 @@
-import {initializeApp} from "@firebase/app";
-import {collection, getDocs, getFirestore} from "@firebase/firestore";
+// Import the needed functions from the Firebase SDK
+import { initializeApp } from "firebase/app";
+import {doc, getFirestore} from "firebase/firestore";
+import {collection, getDoc} from "firebase/firestore";
 
 // env
 import dotenv from 'dotenv';
 dotenv.config();
 
 const apiKey = process.env.FIREBASE_API_KEY;
+
 
 const firebaseConfig = {
     apiKey: apiKey,
@@ -23,14 +26,19 @@ const db = getFirestore(app);
 const ref__ss  = collection(db, "ssbot");
 
 // Functions to get data from Firebase
-const getSS = async (ids: string[]) => {
-    const data = await getDocs(ref__ss);
+const getSS = async (ids:string[]) => {
+
 
     const returnData:any = {}
 
-    ids.forEach((id) => {
-        returnData[id] = data.docs.map((doc) => ({...doc.data(), id: doc.id} )).find(doc => doc.id === id) as any
-    })
+    for (let id of ids) {
+        const docRef = doc(db, "ssbot", id);
+
+        await getDoc(docRef).then((doc) => {
+            returnData[id] = doc.data();
+        })
+    }
+
     return returnData;
 }
 

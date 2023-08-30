@@ -72,7 +72,7 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                                             {
                                                 competition.users.map((user: User) => {
                                                     // eslint-disable-next-line react/jsx-key,@next/next/no-img-element
-                                                    return <UserAvatar className={"mr-[-1vw] h-[2vw] w-[2vw] opacity-90 rounded-full"} username={users.find(u=>user.discordID===u.discordID)?.discordUsername} avatarUrl={`https://cdn.discordapp.com/avatars/${user.discordID}/${users.find(u=>user.discordID===u.discordID)?.discordAvatar}.png?size=128`} />
+                                                    return <UserAvatar className={"mr-[-1vw] h-[1.5vw] w-[1.5vw] opacity-90 rounded-full"} username={users.find(u=>user.discordID===u.discordID)?.discordUsername} avatarUrl={`https://cdn.discordapp.com/avatars/${user.discordID}/${users.find(u=>user.discordID===u.discordID)?.discordAvatar}.png?size=128`} />
                                                 })
                                             }
                                         </div>
