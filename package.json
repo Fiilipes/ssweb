@@ -68,6 +68,7 @@
     "lucide-react": "^0.263.1",
     "next": "13.4.13",
     "next-auth": "^4.23.0",
+    "next-themes": "^0.2.1",
     "node-mcstatus": "^1.1.0",
     "postcss": "8.4.27",
     "prisma": "^5.1.1",

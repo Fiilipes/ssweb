@@ -28,9 +28,9 @@ const NavMenu = () => {
                 <NavigationMenuList className={"items-start"}>
 
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] lg:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
                         <NavigationMenuContent>
-                            <ul className="grid gap-[1vw] 2xl:p-[1.2vw] md:w-[25vw] lg:w-[30vw] lg:grid-cols-[.75fr_1fr]">
+                            <ul className="grid gap-[1vw] lg:p-[1.2vw] md:w-[25vw] lg:w-[30vw] lg:grid-cols-[.75fr_1fr]">
                                 <li className="row-span-3">
                                     <NavigationMenuLink asChild>
                                         <Link
@@ -67,38 +67,38 @@ const NavMenu = () => {
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.content.title}</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            <ul className="grid w-[25vw] gap-3 p-4 2xl:p-[1.2vw] md:w-[30vw] md:grid-cols-2 lg:w-[35vw] ">
-                                {/* eslint-disable-next-line react/jsx-key */}
-                                {navigation.content.components.routes.map((component) => (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <li>
-                                        <NavigationMenuLink asChild>
-                                            <Link href={component.link} className={"block select-none space-y-1 2xl:space-y-[.6vw] rounded-md p-3 2xl:p-[.6vw] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>
-                                                <div className="text-[.95vw] font-medium leading-none">{component.title}</div>
-                                                <p className="line-clamp-2 text-[.85vw] leading-snug text-muted-foreground">
-                                                    {component.content}
-                                                </p>
-                                            </Link>
-                                        </NavigationMenuLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
+                    {/*<NavigationMenuItem>*/}
+                    {/*    <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] 2xl:text-[.94vw]"}>{navigation.content.title}</NavigationMenuTrigger>*/}
+                    {/*    <NavigationMenuContent>*/}
+                    {/*        <ul className="grid w-[25vw] gap-3 p-4 2xl:p-[1.2vw] md:w-[30vw] md:grid-cols-2 lg:w-[35vw] ">*/}
+                    {/*            /!* eslint-disable-next-line react/jsx-key *!/*/}
+                    {/*            {navigation.content.components.routes.map((component) => (*/}
+                    {/*                // eslint-disable-next-line react/jsx-key*/}
+                    {/*                <li>*/}
+                    {/*                    <NavigationMenuLink asChild>*/}
+                    {/*                        <Link href={component.link} className={"block select-none space-y-1 2xl:space-y-[.6vw] rounded-md p-3 2xl:p-[.6vw] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>*/}
+                    {/*                            <div className="text-[.95vw] font-medium leading-none">{component.title}</div>*/}
+                    {/*                            <p className="line-clamp-2 text-[.85vw] leading-snug text-muted-foreground">*/}
+                    {/*                                {component.content}*/}
+                    {/*                            </p>*/}
+                    {/*                        </Link>*/}
+                    {/*                    </NavigationMenuLink>*/}
+                    {/*                </li>*/}
+                    {/*            ))}*/}
+                    {/*        </ul>*/}
+                    {/*    </NavigationMenuContent>*/}
+                    {/*</NavigationMenuItem>*/}
                     <div className={"flex flex-row items-center"}>
-                        <NavigationMenuItem onClick={() => setOpen(!open)}>
-                            <div className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw] cursor-pointer "}>
-                                Hledat
+                        <NavigationMenuItem  onClick={() => setOpen(!open)}>
+                            <div className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw] cursor-pointer "}>
+                                Prozkoumat
                             </div>
                         </NavigationMenuItem>
                     </div>
                     <div className={"flex flex-row items-center"}>
                         <NavigationMenuItem>
                             <Link href={navigation.ms.link} legacyBehavior passHref>
-                                <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:text-[.94vw]"}>
+                                <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw]"}>
                                     <Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>
                                         New
                                     </Badge>

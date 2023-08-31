@@ -44,7 +44,7 @@ const Page = () => {
         document: {
             content: 'heading block*',
         },
-        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike]
+        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList]
     })
 
     return (

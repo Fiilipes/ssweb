@@ -22,7 +22,7 @@ export function CommandDialogDemo({open, setOpen}:{open:any,setOpen:any}) {
 
     return (
         <>
-            <CommandDialog open={open} onOpenChange={setOpen}>
+            <CommandDialog  open={open} onOpenChange={setOpen}>
                 <CommandInput placeholder="Napište co hledáte..." />
                 <CommandList>
                     <CommandEmpty>Pro hledaný výraz jsme nenašli žádný výsledek.</CommandEmpty>

@@ -35,7 +35,7 @@ export interface Competition {
     postId: string | undefined;
 }
 export interface CompetitionFirebase {
-    name: string;
+    name?: string;
     type: string;
     registration: {
         enabled: boolean | null;
@@ -54,14 +54,15 @@ export interface CompetitionFirebase {
 }
 
 export interface CompetitionValues {
-    name: string,
+    theme?: string,
+    name?: string,
     type: string,
     registration?: boolean | undefined,
     registrationDate?: Date | undefined,
     moredays?: boolean | undefined,
     competitionDate?: Date | undefined,
     competitionDateRange?: {     from: Date;     to: Date; } | undefined,
-    place?: string | undefined,
+    place: string | undefined,
     description?: string | undefined,
 }
 

@@ -65,7 +65,7 @@ export default async function Home() {
 
             <Routes />
 
-            <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[8vw] z-0 opacity-70 w-[65vw]"} />
+            <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[0vw] z-0 opacity-70 w-[65vw]"} />
 
 
         </main>

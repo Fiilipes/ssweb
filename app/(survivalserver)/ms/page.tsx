@@ -34,7 +34,7 @@ const Page = () => {
 
                     const users = res["users"]
                     // @ts-ignore
-                    users.list.filter((user:User) => user.servers.find(server => server.name === "Survival Server").verified).sort((a, b) => b.ssCoins - a.ssCoins)
+                    users.list.filter((user:User) => user.servers.find(server => server.name === "Survival Server")?.verified).sort((a, b) => b.ssCoins - a.ssCoins)
 
                     setUsers(users)
 

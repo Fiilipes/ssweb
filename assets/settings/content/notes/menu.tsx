@@ -1,4 +1,4 @@
-import {Bold, Italic, SquareDashedBottomCode, Strikethrough, Underline} from "lucide-react";
+import {Bold, Italic, List, SquareDashedBottomCode, Strikethrough, Underline} from "lucide-react";
 import React from "react";
 
 const iconClass = 'text-white w-[1.2vw] h-[1.2vw]'
@@ -60,6 +60,16 @@ const menuOptions = (editor?:any) => ({
             }
     }
     ,
+    bulletList:{
+        name: 'bulletList',
+        icon
+            :
+             <List className={iconClass}/>,
+        onClick
+            :
+            editor ? () => editor.chain().focus().toggleBulletList().run() : () => {
+            }
+    }
 })
 
 export default menuOptions

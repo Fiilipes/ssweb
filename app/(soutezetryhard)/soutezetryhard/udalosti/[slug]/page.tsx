@@ -106,7 +106,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                 <CalendarClock className={"opacity-60 w-4 h-4"} />
                                             </CardHeader>
                                             <CardContent>
-                                                <div className="text-2xl font-bold">Za 2 týdny</div>
+                                                <div className="text-2xl font-bold">{
+
+                                                    // @ts-ignore
+                                                 functions.getTimeDifferenceDescription(new Date(myCompetition?.competition.dateType === "range" ? myCompetition?.competition.date.from.seconds * 1000 : myCompetition?.competition.date.seconds  * 1000), new Date())
+
+                                                }</div>
                                                 <p className="text-xs text-muted-foreground">
                                                     {
                                                         // @ts-ignore
@@ -129,7 +134,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                         myCompetition?.registration?.enabled ? functions.getDateArrayFromTimestamp(myCompetition?.registration?.date?.seconds).reverse().join(". ") : "Není potřeba"}
                                                 </div>
                                                 <p className="text-xs text-muted-foreground">
-                                                    7 ve více než jedné soutěži
+                                                    {
+                                                        // check if you can still register
+                                                        // @ts-ignore
+                                                        myCompetition?.registration?.enabled ? new Date() < myCompetition?.registration?.date * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : "Není potřeba"
+                                                    }
                                                 </p>
                                             </CardContent>
                                         </Card>

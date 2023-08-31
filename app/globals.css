@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.svgIcon {
+  fill: white
+}
 
+.svgIcon * {
+  fill: white
+}
 
 @layer base {
   :root {

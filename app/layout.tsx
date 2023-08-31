@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Provider from "@/app/(auth)/context/AuthContext";
+import { ThemeProvider } from "./theme-provider";
 
 import Header from "@/components/layout/header/Header";
 
@@ -9,6 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 import notesLogo from "@/assets/img/notes2.png";
 import { Analytics } from '@vercel/analytics/react';
+import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 
 export const metadata: Metadata = {
     title: 'Survival Server',
@@ -45,12 +47,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}
+      >
       <Provider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
           <Header />
 
         {children}
+          </ThemeProvider>
 
       </Provider>
       <Analytics mode={"production"} />

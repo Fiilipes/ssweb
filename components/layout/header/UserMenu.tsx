@@ -35,7 +35,7 @@ const UserMenu = ({session}: {session:any}) => {
                                 </NavigationMenuTrigger>
 
                         <NavigationMenuContent className={"w-[10vw] p-[.3vw]  "}>
-                            <div className="w-[6vw] p-4 2xl:p-[.2vw] md:w-[8vw] lg:w-[8vw] ">
+                            <div className="w-[6vw] p-4 lg:p-[.2vw] md:w-[8vw] lg:w-[8vw] ">
 
                                         <NavigationMenuLink asChild>
                                             <Link href={"/profil"} className={"select-none rounded-md lg:pl-[1vw] p-6 lg:p-[.6vw]  no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex flex-row items-center"}>

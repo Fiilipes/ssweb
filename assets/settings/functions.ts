@@ -29,23 +29,43 @@ import diacritics from "diacritics";
 class Functions {
     createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, redirect: boolean) {
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
-            const newCompetition = {
-                name: values.name,
-                type: values.type,
-                registration: {
-                    enabled: values.registration ? values.registration : null ,
-                    date: values.registrationDate ? values.registrationDate : null,
-                },
-                competition: {
-                    dateType: values.moredays ? "range" : "single",
-                    date: values.moredays ? values.competitionDateRange ? values.competitionDateRange : null : values.competitionDate ? values.competitionDate : null,
-                },
-                place: values.place ? values.place : null,
-                description: values.description ? values.description : null,
-                links: competitionLinks ? competitionLinks : null,
-                users: competitionUsers ? competitionUsers : null,
-                createChannel: createChannel,
-                postId: null,
+            let newCompetition = {} as CompetitionFirebase
+            switch (values.type) {
+                case "soutěž":
+                    newCompetition = {
+                        name: values.name,
+                        type: values.type,
+                        registration: {
+                            enabled: values.registration ? values.registration : null ,
+                            date: values.registrationDate ? values.registrationDate : null,
+                        },
+                        competition: {
+                            dateType: values.moredays ? "range" : "single",
+                            date: values.moredays ? values.competitionDateRange ? values.competitionDateRange : null : values.competitionDate ? values.competitionDate : null,
+                        },
+                        place: values.place ? values.place : null,
+                        description: values.description ? values.description : null,
+                        links: competitionLinks ? competitionLinks : null,
+                        users: competitionUsers ? competitionUsers : null,
+                        createChannel: createChannel,
+                        postId: null,
+                    }
+                    break;
+                case "olympiáda":
+                    newCompetition = {}
+                    break;
+                case "seminář":
+                    newCompetition = {}
+                    break;
+                case "soustředění":
+                    newCompetition = {}
+                    break;
+                case "přednáška":
+                    newCompetition = {
+                        name: values.name,
+                        type: values.type,
+                    }
+                    break;
             }
 
 
@@ -62,7 +82,7 @@ class Functions {
                     }).then(
                         () => {
                             if (redirect) {
-                                window.location.href = "/soutezetryhard/udalosti"
+                                window.location.href = "/soutezetryhard/udalosti/" + values.name
                             }
                         }
                     )
@@ -244,6 +264,34 @@ class Functions {
         return `https://cdn.discordapp.com/avatars/${discordID}/${discordAvatar}.png?size=128`
     }
 
+    getTimeDifferenceDescription(inputDate:any) {
+        const currentDate = new Date();
+        // @ts-ignore
+        const timeDifference = inputDate - currentDate;
+
+        const millisecondsPerDay = 24 * 60 * 60 * 1000;
+        const daysDifference = Math.floor(timeDifference / millisecondsPerDay) + 1;
+
+
+        console.log(daysDifference)
+        if (daysDifference === 0) {
+            return 'Dnes';
+        } else if (daysDifference === 1) {
+            return 'Zítra';
+        } else if (daysDifference <= 6) {
+            return `Za ${daysDifference} ${daysDifference >= 5 ? 'dní' : 'dny'}`;
+        } else if (daysDifference <= 20 ) {
+            const weeks = Math.floor(daysDifference / 7);
+            return `Za ${weeks} ${weeks <= 1 ? 'týden' : 'týdny'}`;
+        } else if (daysDifference <= 55) {
+            const months = Math.floor(daysDifference / 30);
+            return `Za ${months} ${months <= 1 ? 'měsíc' : months <= 4 ? 'měsíce' : 'měsíců'}`;
+        } else {
+            const months = Math.floor(daysDifference / 30);
+            const years = Math.floor(months / 12);
+            return `Příští rok`;
+        }
+    }
 
 
 }

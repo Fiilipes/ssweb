@@ -31,6 +31,7 @@ import {format} from "date-fns";
 import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
 import {Button} from "@/components/ui/button";
 import {Form} from "@/components/ui/form";
+import CompetitionTheme from "@/components/layout/soutezetryhard/udalosti/new/CompetitionTheme";
 
 const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,chooseType: boolean, users:any}) => {
 
@@ -43,6 +44,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     const [moreDaysSwitch, setMoreDaysSwitch] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
     const [createChannelSwitch, setCreateChannelSwitch] = React.useState(defaultValues?.createChannel ? defaultValues?.createChannel : false);
     const [preview__Name, setPreview__Name] = React.useState(defaultValues?.name ? defaultValues?.name : "");
+    const [preview__Theme, setPreview__Theme] = React.useState(defaultValues?.theme ? defaultValues?.theme : "");
     const [preview__Place, setPreview__Place] = React.useState("");
     const [preview__Description, setPreview__Description] = React.useState("");
     const [preview__Type, setPreview__Type] = React.useState(defaultValues?.type ? defaultValues?.type : "");
@@ -58,9 +60,16 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     const linksRef = React.useRef<HTMLDivElement>(null);
 
     const formSchema = z.object({
-        name: z.string().min(2, {
+        name: preview__Type === "soutěž" ? z.string().min(2, {
             message: "Name must be at least 2 characters.",
-        }).default(defaultValues?.name ? defaultValues?.name : undefined),
+        }).default(defaultValues?.name ? defaultValues?.name : undefined) : z.string().min(2, {
+            message: "Name must be at least 2 characters.",
+        }).default(defaultValues?.name ? defaultValues?.name : undefined).optional(),
+        theme: preview__Type === "přednáška" ? z.string().min(2, {
+            message: "Theme must be at least 2 characters.",
+        }).default(defaultValues?.theme ? defaultValues?.theme : undefined) : z.string().min(2, {
+            message: "Theme must be at least 2 characters.",
+        }).default(defaultValues?.theme ? defaultValues?.theme : undefined).optional(),
         type: z.enum(["soutěž", "olympiáda", "seminář", "soustředění", "přednáška"]).default(defaultValues?.type ? defaultValues?.type : undefined),
         registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
         moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
@@ -80,6 +89,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         defaultValues: {
             type: defaultValues?.type ? defaultValues?.type : undefined,
             name: defaultValues?.name ? defaultValues?.name : undefined,
+            theme: defaultValues?.theme ? defaultValues?.theme : undefined,
             registration: defaultValues?.registration ? defaultValues?.registration : false,
             moredays: defaultValues?.moredays ? defaultValues?.moredays : false,
             createChannel: defaultValues?.createChannel ? defaultValues?.createChannel : false,
@@ -130,8 +140,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                         {
 
                             preview__Type === "soutěž" ? <>
-                                    <div className={"flex flex-row "}>
-                                        <ScrollArea className={"h-[57vh] pr-8"}>
+                                    <div className={"flex flex-col "}>
                                             <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
                                                 Potřebné informace
                                             </div>
@@ -244,60 +253,59 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
 
                                             </div>
-                                        </ScrollArea>
 
-                                        <div className={"px-8 max-w-[20vw] w-[20vw] overflow-hidden"}>
-                                            <div className={`font-bold`} style={
-                                                {
-                                                    fontSize: preview__Name.length > 0 ? preview__Name.length > 30 ? "1vw" : preview__Name.length > 20 ? "1.2vw" : preview__Name.length > 10 ? "1.5vw" : "2vw" : "1.5vw"
-                                                }
-                                            }>
-                                                {preview__Name.length > 0 ? preview__Name : "Vyberte jméno"}
-                                            </div>
-                                            <div className={"text-[1vw] text-[#555] font-semibold mb-8"}>
-                                                {
-                                                    // capital first letter
-                                                    preview__Type.charAt(0).toUpperCase() + preview__Type.slice(1)
-                                                }
-                                            </div>
+                                        {/*<div className={"px-8 max-w-[20vw] w-[20vw] overflow-hidden"}>*/}
+                                        {/*    <div className={`font-bold`} style={*/}
+                                        {/*        {*/}
+                                        {/*            fontSize: preview__Name.length > 0 ? preview__Name.length > 30 ? "1vw" : preview__Name.length > 20 ? "1.2vw" : preview__Name.length > 10 ? "1.5vw" : "2vw" : "1.5vw"*/}
+                                        {/*        }*/}
+                                        {/*    }>*/}
+                                        {/*        {preview__Name.length > 0 ? preview__Name : "Vyberte jméno"}*/}
+                                        {/*    </div>*/}
+                                        {/*    <div className={"text-[1vw] text-[#555] font-semibold mb-8"}>*/}
+                                        {/*        {*/}
+                                        {/*            // capital first letter*/}
+                                        {/*            preview__Type.charAt(0).toUpperCase() + preview__Type.slice(1)*/}
+                                        {/*        }*/}
+                                        {/*    </div>*/}
 
-                                            {preview__Registration &&
-                                                <div className={"flex flex-col mb-2"}>
-                                                    <div className={"flex flex-row items-center mb-2"}>
-                                                        <CalendarPlus className={"w-[1.1vw] h-[1.1vw] mr-2"}/>
-                                                        <div className={"text-[.9vw] font-bold"}>
-                                                            Datum registrace
+                                        {/*    {preview__Registration &&*/}
+                                        {/*        <div className={"flex flex-col mb-2"}>*/}
+                                        {/*            <div className={"flex flex-row items-center mb-2"}>*/}
+                                        {/*                <CalendarPlus className={"w-[1.1vw] h-[1.1vw] mr-2"}/>*/}
+                                        {/*                <div className={"text-[.9vw] font-bold"}>*/}
+                                        {/*                    Datum registrace*/}
 
-                                                        </div>
-                                                    </div>
+                                        {/*                </div>*/}
+                                        {/*            </div>*/}
 
-                                                    <div className={"text-[1vw]"}>
-                                                        {
-                                                            preview__RegistrationDate ? format(preview__RegistrationDate, "PPP") : "Není vybráno"
-                                                        }
-                                                    </div>
-
-
-                                                </div>
-                                            }
-
-                                            <div className={"flex flex-col"}>
-                                                <div className={"flex flex-row items-center mb-2"}>
-                                                    <CalendarClock className={"w-[1.1vw] h-[1.1vw] mr-2"}/>
-                                                    <div className={"text-[.9vw] font-bold"}>
-                                                        Datum konání
-
-                                                    </div>
-                                                </div>
-
-                                                <div className={"text-[1vw]"}>
-                                                    {!preview__MoreDays ? preview__CompetitionDate ? format(preview__CompetitionDate, "PPP") : "Není vybráno" : preview__CompetitionDateRange ? preview__CompetitionDateRange.from ? preview__CompetitionDateRange.to ? format(preview__CompetitionDateRange.from, "LLL dd, y") + " - " + format(preview__CompetitionDateRange.to, "LLL dd, y") : format(preview__CompetitionDateRange.from, "LLL dd, y") : "Není vybráno" : "Není vybráno"}
-                                                </div>
+                                        {/*            <div className={"text-[1vw]"}>*/}
+                                        {/*                {*/}
+                                        {/*                    preview__RegistrationDate ? format(preview__RegistrationDate, "PPP") : "Není vybráno"*/}
+                                        {/*                }*/}
+                                        {/*            </div>*/}
 
 
-                                            </div>
+                                        {/*        </div>*/}
+                                        {/*    }*/}
 
-                                        </div>
+                                        {/*    <div className={"flex flex-col"}>*/}
+                                        {/*        <div className={"flex flex-row items-center mb-2"}>*/}
+                                        {/*            <CalendarClock className={"w-[1.1vw] h-[1.1vw] mr-2"}/>*/}
+                                        {/*            <div className={"text-[.9vw] font-bold"}>*/}
+                                        {/*                Datum konání*/}
+
+                                        {/*            </div>*/}
+                                        {/*        </div>*/}
+
+                                        {/*        <div className={"text-[1vw]"}>*/}
+                                        {/*            {!preview__MoreDays ? preview__CompetitionDate ? format(preview__CompetitionDate, "PPP") : "Není vybráno" : preview__CompetitionDateRange ? preview__CompetitionDateRange.from ? preview__CompetitionDateRange.to ? format(preview__CompetitionDateRange.from, "LLL dd, y") + " - " + format(preview__CompetitionDateRange.to, "LLL dd, y") : format(preview__CompetitionDateRange.from, "LLL dd, y") : "Není vybráno" : "Není vybráno"}*/}
+                                        {/*        </div>*/}
+
+
+                                        {/*    </div>*/}
+
+                                        {/*</div>*/}
                                     </div>
                                 </>:
                                 preview__Type === "olympiáda" ?
@@ -314,7 +322,27 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                             </>:
                                             preview__Type === "přednáška" ?
                                                 <>
-                                                    <UnderConstruction />
+                                                <div className={"flex flex-col "}>
+                                                    <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
+                                                        Potřebné informace
+                                                    </div>
+                                                    <div className={"mb-4 px-2 gap-y-[1vw] flex flex-col"}>
+                                                        <CompetitionTheme form={form} setPreview__Theme={setPreview__Theme}/>
+                                                        <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
+
+                                                    </div>
+
+                                                    <div className={"px-2 mt-8"}>
+
+                                                    </div>
+                                                    <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
+                                                        Dodatečné informace
+                                                    </div>
+
+                                                    <div className={"px-2 mt-8"}>
+
+                                                    </div>
+                                                </div>
                                                 </>:
                                                 <> Invalid type </>
 
@@ -322,7 +350,9 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
                         <div>
 
-                            <Button type="submit" className={"mx-1"}>Upravit</Button>
+                            <Button type="submit" className={"mx-1"}>{
+                                chooseType ? "Vytvořit" : "Upravit"
+                            }</Button>
                             {
                                 chooseType ? <TabsList className={"mx-1"}>
                                     <TabsTrigger value="division">
