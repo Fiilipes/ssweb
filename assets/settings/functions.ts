@@ -52,15 +52,19 @@ class Functions {
                     }
                     break;
                 case "olympiáda":
+                    // @ts-ignore
                     newCompetition = {}
                     break;
                 case "seminář":
+                    // @ts-ignore
                     newCompetition = {}
                     break;
                 case "soustředění":
+                    // @ts-ignore
                     newCompetition = {}
                     break;
                 case "přednáška":
+                    // @ts-ignore
                     newCompetition = {
                         name: values.name,
                         type: values.type,
