@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df1cd11c-5c67-4233-aff5-a0227813d93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/psf/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/psf/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ssweb - kopie.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/start/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/start/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/content/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/CompetitionType.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/CompetitionType.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notes/editor/NotesEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/NotesEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notes/editor/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/interfaces.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +76,8 @@
       <workItem from="1694540621711" duration="2838000" />
       <workItem from="1694543539581" duration="3709000" />
       <workItem from="1694786513649" duration="2630000" />
+      <workItem from="1694796505204" duration="5455000" />
+      <workItem from="1694814684413" duration="1666000" />
     </task>
     <servers />
   </component>

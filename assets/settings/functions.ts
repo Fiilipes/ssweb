@@ -31,11 +31,14 @@ class Functions {
     createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, redirect: boolean) {
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
             let newCompetition = {} as CompetitionFirebase
+            // generate random id 30 characters long
+            let competitionId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             switch (values.type) {
                 case "jednokolová soutěž":
                     newCompetition = {
                         name: values.name,
                         type: values.type,
+                        id: competitionId,
                         registration: {
                             enabled: values.registration ? values.registration : null ,
                             date: values.registrationDate ? values.registrationDate : null,
@@ -52,24 +55,8 @@ class Functions {
                         postId: null,
                     }
                     break;
-                case "olympiáda":
-                    // @ts-ignore
-                    newCompetition = {}
-                    break;
-                case "seminář":
-                    // @ts-ignore
-                    newCompetition = {}
-                    break;
-                case "soustředění":
-                    // @ts-ignore
-                    newCompetition = {}
-                    break;
-                case "přednáška":
-                    // @ts-ignore
-                    newCompetition = {
-                        name: values.name,
-                        type: values.type,
-                    }
+                case "vícekolová soutěž":
+
                     break;
             }
 
@@ -92,6 +79,32 @@ class Functions {
                         }
                     )
                 }
+            }
+        })
+    }
+
+    removeCompetition (competitionId: string) {
+        getSS(["soutěže"]).then((competitions:any) => {
+            if (competitions) {
+
+                
+                const myCompetition = competitions["soutěže"].list.added.find((c:any) => c.id === competitionId)
+
+                console.log(myCompetition)
+
+                if (myCompetition) {
+                    // remove from added
+                    competitions["soutěže"].list.added = competitions["soutěže"].list.added.filter((c:any) => c.id !== competitionId)
+                    competitions["soutěže"].list.removed.push(myCompetition)
+                }
+
+                setDoc(doc(db, "ssbot", "soutěže"), {
+                    list: competitions["soutěže"].list,
+                }).then(
+                    () => {
+                        window.location.href = "/soutezetryhard"
+                    }
+                )
             }
         })
     }

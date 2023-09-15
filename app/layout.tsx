@@ -15,29 +15,6 @@ import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 export const metadata: Metadata = {
     title: 'Survival Server',
     description: 'Survival Server Website',
-    // discord embed
-    openGraph: {
-        type: 'website',
-        url: 'https://survivalserver.cz/',
-        title: 'Survival Server',
-        description: 'Survival Server Website',
-        images: [
-            {
-                url: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png",
-                width: 800,
-                height: 600,
-                alt: 'Survival Server',
-            },
-        ],
-    },
-    authors: [
-        {
-            name: 'Survival server',
-            url: "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png",
-        }
-    ],
-    themeColor: "#000000",
-
 }
 
 

@@ -50,6 +50,16 @@ const questions = {
                             }
                         ]
                     },
+                    {
+                        id: 57,
+                        name: "Matějova černá teplá krabička",
+                        task: "Určete počet fotonů v uzavřené krabičce o objemu přesně 1 litr, která je v místnosti o teplotě $25.0 K$ v tepelné rovnováze.",
+                        process: "Na určenie počtu fotónov v našej krabičke musíme najprv určiť časticovú hustotu. Mohlo by sa zdať, že úloha je pomerne jednoduchý príklad na použitie Stefanovho-Boltzmannovho zákona na určenie hustoty energie elektromagnetického žiarenia, ale na prevedenie hustoty energie na počet fotónov by sme museli deliť akousi strednou energiou fotónu, ktorú nepoznáme. Musíme preto vyjsť z prvých princípov – z Planckovho zákona $B(T, ν) = \\frac{hν^2}{2ν^2c^2} \\frac{1}{e^{\\frac{hν}{k_BT}} - 1}$, kde $ν$ je frekvencia žiarenia, $T$ je termodynamická teplota čierneho telesa, $h$ je Planckova konštanta, $c$ je rýchlosť svetla a $k_B$ je Boltzmannova konštanta. Veličina $B$ udáva energiu $dE$, ktorá je z plochy $dS$ vyžiarená do priestorového uhla $dΩ$ za čas $dt$, v intervale frekvencií $[ν, ν + dν]$. Pre hustotu energie žiarenia by sme potom mali $u = \\frac{4π}{c} \\int_{0}^{∞} B(T, ν) dν$. Výsledkom integrácie by sme dostali Stefanov-Boltzmannov zákon. My však chceme určiť hustotu častíc, v integrande preto musíme deliť $B(T, ν)$ energiou častice o danej frekvencii $hν$: $n = \\frac{4π}{c} \\int_{0}^{∞} B(T, ν) \\frac{hν}{dν} = \\frac{4π}{c} \\int_{0}^{∞} \\frac{2ν^2}{c^2} \\frac{1}{e^{\\frac{hν}{k_BT}} - 1} dν$. Nasledujúcim krokom je previesť integrál obsahujúci fyzikálne veličiny na integrál matematický (prevedieme použitím substitúcie na bezrozmerný integrand – často používaná úprava, ktorá prevádza výpočetný fyzikálny problém na matematický.) Najdôležitejšie je mať peknú veličinu v argumente exponenciály, volíme preto $\\frac{hν}{k_BT} = x ⇒ ν = x\\frac{k_BT}{h}$. Po substitúcii dostávame $n = \\frac{8π}{(k_BT)^3} \\int_{0}^{∞} x^2 e^{x - 1} dx = 8π \\left(\\frac{k_BT}{hc}\\right)^3 \\int_{0}^{∞} x^2 e^{x - 1} dx = 8π \\left(\\frac{k_BT}{hc}\\right)^3 2.404$. Zhrnutím máme finálny vzťah do ktorého môžeme dosadiť: $N = Vn = V 3.17 × 10^8$.",
+                        answer: 3.17e8,
+                        metric: "",
+                        points: 7,
+                        authors: [{name: "Jozef Lipták", email: "liptak.j@fykos.cz"}]
+                    }
                 ]
             }
         ]

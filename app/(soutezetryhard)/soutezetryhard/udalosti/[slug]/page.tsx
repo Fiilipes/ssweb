@@ -16,6 +16,7 @@ import {CalendarClock, Clock, Shapes, UserPlus2, Users2} from "lucide-react";
 import {DataTable} from "./data-table";
 import {columns} from "./columns";
 import {ScrollArea} from "@/components/ui/scroll-area";
+import {Button} from "@/components/ui/button";
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const {data:session} = useSession()
@@ -151,14 +152,13 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
 
                                 </ScrollArea>
-                                <div className={"h-[10vh] w-[70vw] mt-[-10vh] fixed z-80 pointer-events-none"} style={
-                                    {
-                                        //linear gradient
-                                        backgroundImage: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
-                                    }
-                                }>
-                                </div>
+          
 
+                                <Button variant={"destructive"} onClick={() => {
+                                    functions.removeCompetition(myCompetition?.id!)
+                                }}>
+                                    Remove
+                                </Button>
 
 
                             </PageContentWrap>
