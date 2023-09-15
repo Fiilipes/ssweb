@@ -60,17 +60,10 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     const linksRef = React.useRef<HTMLDivElement>(null);
 
     const formSchema = z.object({
-        name: preview__Type === "soutěž" ? z.string().min(2, {
+        name: z.string().min(2, {
             message: "Name must be at least 2 characters.",
-        }).default(defaultValues?.name ? defaultValues?.name : undefined) : z.string().min(2, {
-            message: "Name must be at least 2 characters.",
-        }).default(defaultValues?.name ? defaultValues?.name : undefined).optional(),
-        theme: preview__Type === "přednáška" ? z.string().min(2, {
-            message: "Theme must be at least 2 characters.",
-        }).default(defaultValues?.theme ? defaultValues?.theme : undefined) : z.string().min(2, {
-            message: "Theme must be at least 2 characters.",
-        }).default(defaultValues?.theme ? defaultValues?.theme : undefined).optional(),
-        type: z.enum(["soutěž", "olympiáda", "seminář", "soustředění", "přednáška"]).default(defaultValues?.type ? defaultValues?.type : undefined),
+        }).default(defaultValues?.name ? defaultValues?.name : undefined),
+        type: z.enum(["jednokolová soutěž", "vícekolová soutěž"]).default(defaultValues?.type ? defaultValues?.type : undefined),
         registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
         moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
         registrationDate: registrationSwitch? z.date() : z.date().optional(),
@@ -89,7 +82,6 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         defaultValues: {
             type: defaultValues?.type ? defaultValues?.type : undefined,
             name: defaultValues?.name ? defaultValues?.name : undefined,
-            theme: defaultValues?.theme ? defaultValues?.theme : undefined,
             registration: defaultValues?.registration ? defaultValues?.registration : false,
             moredays: defaultValues?.moredays ? defaultValues?.moredays : false,
             createChannel: defaultValues?.createChannel ? defaultValues?.createChannel : false,
@@ -139,7 +131,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                     <TabsContent value="finaltouch" className="space-y-4">
                         {
 
-                            preview__Type === "soutěž" ? <>
+                            preview__Type === "jednokolová soutěž" ? <>
                                     <div className={"flex flex-col "}>
                                             <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
                                                 Potřebné informace
@@ -308,43 +300,10 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                         {/*</div>*/}
                                     </div>
                                 </>:
-                                preview__Type === "olympiáda" ?
+                                preview__Type === "vícekolová soutěž" &&
                                     <>
                                         <UnderConstruction />
-                                    </>:
-                                    preview__Type === "seminář" ?
-                                        <>
-                                            <UnderConstruction />
-                                        </>:
-                                        preview__Type === "soustředění" ?
-                                            <>
-                                                <UnderConstruction />
-                                            </>:
-                                            preview__Type === "přednáška" ?
-                                                <>
-                                                <div className={"flex flex-col "}>
-                                                    <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
-                                                        Potřebné informace
-                                                    </div>
-                                                    <div className={"mb-4 px-2 gap-y-[1vw] flex flex-col"}>
-                                                        <CompetitionTheme form={form} setPreview__Theme={setPreview__Theme}/>
-                                                        <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
-
-                                                    </div>
-
-                                                    <div className={"px-2 mt-8"}>
-
-                                                    </div>
-                                                    <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
-                                                        Dodatečné informace
-                                                    </div>
-
-                                                    <div className={"px-2 mt-8"}>
-
-                                                    </div>
-                                                </div>
-                                                </>:
-                                                <> Invalid type </>
+                                    </>
 
                         }
 

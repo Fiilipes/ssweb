@@ -38,7 +38,7 @@ const Header = async () => {
                     <section className={"lg:ml-[5vw] lg:mr-[1.2vw] flex flex-row h-full"}>
                         <SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />
                         <SocialIcon icon={imgWigym} alt={"wigym"} link={"https://wigym.cz"} title={"Wichterlovo Gymnázium"} />
-                        <ThemeSwitcher />
+                        {/*<ThemeSwitcher />*/}
 
                     </section>
                     {

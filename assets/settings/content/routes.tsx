@@ -10,7 +10,8 @@ import {
     Swords,
     Target,
     Trophy,
-    User
+    User,
+    Box
 } from "lucide-react";
 import * as React from "react";
 
@@ -66,6 +67,11 @@ export const routes = [
                 icon: <Activity className={iconClass}/>,
                 title: "Váš Status",
                 link: "/soutezetryhard/status",
+            },
+            {
+                icon: <Box className={iconClass}/>,
+                title: "PSF",
+                link: "/soutezetryhard/psf",
             },
 
 

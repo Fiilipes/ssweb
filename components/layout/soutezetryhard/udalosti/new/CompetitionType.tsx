@@ -20,11 +20,8 @@ const CompetitionType = ({form, setPreview__Type}: {form: any, setPreview__Type:
                             </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                            <SelectItem value="soutěž">Soutěž</SelectItem>
-                            <SelectItem value="olympiáda">Olympiáda</SelectItem>
-                            <SelectItem value="seminář">Seminář</SelectItem>
-                            <SelectItem value="soustředění">Soustředění</SelectItem>
-                            <SelectItem value="přednáška">Přednáška</SelectItem>
+                            <SelectItem value="jednokolová soutěž">Jednokolová soutěž</SelectItem>
+                            <SelectItem value="vícekolová soutěž">Vícekolová soutěž</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription>

@@ -40,6 +40,8 @@ export const metadata: Metadata = {
 
 }
 
+
+
 export default function RootLayout({
   children,
 }: {
@@ -50,7 +52,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}
       >
       <Provider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
 
           <Header />
 

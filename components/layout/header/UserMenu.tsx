@@ -25,7 +25,7 @@ const UserMenu = ({session}: {session:any}) => {
                 <NavigationMenuList className={"items-center flex flex-col justify-center"}>
                     <NavigationMenuItem className={""}>
 
-                                <NavigationMenuTrigger className={"NOICON mx-1 2xl:mx-[.4vw] font-bold text-[#444]  border border-input bg-[rgba(255,255,255,1)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,1)] 2xl:text-[.94vw] transform translate-x-[1vw] bg-white"}>
+                                <NavigationMenuTrigger className={"NOICON mx-1 2xl:mx-[.4vw] font-bold text-[#444] dark:text-[#bbb]  border border-input bg-white dark:bg-accent   2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,1)] 2xl:text-[.94vw] transform translate-x-[1vw] "}>
 
                                 {/* eslint-disable-next-line @next/next/no-img-element*/}
                                 <img src={

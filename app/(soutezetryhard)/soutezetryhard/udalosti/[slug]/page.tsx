@@ -91,7 +91,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                 </div>
                                                 <p className="text-xs text-muted-foreground">
                                                     {
-                                                        myCompetition?.type === "soutěž" ?
+                                                        myCompetition?.type === "jednokolová soutěž" ?
                                                             "Základní typ události"
                                                             :
                                                             "nic"

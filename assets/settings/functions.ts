@@ -23,6 +23,7 @@ import Underline from "@tiptap/extension-underline";
 import TurndownService from "turndown";
 // @ts-ignore
 import diacritics from "diacritics";
+import {Paragraph} from "@tiptap/extension-paragraph";
 
 
 
@@ -31,7 +32,7 @@ class Functions {
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
             let newCompetition = {} as CompetitionFirebase
             switch (values.type) {
-                case "soutěž":
+                case "jednokolová soutěž":
                     newCompetition = {
                         name: values.name,
                         type: values.type,
@@ -183,7 +184,7 @@ class Functions {
         }
     }
 
-    createEditor({originContent = "", placeholder = {placeholder: 'Write something …'}, document = {}, menubar = [] }: {originContent: string, placeholder: any, document: any, menubar:any[]}) {
+    createEditor({originContent = "", placeholder = {placeholder: 'Write something …'}, document = {}, menubar = [], editable = true }: {originContent: string, placeholder: any, document: any, menubar:any[], editable: boolean}) {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const editor = useEditor({
             content: originContent,
@@ -193,6 +194,7 @@ class Functions {
                     class: "outline-none focus:outline-none"
                 },
             },
+            editable: editable,
             extensions: [
                 StarterKit,
                 Mathematics,
@@ -221,6 +223,11 @@ class Functions {
                 SmilieReplacer,
                 Placeholder.configure(placeholder),
                 Typography,
+                Paragraph.configure({
+                    HTMLAttributes: {
+                        class: 'biggerText',
+                    },
+                }),
                 Underline
 
             ],
@@ -228,7 +235,10 @@ class Functions {
 
         return {
             editor: editor,
-            menubar: menubar
+            menubar: menubar,
+            props: {
+                editable: editable,
+            }
         }
     }
 
@@ -297,6 +307,24 @@ class Functions {
         }
     }
 
+    getRandomQuestion(questions: any[]) {
+        // Get a random key from the 'questions' object
+        const randomKey = Object.keys(questions)[Math.floor(Math.random() * Object.keys(questions).length)];
+
+// Get a random series from the selected key
+        const series = questions[randomKey].series;
+
+// Get a random series from the selected series
+        const randomSeriesIndex = Math.floor(Math.random() * series.length);
+        const selectedSeries = series[randomSeriesIndex];
+
+// Get a random question from the selected series
+        const randomQuestionIndex = Math.floor(Math.random() * selectedSeries.questions.length);
+        const randomQuestion = selectedSeries.questions[randomQuestionIndex];
+
+// Now, you have a completely random question in the randomQuestion variable
+        return randomQuestion;
+    }
 
 }
 

@@ -24,6 +24,10 @@ const links = [
         href: "/soutezetryhard/udalosti"
     },
     {
+        name: "PSF",
+        href: "/soutezetryhard/psf"
+    },
+    {
         name: "Váš status",
         href: "/soutezetryhard/status"
     },

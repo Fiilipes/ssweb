@@ -9,6 +9,19 @@
 .svgIcon * {
   fill: white
 }
+.biggerText {
+  font-size: .8vw !important;
+  line-height: 1.5rem;
+}
+.biggerText * {
+  font-size: 1vw !important;
+  font-weight: 600;
+  color: #444;
+  padding: 0;
+  line-height: 1rem;
+
+}
+
 
 @layer base {
   :root {
@@ -100,6 +113,23 @@ body {
   }
 }
 
+.dark ::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #333;
+  /* transparent border */
+  border: 3px solid #0d1117;
+}
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #bdbdbd;
+  /* transparent border */
+  border: 3px solid rgb(255, 255, 255);
+}
+
+
+
 ::-webkit-scrollbar-track
 {
   border-radius: 10px;
@@ -112,15 +142,7 @@ body {
 
 }
 
-::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  background-color: #bdbdbd;
-  /* transparent border */
-  border: 3px solid rgb(255, 255, 255);
 
-
-}
 
 #nav-icon1 {
   width: 20px;

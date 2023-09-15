@@ -13,7 +13,7 @@ const PageTitle = ({status, title, description, buttons=[]}: {status:boolean | n
                   </h1>
                   {
                       status &&
-                      <p className={"font-semibold lg:font-medium text-[12px] lg:text-[.9vw] text-[#333]"}>
+                      <p className={"font-semibold lg:font-medium text-[12px] lg:text-[.9vw] text-[#333] dark:text-[#ccc]"}>
                           {description}
                       </p>
                   }

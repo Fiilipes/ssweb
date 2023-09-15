@@ -75,7 +75,7 @@ import {Mention} from "@tiptap/extension-mention";
 
 
 
-const NotesEditor = ({editor, menubar}:{editor:any, menubar:any[]}) => {
+const NotesEditor = ({editor, menubar, props}:{editor:any, menubar:any[], props:any}) => {
 
 
 
@@ -100,12 +100,18 @@ const NotesEditor = ({editor, menubar}:{editor:any, menubar:any[]}) => {
     }, []);
 
     return (
-        <section className={"border-[.2vw] border-[#111] rounded-[1vw] min-h-[20vw] overflow-hidden"}>
+        <section className={`${
+            props.editable ? "border-[.2vw] border-[#111]" : ""
+        } rounded-[1vw] min-h-[20vw] overflow-hidden`}>
             <BubbleMenu editor={editor} />
 
             {/*<ContentSpecs editor={editor} />*/}
 
-            <MenuBar editor={editor} menubar={menubar} />
+            {
+                props.editable ?
+                    <MenuBar editor={editor} menubar={menubar} />
+                    : null
+            }
 
             <div className={"p-[1vw]"}>
                 <EditorContent editor={editor} />

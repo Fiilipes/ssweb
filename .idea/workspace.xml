@@ -4,31 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(notes)/notes/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(notes)/notes/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/settings/content/notes/menu.tsx" afterDir="false" />
+    <list default="true" id="df1cd11c-5c67-4233-aff5-a0227813d93d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/psf/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/psf/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ssweb - kopie.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/info/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/firebase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/start/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/start/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/content/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/UserMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/Introduction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/homepage/RouteCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionBlob.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorcomponents/MenuBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/editorextensions/mentions/suggestion.ts" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/leaderboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(survivalserver)/ms/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/firebase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/wrap/PageContentWrap.tsx" afterDir="false" />
->>>>>>> 92525acc4a43b62704c802d4cf8118af8361d67b
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/CompetitionForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/CompetitionType.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/udalosti/new/CompetitionType.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/notes/editor/NotesEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/NotesEditor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/notes/editor/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/notes/editor/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/reusable/composition/PageTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/calendar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +42,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2U5SqQ6kcB0yhMUjbW9Z1j3L4dH" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2V1dBBQTdWs9tT9bDbw9Z4HXse0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,37 +53,20 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie - kopie&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jarol/OneDrive/Dokumenty/Programming/P-Projects/PRJ-Javascript/ssweb - kopie - kopie - kopie - kopie - kopie - kopie&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie - kopie\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jarol\\OneDrive\\Dokumenty\\Programming\\P-Projects\\PRJ-Javascript\\ssweb - kopie - kopie - kopie - kopie - kopie - kopie\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(survivalserver)\ms\start" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\udalosti\[slug]" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\udalosti" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\psf" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\assets\img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\app\(soutezetryhard)\soutezetryhard\psf" />
-      <recent name="C:\Users\jarol\OneDrive\Dokumenty\Programming\P-Projects\PRJ-Javascript\ssweb - kopie - kopie\components\layout\soutezetryhard\udalosti\new" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -101,38 +82,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="16907b6b-edb3-4450-a7dc-56a00b2d0d18" name="Changes" comment="" />
-      <created>1692228138851</created>
+      <changelist id="df1cd11c-5c67-4233-aff5-a0227813d93d" name="Changes" comment="" />
+      <created>1694007384566</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1692228138851</updated>
-      <workItem from="1692228140719" duration="4720000" />
-      <workItem from="1692268727203" duration="167000" />
-      <workItem from="1692317576720" duration="645000" />
-      <workItem from="1692318276156" duration="36000" />
-      <workItem from="1692318336885" duration="155000" />
-      <workItem from="1692319383286" duration="621000" />
-      <workItem from="1692352909003" duration="19551000" />
-      <workItem from="1692701840624" duration="6866000" />
-      <workItem from="1692712271884" duration="8070000" />
-      <workItem from="1692801841070" duration="3145000" />
-      <workItem from="1692823038700" duration="8091000" />
-      <workItem from="1692871879473" duration="5089000" />
-      <workItem from="1692882074683" duration="18576000" />
-      <workItem from="1692904432067" duration="109000" />
-      <workItem from="1692904571630" duration="74000" />
-      <workItem from="1692916480095" duration="2592000" />
-      <workItem from="1692942423851" duration="18148000" />
-      <workItem from="1692968301811" duration="4840000" />
-      <workItem from="1693127117398" duration="5332000" />
-      <workItem from="1693221272374" duration="583000" />
-      <workItem from="1693350625897" duration="184000" />
-<<<<<<< HEAD
-      <workItem from="1693405052643" duration="3745000" />
-      <workItem from="1693435608715" duration="2352000" />
-=======
-      <workItem from="1693388601831" duration="23000" />
->>>>>>> 92525acc4a43b62704c802d4cf8118af8361d67b
+      <updated>1694007384566</updated>
+      <workItem from="1694007391984" duration="43000" />
+      <workItem from="1694119294133" duration="540000" />
+      <workItem from="1694174957417" duration="3595000" />
+      <workItem from="1694249509418" duration="12340000" />
+      <workItem from="1694265535792" duration="9255000" />
+      <workItem from="1694540621711" duration="2838000" />
+      <workItem from="1694543539581" duration="3709000" />
+      <workItem from="1694786513649" duration="2630000" />
     </task>
     <servers />
   </component>
@@ -141,11 +103,7 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/tailwind.config.js" />
-        <option value="$PROJECT_DIR$/tailwind.config.js" />
       </list>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

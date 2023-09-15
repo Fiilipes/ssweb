@@ -4,6 +4,8 @@ import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {CalendarHeart, Globe, Megaphone, Scale, Store, User, User2} from "lucide-react";
 import RouteCard from "@/components/layout/homepage/RouteCard";
+import UnderConstruction from '@/components/reusable/composition/UnderConstruction';
+
 
 const Introduction = () => {
     return (
@@ -38,53 +40,8 @@ const Introduction = () => {
                 <div className={"font-medium text-[.95vw] text-[#111] mt-[2vw] mb-[1vw]"}>
                     Server již přes dva roky funguje a má za sebou bohatou historii
                 </div>
-                <div className={"flex flex-row gap-x-[5vw] p-[2vw] "}>
-                    <div className={"flex flex-col"}>
-                        <div className={"flex flex-row items-center"}>
-                            <CalendarHeart className={"w-[1.5vw] h-[1.5vw] opacity-80 mr-2"} />
-                            <div className={"font-medium text-[1vw]"}>
-                                Discord server
-                            </div>
-                        </div>
-                        <div className={"font-bold text-[1.5vw]"}>
-                            25. 06. 2021
-                        </div>
-                    </div>
-                    <div className={"flex flex-col"}>
-                        <div className={"flex flex-row items-center"}>
-                            <CalendarHeart className={"w-[1.5vw] h-[1.5vw] opacity-80 mr-2"} />
-                            <div className={"font-medium text-[1vw]"}>
-                                Survival server Bot
-                            </div>
-                        </div>
-                        <div className={"font-bold text-[1.5vw]"}>
-                            18. 02. 2023
-                        </div>
-                    </div>
-                    <div className={"flex flex-col"}>
-                        <div className={"flex flex-row items-center"}>
-                            <CalendarHeart className={"w-[1.5vw] h-[1.5vw] opacity-80 mr-2"} />
-                            <div className={"font-medium text-[1vw]"}>
-                                Survival server Web
-                            </div>
-                        </div>
-                        <div className={"font-bold text-[1.5vw]"}>
-                            01. 09. 2023
-                        </div>
-                    </div>
-                </div>
-                <div className={"font-medium text-[.95vw] text-[#111] mt-[2vw] mb-[1vw]"}>
-                    V čele serveru stojí tým zkušených lidí zvaný A-Team
-                </div>
-                <div>
 
-                </div>
-                <div>
-                    Partnerské servery
-                </div>
-                <div>
-                    SS Bot, ST Bot
-                </div>
+                <UnderConstruction/>
             </div>
         </div>
     )
