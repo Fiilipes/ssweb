@@ -12,6 +12,7 @@ import {useEditor} from "@tiptap/react";
 import {Button} from "@/components/ui/button";
 import {doc, setDoc} from "@firebase/firestore";
 import {useRouter} from "next/navigation";
+import menuOptions from "@/assets/settings/content/notes/menu";
 
 
 const Page = () => {
@@ -51,7 +52,8 @@ const Page = () => {
         document: {
             content: 'heading block*',
         },
-        menubar: ["bold", "italic", "underline"]
+        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList],
+        editable: true,
     })
 
     return (
@@ -61,7 +63,7 @@ const Page = () => {
                 <PageTitle status={verified} title={"Nová zpráva"} description={"Vytvořte novou zprávu na server Soutěže Tryhard"} buttons={[]} />
 
                 <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
-                    <NotesEditor editor={editor.editor} menubar={editor.menubar}  />
+                    <NotesEditor editor={editor.editor} menubar={editor.menubar}  props={editor.props} />
                     <Button onClick={() => {
                         // @ts-ignore
                         setDoc(doc(db, "ssbot", "informations"), {list: [...informations, {author: {discordAvatar: session?.user?.image, discordUsername: session?.user?.name, discordDiscriminator: session?.discriminator, discordID: session?.id}, messageId: null, time: new Date().getTime(), type: "announcment", value: {content: functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : "")}}]})
