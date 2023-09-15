@@ -112,6 +112,7 @@ const Page = () => {
                         </TabsContent>
 
                         <TabsContent value={"table"}>
+                            {/*@ts-ignore*/}
                             <DataTable columns={columns} data={competitions} />
 
                         </TabsContent>
