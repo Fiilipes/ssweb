@@ -312,6 +312,7 @@ class Functions {
         const randomKey = Object.keys(questions)[Math.floor(Math.random() * Object.keys(questions).length)];
 
 // Get a random series from the selected key
+        // @ts-ignore
         const series = questions[randomKey].series;
 
 // Get a random series from the selected series

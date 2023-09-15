@@ -44,7 +44,8 @@ const Page = () => {
         document: {
             content: 'heading block*',
         },
-        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList]
+        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList],
+        editable: true,
     })
 
     return (
@@ -54,7 +55,7 @@ const Page = () => {
                 <div className="flex-1 space-y-4 p-8 pt-6">
                     <PageTitle status={verified} title={"Notes"} description={"Zápisy, testy a procvičování od Survival Serveru & Dokumentů"} buttons={[]} />
                     <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Survival Server")}>
-                        <NotesEditor editor={editor.editor} menubar={editor.menubar}  />
+                        <NotesEditor editor={editor.editor} menubar={editor.menubar} props={editor.props}  />
                     </PageContentWrap>
 
                 </div>
