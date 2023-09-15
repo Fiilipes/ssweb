@@ -101,11 +101,15 @@ const Page = () => {
                     </div>
                     <Button onClick={() => {
                         // reset
+                        // @ts-ignore
                         myWheel.current.style.transitionDuration = "0s"
+                        // @ts-ignore
                         myWheel.current.style.transform = `rotate(0deg)`
                         setTimeout(() => {
                             // animate
+                            // @ts-ignore
                             myWheel.current.style.transitionDuration = "5s"
+                            // @ts-ignore
                             myWheel.current.style.transform = `rotate(${
                                 Math.floor(Math.random() * 360) + 3600
                             }deg)`
