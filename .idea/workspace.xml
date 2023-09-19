@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="df1cd11c-5c67-4233-aff5-a0227813d93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/assets/settings/content/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/routes.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/header/LargeDevices.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/soutezetryhard/SideBar.tsx" afterDir="false" />
+=======
+>>>>>>> fa412d6c8f2f29c625aba16e7a71da51bb912297
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +83,10 @@
       <workItem from="1694816764206" duration="2056000" />
       <workItem from="1694878921636" duration="2837000" />
       <workItem from="1695131376362" duration="43000" />
+<<<<<<< HEAD
       <workItem from="1695133550528" duration="655000" />
+=======
+>>>>>>> fa412d6c8f2f29c625aba16e7a71da51bb912297
     </task>
     <servers />
   </component>
