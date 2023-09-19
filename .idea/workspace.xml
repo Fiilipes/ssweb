@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df1cd11c-5c67-4233-aff5-a0227813d93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(soutezetryhard)/soutezetryhard/udalosti/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/content/soutezetryhard/psf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/functions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings/interfaces.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +74,9 @@
       <workItem from="1694786513649" duration="2630000" />
       <workItem from="1694796505204" duration="5455000" />
       <workItem from="1694814684413" duration="1666000" />
+      <workItem from="1694816764206" duration="2056000" />
+      <workItem from="1694878921636" duration="2837000" />
+      <workItem from="1695131376362" duration="43000" />
     </task>
     <servers />
   </component>
@@ -85,6 +84,7 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
+        <option value="$PROJECT_DIR$/tailwind.config.js" />
         <option value="$PROJECT_DIR$/tailwind.config.js" />
       </list>
     </option>
