@@ -11,26 +11,26 @@ const links = [
         name: "Přehled",
         href: "/soutezetryhard"
     },
-    {
-        name: "Informace",
-        href: "/soutezetryhard/info"
-    },
-    {
-        name: "Zdroje",
-        href: "/soutezetryhard/zdroje"
-    },
+    // {
+    //     name: "Informace",
+    //     href: "/soutezetryhard/info"
+    // },
+    // {
+    //     name: "Zdroje",
+    //     href: "/soutezetryhard/zdroje"
+    // },
     {
         name: "Události",
         href: "/soutezetryhard/udalosti"
     },
-    {
-        name: "PSF",
-        href: "/soutezetryhard/psf"
-    },
-    {
-        name: "Váš status",
-        href: "/soutezetryhard/status"
-    },
+    // {
+    //     name: "PSF",
+    //     href: "/soutezetryhard/psf"
+    // },
+    // {
+    //     name: "Váš status",
+    //     href: "/soutezetryhard/status"
+    // },
 
 ]
 const Navbar = () => {

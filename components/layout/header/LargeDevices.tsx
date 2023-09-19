@@ -95,22 +95,22 @@ const NavMenu = () => {
                             </div>
                         </NavigationMenuItem>
                     </div>
-                    <div className={"flex flex-row items-center"}>
-                        <NavigationMenuItem>
-                            <Link href={navigation.ms.link} legacyBehavior passHref>
-                                <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw]"}>
-                                    <Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>
-                                        New
-                                    </Badge>
-                                    <div className={"font-bold"}>
-                                        {navigation.ms.title}
-                                    </div>
+                    {/*<div className={"flex flex-row items-center"}>*/}
+                    {/*    <NavigationMenuItem>*/}
+                    {/*        <Link href={navigation.ms.link} legacyBehavior passHref>*/}
+                    {/*            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw]"}>*/}
+                    {/*                <Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>*/}
+                    {/*                    New*/}
+                    {/*                </Badge>*/}
+                    {/*                <div className={"font-bold"}>*/}
+                    {/*                    {navigation.ms.title}*/}
+                    {/*                </div>*/}
 
 
-                                </NavigationMenuLink>
-                            </Link>
-                        </NavigationMenuItem>
-                    </div>
+                    {/*            </NavigationMenuLink>*/}
+                    {/*        </Link>*/}
+                    {/*    </NavigationMenuItem>*/}
+                    {/*</div>*/}
 
                 </NavigationMenuList>
 

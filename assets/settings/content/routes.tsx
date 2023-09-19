@@ -53,26 +53,26 @@ export const routes = [
                 title: "Přehled",
                 link: "/soutezetryhard",
             },
-            {
-                icon: <Megaphone className={iconClass}/>,
-                title: "Informace",
-                link: "/soutezetryhard/info",
-            },
+            // {
+            //     icon: <Megaphone className={iconClass}/>,
+            //     title: "Informace",
+            //     link: "/soutezetryhard/info",
+            // },
             {
                 icon: <Trophy className={iconClass}/>,
                 title: "Události",
                 link: "/soutezetryhard/udalosti",
             },
-            {
-                icon: <Activity className={iconClass}/>,
-                title: "Váš Status",
-                link: "/soutezetryhard/status",
-            },
-            {
-                icon: <Box className={iconClass}/>,
-                title: "PSF",
-                link: "/soutezetryhard/psf",
-            },
+            // {
+            //     icon: <Activity className={iconClass}/>,
+            //     title: "Váš Status",
+            //     link: "/soutezetryhard/status",
+            // },
+            // {
+            //     icon: <Box className={iconClass}/>,
+            //     title: "PSF",
+            //     link: "/soutezetryhard/psf",
+            // },
 
 
         ],
