@@ -69,7 +69,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         registrationDate: registrationSwitch? z.date() : z.date().optional(),
         competitionDate: !moreDaysSwitch ? z.date() : z.date().optional(),
         // object of two dates
-        competitionDateRange: moreDaysSwitch ? z.object({ from: z.date(), to: z.date() }) : z.object({ from: z.date(), to: z.date() }).optional(),
+        competitionDateRange: moreDaysSwitch ? z.object({ from: z.date(), to: z.date() }) : z.object({ from: z.date().optional(), to: z.date().optional() }).optional(),
         user: z.string().optional(),
         createChannel: z.boolean().default(defaultValues?.createChannel ? defaultValues?.createChannel : false).optional(),
         place: z.string().default(defaultValues?.place ? defaultValues?.place : undefined),

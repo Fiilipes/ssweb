@@ -63,7 +63,7 @@ export interface CompetitionValues {
     registrationDate?: Date | undefined,
     moredays?: boolean | undefined,
     competitionDate?: Date | undefined,
-    competitionDateRange?: {     from: Date;     to: Date; } | undefined,
+    competitionDateRange?: {     from?: Date | undefined;     to?: Date | undefined; } | undefined,
     place: string | undefined,
     description?: string | undefined,
 }
