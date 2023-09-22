@@ -45,6 +45,7 @@ class Functions {
                         },
                         competition: {
                             dateType: values.moredays ? "range" : "single",
+                            // @ts-ignore
                             date: values.moredays ? values.competitionDateRange ? values.competitionDateRange : null : values.competitionDate ? values.competitionDate : null,
                         },
                         place: values.place ? values.place : null,
