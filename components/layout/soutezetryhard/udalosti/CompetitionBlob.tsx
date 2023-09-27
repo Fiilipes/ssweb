@@ -22,10 +22,10 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
     return (
         <ContextMenu>
             <ContextMenuTrigger>
-                <Alert className={"mt-4 px-[3vw] py-[.5vw] overflow-hidden"} style={
-                    competition.type === "olympiáda" ?
+                <Alert className={"mt-4 px-[48px] py-[8px] overflow-hidden"} style={
+                    competition.type !== "olympiáda" ?
                         {
-                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(255,200,100,0.5) 100%)",
+                            backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(85,40,255,0.5) 100%)",
                             // filter: "blur(100px)",
                             backdropFilter: "blur(100px)",
 
@@ -43,43 +43,40 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
 
                         <AccordionTrigger className={"hover:no-underline z-10"}>
                             <div className={"flex flex-row items-center"}>
-                                <div className={"flex flex-col items-center justify-center min-w-[3vw] min-h-[4vw] rounded-xl"}>
+                                <div className={"flex flex-col items-center justify-center min-w-[48px] min-h-[64px] rounded-xl"}>
                                     <div>
                                         {competition.competition.dateType === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.date.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.date.from.seconds))}`}
 
                                     </div>
-                                    <div className={"font-semibold text-[2vw]"}>
+                                    <div className={"font-semibold text-[32px]"}>
                                         {competition.competition.dateType === "single" ? functions.getDateArrayFromTimestamp(competition.competition.date.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.competition.date.from.seconds)[2]}`}
                                     </div>
                                 </div>
-                                <Separator className={"transform rotate-90 w-[4vw] opacity-100 bg-[#ccc]"} />
-                                <div className={"text-[1.5vw] h-[2vw] font-bold w-[15vw] max-w-[15vw] overflow-hidden flex-row justify-start text-left"}>
+                                <Separator className={"transform rotate-90 w-[64px] opacity-100 bg-[#ccc]"} />
+                                <div className={"text-[24px] h-[32px] font-bold w-[240px] max-w-[240px] overflow-hidden flex-row justify-start text-left"}>
                                     {competition.name}
                                 </div>
-                                <Separator className={"transform rotate-90 w-[4vw]"} />
-                                <div className={"grid grid-cols-2 gap-x-[4vw]"}>
+                                <Separator className={"transform rotate-90 w-[64px]"} />
+                                <div className={"grid grid-cols-2 gap-x-[64px]"}>
                                     <div className={"flex flex-row items-center my-1"}>
-                                        <Shapes className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
-                                        <div>
+                                        <Shapes className={"w-[12px] h-[12px] opacity-70 mr-2"} />
+                                        <div className={"text-[12px]"}>
                                             {//first letter capitalized
                                                 competition.type.charAt(0).toUpperCase() + competition.type.slice(1)
                                             }
                                         </div>
                                     </div>
                                     <div className={"flex flex-row items-center my-1"}>
-                                        <Users2 className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
-                                        <div className={"flex flex-row items-center w-fit"}>
+                                        <Users2 className={"w-[12px] h-[12px] opacity-70 mr-2"} />
+                                        <div className={"flex flex-row items-center w-fit text-[12px]"}>
                                             {
-                                                competition.users.map((user: User) => {
-                                                    // eslint-disable-next-line react/jsx-key,@next/next/no-img-element
-                                                    return <UserAvatar className={"mr-[-1vw] h-[1.5vw] w-[1.5vw] opacity-90 rounded-full"} username={users.find(u=>user.discordID===u.discordID)?.discordUsername} avatarUrl={`https://cdn.discordapp.com/avatars/${user.discordID}/${users.find(u=>user.discordID===u.discordID)?.discordAvatar}.png?size=128`} />
-                                                })
+                                                competition.users.length >= 0 ? competition.users.length >= 1 ? competition.users.length >= 5 ? competition.users.length + " účastníků" : competition.users.length + " účastníci" : competition.users.length + " účastník" : "Nikdo se neúčastní"
                                             }
                                         </div>
                                     </div>
                                     <div className={"flex flex-row items-center my-1"}>
-                                        <MapPin className={"w-[.8vw] h-[.8vw] opacity-70 mr-2"} />
-                                        <div>
+                                        <MapPin className={"w-[12px] h-[12px] opacity-70 mr-2"} />
+                                        <div className={"text-[12px]"}>
                                             {
                                                 competition.place.charAt(0).toUpperCase() + competition.place.slice(1)
                                             }
@@ -91,16 +88,16 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
 
                             </div>
                         </AccordionTrigger>
-                        <AccordionContent className={"pt-[1vw]"}>
-                            <div className={"flex flex-row gap-x-[1vw]"}>
+                        <AccordionContent className={"pt-[16px]"}>
+                            <div className={"flex flex-row gap-x-[16px]"}>
                                 <Link href={"/soutezetryhard/udalosti/" + competition.name}>
                                     <Button variant={"outline"} className={"flex flex-row items-center"}>
-                                        <Info className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Zobrazit bližší informace
+                                        <Info className={"w-[14px] h-[14px] opacity-80 mr-2"}/> Zobrazit bližší informace
                                     </Button>
                                 </Link>
                                 <Link target={"_blank"} href={"https://discord.com/channels/1130637842276683909/" + competition.postId}>
                                     <Button variant={"outline"} className={"flex flex-row items-center"}>
-                                        <MessagesSquare className={"w-[.9vw] h-[.9vw] opacity-80 mr-2"}/> Discord
+                                        <MessagesSquare className={"w-[14px] h-[14px] opacity-80 mr-2"}/> Discord
                                     </Button>
                                 </Link>
                             </div>

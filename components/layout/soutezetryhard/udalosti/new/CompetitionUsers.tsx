@@ -16,7 +16,8 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
             name="user"
             render={({ field }) => (
                 <FormItem className="flex flex-col">
-                    <FormLabel>Účastníci soutěže</FormLabel>
+                    <FormLabel className={"text-[20px]"}>
+                        Účastníci soutěže</FormLabel>
                     <Popover>
                         <PopoverTrigger asChild>
                             <FormControl>
@@ -24,7 +25,7 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
                                     variant="outline"
                                     role="combobox"
                                     className={cn(
-                                        "w-full h-[5vw] justify-between",
+                                        "w-full h-[80px] justify-between",
                                         !field.value && "text-muted-foreground"
                                     )}
                                 >
@@ -32,7 +33,7 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
                                         ? <div className={"flex flex-row justify-start items-center"}>
 
                                             <div className={"flex flex-row items-center"}>
-                                                <Avatar className={"w-[2vw] h-[2vw]"} >
+                                                <Avatar className={"w-[32px] h-[32px]"} >
                                                     <AvatarImage src={users.find(
                                                         (user:User) => user.discordID === field.value
                                                     )?.discordAvatar} />
@@ -51,7 +52,7 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
                                                     }
                                                 </div>
                                             </div>
-                                            <Separator className={"rotate-90 w-[2vw] mx-4 p-0 bg-[#aaa]"} />
+                                            <Separator className={"rotate-90 w-[32px] mx-4 p-0 bg-[#aaa]"} />
                                             <div>
                                                 Vyberte dalšího uživatele...
                                             </div>
@@ -89,7 +90,7 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
                                                 )}
                                             />
                                             <div className={"flex flex-row items-center"}>
-                                                <Avatar className={"w-[2vw] h-[2vw]"} >
+                                                <Avatar className={"w-[32px] h-[32px]"} >
                                                     <AvatarImage src={user.discordAvatar} />
                                                     <AvatarFallback>CN</AvatarFallback>
                                                 </Avatar>

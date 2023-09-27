@@ -10,11 +10,11 @@ import ShowUserProfile from "@/components/reusable/discord/ShowUserProfile";
 const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
 
     return (
-        <Alert className={"flex flex-row justify-between items-end mb-4 lg:p-[1.2vw]"}>
+        <Alert className={"flex flex-row justify-between items-end mb-4 lg:p-[20px]"}>
             {
                 loading ?
                     <div>
-                        <Skeleton className="h-[2vw] w-[2vw] rounded-full mb-[1vw]"/>
+                        <Skeleton className="h-[32px] w-[32px] rounded-full mb-[16px]"/>
 
                         <Skeleton className="h-4 w-[200px]" />
                         <Skeleton className="h-4 w-[250px]" />
@@ -22,25 +22,26 @@ const UserCard = ({session, loading}: {session:any, loading:boolean}) => {
                     :
                     <>
                         <div>
-                            <Avatar className={"w-[2vw] h-[2vw] mb-[1vw]"}>
+                            <Avatar className={"w-[32px] h-[32px] mb-[16px]"}>
                                 <AvatarImage src={`${session?.image}`} alt={`@${session?.username}`} width={320} height={320} />
                                 <AvatarFallback>
                                     {session?.username ? session?.username.slice(0, 2) : "??"}
                                 </AvatarFallback>
                             </Avatar>
-                            <AlertTitle className={"lg:text-[1vw]"}>@{session?.username}</AlertTitle>
-                            <AlertDescription className={"lg:text-[.8vw]"}>
+                            <AlertTitle className={"lg:text-[16px]"}>@{session?.username}</AlertTitle>
+                            <AlertDescription className={"lg:text-[12px]"}>
                                 {session?.email}
-                                {session?.image}
                             </AlertDescription>
                         </div>
 
                         <div className={"flex flex-row"}>
 
-                            <ShowUserProfile discordId={session?.id}>
-                                Zobrazit na discordu
-                            </ShowUserProfile>
-
+                            {
+                                session?.id &&
+                                <ShowUserProfile discordId={session?.id}>
+                                    Zobrazit na discordu
+                                </ShowUserProfile>
+                            }
                             <SignOutButton>
                                 Odhlásit se
                             </SignOutButton>

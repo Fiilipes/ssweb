@@ -20,7 +20,18 @@ import CompetitionUsers from "@/components/layout/soutezetryhard/udalosti/new/Co
 import {User} from "@/assets/settings/interfaces";
 import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {CalendarClock, CalendarPlus, LinkIcon, Trash} from "lucide-react";
+import {
+    Command,
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+} from "@/components/ui/command"
+import {CalendarClock, CalendarPlus, LinkIcon, Plus, Trash} from "lucide-react";
 import CompetitionCreateChannelSwitch
     from "@/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch";
 import CompetitionPlace from "@/components/layout/soutezetryhard/udalosti/new/CompetitionPlace";
@@ -32,7 +43,16 @@ import UnderConstruction from "@/components/reusable/composition/UnderConstructi
 import {Button} from "@/components/ui/button";
 import {Form} from "@/components/ui/form";
 import CompetitionTheme from "@/components/layout/soutezetryhard/udalosti/new/CompetitionTheme";
-
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription, DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import {Label} from "@/components/ui/label";
+import {Input} from "@/components/ui/input";
 const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,chooseType: boolean, users:any}) => {
 
 
@@ -63,7 +83,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         name: z.string().min(2, {
             message: "Name must be at least 2 characters.",
         }).default(defaultValues?.name ? defaultValues?.name : undefined),
-        type: z.enum(["jednokolová soutěž", "vícekolová soutěž"]).default(defaultValues?.type ? defaultValues?.type : undefined),
+        type: z.enum(["soutěž", "přednáška", "zájezd"]).default(defaultValues?.type ? defaultValues?.type : undefined),
         registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
         moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
         registrationDate: registrationSwitch? z.date() : z.date().optional(),
@@ -114,193 +134,62 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 
 
-                <Tabs defaultValue={chooseType ? "division" : "finaltouch"} className="space-y-4">
-                    <TabsContent value="division" className="space-y-4">
+                <Tabs defaultValue={chooseType ? "introduction" : "need"} className="space-y-4">
+                    <TabsContent value="introduction" className="space-y-4">
 
 
-                            <CompetitionType form={form} setPreview__Type={setPreview__Type} />
-
+                        <div className={"my-[24px] flex flex-row items-center justify-between font-bold text-[28px]"}>
+                            <div>
+                                Úvod
+                            </div>
                             <TabsList>
-                                <TabsTrigger value="finaltouch" disabled={!form.getValues().type} >
+                                <TabsTrigger className={"bg-black text-white"} value="need" disabled={!form.getValues().type} >
                                     Pokračovat
                                 </TabsTrigger>
                             </TabsList>
+                        </div>
+                        <CompetitionType form={form} setPreview__Type={setPreview__Type} />
 
-
-                        </TabsContent>
-                    <TabsContent value="finaltouch" className="space-y-4">
+                    </TabsContent>
+                    <TabsContent value="need" className="space-y-4">
                         {
 
-                            preview__Type === "jednokolová soutěž" ? <>
-                                    <div className={"flex flex-col "}>
-                                            <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
+                            preview__Type === "soutěž" ? <>
+                                     <div className={"my-[24px] flex flex-row items-center justify-between font-bold text-[28px]"}>
+                                            <div>
                                                 Potřebné informace
                                             </div>
-                                            <div className={"mb-4 px-2 gap-y-[1vw] flex flex-col"}>
-                                                <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
-                                                <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
-
+                                            <div className={"flex flex-row items-center"}>
+                                                <TabsList>
+                                                    <TabsTrigger className={"bg-black text-white"} value="miles" disabled={(!form.getValues().competitionDateRange && preview__MoreDays) || (!form.getValues().competitionDate && !preview__MoreDays) || !form.getValues().name || !form.getValues().place} >
+                                                        Pokračovat
+                                                    </TabsTrigger>
+                                                </TabsList>
+                                                {
+                                                    chooseType ? <TabsList className={"mx-1"}>
+                                                        <TabsTrigger value="introduction">
+                                                            Jít zpět
+                                                        </TabsTrigger>
+                                                    </TabsList> : <Link href={`/soutezetryhard/udalosti/${
+                                                        defaultValues ? defaultValues?.name : ""}`}>
+                                                        <Button variant={"outline"} className={"mx-1"}>Zobrazit událost</Button>
+                                                    </Link>
+                                                }
                                             </div>
+                                        </div>
+                                        <div className={"mb-4 gap-y-[16px] flex flex-col"}>
+                                            <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
+                                            <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
 
-                                            <div className={"flex flex-row mb-8 pl-2"}>
+                                        </div>
 
-                                                <CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />
-
-                                                <CompetitionMoredaysSwitch  form={form} setPreview__MoreDays={setPreview__MoreDays} moreDaysSwitch={moreDaysSwitch} setMoreDaysSwitch={setMoreDaysSwitch} />
-
-                                            </div>
-                                            <div className={"flex flex-col px-2"}>
-
-                                                <CompetitionRegistrationDate  form={form} registrationDateRef={registrationDateRef} setPreview__RegistrationDate={setPreview__RegistrationDate} />
-
-                                                <CompetitionDate form={form} moreDaysSwitch={moreDaysSwitch} setPreview__CompetitionDate={setPreview__CompetitionDate} setPreview__CompetitionDateRange={setPreview__CompetitionDateRange} />
-
-                                            </div>
-                                            <div className={"my-[1.5vw] font-bold text-[1.8vw]"}>
-                                                Dodatečné informace
-                                            </div>
-
-                                            <div className={"px-2 mt-8"}>
-
-
-                                                <CompetitionUsers form={form} users={users} competitionUsers={competitionUsers} setCompetitionUsers={setCompetitionUsers} usersRef={usersRef} />
-                                                <div className={`mt-4 flex flex-row flex-wrap ${defaultValues?.users ? "opacity-1" : "opacity-0"} transition-all duration-500`} ref={usersRef}>
-                                                    {
-                                                        competitionUsers.map((user:User) => (
-                                                            // eslint-disable-next-line react/jsx-key
-                                                            <div className={"flex flex-row items-center mr-4 mb-2"}>
-
-                                                                <Card>
-                                                                    <CardHeader className={"flex flex-row items-start"}>
-                                                                        <CardTitle className={"flex flex-row text-[1.2vw]"}>
-                                                                            <Avatar className={"w-[2vw] h-[2vw] mr-2"} >
-                                                                                <AvatarImage src={user.discordAvatar} />
-                                                                                <AvatarFallback>CN</AvatarFallback>
-                                                                            </Avatar>
-                                                                            @{user.discordUsername}
-                                                                            {
-                                                                                user.discordDiscriminator !== "0" ? "#" + user.discordDiscriminator : ""
-                                                                            }
-                                                                        </CardTitle>
-                                                                        <CardDescription className={"flex flex-row items-center justify-center"}>
-                                                                            <Trash className={"w-[1.1vw] h-[1.1vw] opacity-80 ml-4"} onClick={() => {
-                                                                                setCompetitionUsers(competitionUsers.filter((user2:User) => user2.discordID != user.discordID))
-                                                                                if (competitionUsers.length - 1 === 0) {
-                                                                                    usersRef.current!.style.opacity = "0"
-                                                                                }
-                                                                            }} />
-                                                                        </CardDescription>
-                                                                    </CardHeader>
-
-                                                                </Card>
-                                                                <div className={"ml-2 font-bold flex flex-row items-center"}>
-
-
-                                                                </div>
-                                                            </div>
-                                                        ))
-                                                    }
-                                                </div>
-
-                                                <CompetitionCreateChannelSwitch form={form} createChannelSwitch={createChannelSwitch} setCreateChannelSwitch={setCreateChannelSwitch} setPreview__CreateChannel={setPreview__CreateChannel}  />
-
-                                                <div className={"mb-4 mt-2 px-2 w-full"}>
-
-                                                    <div className={"flex flex-row my-2 items-end w-full"}>
-                                                        <CompetitionDescription form={form} setPreview__Description={setPreview__Description}/>
-                                                        <CompetitionLinks linksRef={linksRef}  competitionLinks={competitionLinks} setCompetitionLinks={setCompetitionLinks}/>
-                                                    </div>
-
-                                                    <div ref={linksRef} className={`mt-4 flex flex-row flex-wrap ${defaultValues?.links ? "opacity-100" : "opacity-0"} transition-all duration-500`}>
-                                                        {
-                                                            competitionLinks.map((link:any) => (
-                                                                    // eslint-disable-next-line react/jsx-key
-                                                                    <div className={"flex flex-row items-center mr-4 mb-2"}>
-                                                                        <Card>
-                                                                            <CardHeader className={"flex flex-row items-start"}>
-                                                                                <CardTitle className={"flex flex-row text-[1.2vw]"}>
-                                                                                    <Link target={"_blank"} href={link.link} className={"w-[fit] h-[2vw] mr-2 flex flex-row items-center"} >
-                                                                                        <LinkIcon className={"w-[.8vw] h-[.8vw] mr-2"} />
-                                                                                        {link.label}
-                                                                                    </Link>
-                                                                                </CardTitle>
-                                                                                <CardDescription className={"flex flex-row items-center justify-center"}>
-                                                                                    <Trash className={"w-[1.1vw] h-[1.1vw] opacity-80 ml-4"} onClick={() => {
-                                                                                        setCompetitionLinks(competitionLinks.filter((link2:any) => link2.link != link.link))
-                                                                                        if (competitionLinks.length - 1 === 0) {
-                                                                                            linksRef.current!.style.opacity = "0"
-                                                                                        }
-                                                                                    }} />                                                                                    </CardDescription>
-                                                                            </CardHeader>
-
-                                                                        </Card>
-                                                                        <div className={"ml-2 font-bold flex flex-row items-center"}>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            )
-                                                        }
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-
-                                        {/*<div className={"px-8 max-w-[20vw] w-[20vw] overflow-hidden"}>*/}
-                                        {/*    <div className={`font-bold`} style={*/}
-                                        {/*        {*/}
-                                        {/*            fontSize: preview__Name.length > 0 ? preview__Name.length > 30 ? "1vw" : preview__Name.length > 20 ? "1.2vw" : preview__Name.length > 10 ? "1.5vw" : "2vw" : "1.5vw"*/}
-                                        {/*        }*/}
-                                        {/*    }>*/}
-                                        {/*        {preview__Name.length > 0 ? preview__Name : "Vyberte jméno"}*/}
-                                        {/*    </div>*/}
-                                        {/*    <div className={"text-[1vw] text-[#555] font-semibold mb-8"}>*/}
-                                        {/*        {*/}
-                                        {/*            // capital first letter*/}
-                                        {/*            preview__Type.charAt(0).toUpperCase() + preview__Type.slice(1)*/}
-                                        {/*        }*/}
-                                        {/*    </div>*/}
-
-                                        {/*    {preview__Registration &&*/}
-                                        {/*        <div className={"flex flex-col mb-2"}>*/}
-                                        {/*            <div className={"flex flex-row items-center mb-2"}>*/}
-                                        {/*                <CalendarPlus className={"w-[1.1vw] h-[1.1vw] mr-2"}/>*/}
-                                        {/*                <div className={"text-[.9vw] font-bold"}>*/}
-                                        {/*                    Datum registrace*/}
-
-                                        {/*                </div>*/}
-                                        {/*            </div>*/}
-
-                                        {/*            <div className={"text-[1vw]"}>*/}
-                                        {/*                {*/}
-                                        {/*                    preview__RegistrationDate ? format(preview__RegistrationDate, "PPP") : "Není vybráno"*/}
-                                        {/*                }*/}
-                                        {/*            </div>*/}
-
-
-                                        {/*        </div>*/}
-                                        {/*    }*/}
-
-                                        {/*    <div className={"flex flex-col"}>*/}
-                                        {/*        <div className={"flex flex-row items-center mb-2"}>*/}
-                                        {/*            <CalendarClock className={"w-[1.1vw] h-[1.1vw] mr-2"}/>*/}
-                                        {/*            <div className={"text-[.9vw] font-bold"}>*/}
-                                        {/*                Datum konání*/}
-
-                                        {/*            </div>*/}
-                                        {/*        </div>*/}
-
-                                        {/*        <div className={"text-[1vw]"}>*/}
-                                        {/*            {!preview__MoreDays ? preview__CompetitionDate ? format(preview__CompetitionDate, "PPP") : "Není vybráno" : preview__CompetitionDateRange ? preview__CompetitionDateRange.from ? preview__CompetitionDateRange.to ? format(preview__CompetitionDateRange.from, "LLL dd, y") + " - " + format(preview__CompetitionDateRange.to, "LLL dd, y") : format(preview__CompetitionDateRange.from, "LLL dd, y") : "Není vybráno" : "Není vybráno"}*/}
-                                        {/*        </div>*/}
-
-
-                                        {/*    </div>*/}
-
-                                        {/*</div>*/}
-                                    </div>
+                                    <CompetitionDate form={form} moreDaysSwitch={moreDaysSwitch} setPreview__CompetitionDate={setPreview__CompetitionDate} setPreview__CompetitionDateRange={setPreview__CompetitionDateRange} />
                                 </>:
-                                preview__Type === "vícekolová soutěž" &&
+                                preview__Type === "přednáška" ?
+                                    <>
+                                        <UnderConstruction />
+                                    </>:
+                                    preview__Type === "zájezd" &&
                                     <>
                                         <UnderConstruction />
                                     </>
@@ -309,19 +198,201 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
                         <div>
 
-                            <Button type="submit" className={"mx-1"}>{
-                                chooseType ? "Vytvořit" : "Upravit"
-                            }</Button>
-                            {
-                                chooseType ? <TabsList className={"mx-1"}>
-                                    <TabsTrigger value="division">
-                                        Jít zpět
+
+                        </div>
+                    </TabsContent>
+                    <TabsContent value={"miles"}>
+                        <div className={"my-[24px] flex flex-row items-center justify-between font-bold text-[28px]"}>
+                            <div>
+                                Milníky
+                            </div>
+                            <div className={"flex flex-row items-center"}>
+                                <TabsList>
+                                    <TabsTrigger className={"bg-black text-white"} value="other" disabled={!form.getValues().type} >
+                                        Pokračovat
                                     </TabsTrigger>
-                                </TabsList> : <Link href={`/soutezetryhard/udalosti/${
-                                    defaultValues ? defaultValues?.name : ""}`}>
-                                    <Button variant={"outline"} className={"mx-1"}>Zobrazit událost</Button>
-                                </Link>
-                            }
+                                </TabsList>
+                                {
+                                    chooseType ? <TabsList className={"mx-1"}>
+                                        <TabsTrigger value="need">
+                                            Jít zpět
+                                        </TabsTrigger>
+                                    </TabsList> : <Link href={`/soutezetryhard/udalosti/${
+                                        defaultValues ? defaultValues?.name : ""}`}>
+                                        <Button variant={"outline"} className={"mx-1"}>Zobrazit událost</Button>
+                                    </Link>
+                                }
+                            </div>
+                        </div>
+
+                        <Command>
+                            <CommandInput placeholder="Type a command or search..." />
+                            <CommandList>
+                                <CommandEmpty>No results found.</CommandEmpty>
+                                <CommandGroup heading="Předvolby">
+                                    <Dialog>
+                                        <DialogTrigger className={"w-full"}>
+                                            <CommandItem>
+                                                <CalendarPlus className="mr-2 h-4 w-4" />
+                                                <span>Registrace</span>
+                                            </CommandItem>
+                                        </DialogTrigger>
+                                        <DialogContent className="sm:max-w-[425px]">
+                                            <DialogHeader>
+                                                <DialogTitle>Edit profile</DialogTitle>
+                                                <DialogDescription>
+                                                    Make changes to your profile here. Click save when youre done.
+                                                </DialogDescription>
+                                            </DialogHeader>
+                                            <div className="grid gap-4 py-4">
+                                                <div className="grid grid-cols-4 items-center gap-4">
+                                                    <Label htmlFor="name" className="text-right">
+                                                        Name
+                                                    </Label>
+                                                    <Input
+                                                        id="name"
+                                                        defaultValue="Pedro Duarte"
+                                                        className="col-span-3"
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-4 items-center gap-4">
+                                                    <Label htmlFor="username" className="text-right">
+                                                        Username
+                                                    </Label>
+                                                    <Input
+                                                        id="username"
+                                                        defaultValue="@peduarte"
+                                                        className="col-span-3"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <DialogFooter>
+                                                <Button type="submit">Save changes</Button>
+                                            </DialogFooter>
+                                        </DialogContent>
+                                    </Dialog>
+
+                                </CommandGroup>
+                                <CommandSeparator />
+                                <CommandGroup heading="Nové">
+                                    <CommandItem>
+                                        <Plus className="mr-2 h-4 w-4" />
+                                        <span>Přidat</span>
+                                    </CommandItem>
+                                </CommandGroup>
+                            </CommandList>
+                        </Command>
+                        {/*<CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />*/}
+
+                        {/*<CompetitionRegistrationDate  form={form} registrationDateRef={registrationDateRef} setPreview__RegistrationDate={setPreview__RegistrationDate} />*/}
+
+
+
+                    </TabsContent>
+                    <TabsContent value={"other"}>
+                        <div className={"my-[24px] flex flex-row items-center justify-between font-bold text-[28px]"}>
+                            <div>
+                                Potřebné informace
+                            </div>
+                            <div className={"flex flex-row items-center"}>
+                                <div>
+
+                                </div>
+                                {
+                                    chooseType ? <TabsList className={"mx-1"}>
+                                        <TabsTrigger value="miles">
+                                            Jít zpět
+                                        </TabsTrigger>
+                                    </TabsList> : <Link href={`/soutezetryhard/udalosti/${
+                                        defaultValues ? defaultValues?.name : ""}`}>
+                                        <Button variant={"outline"} className={"mx-1"}>Zobrazit událost</Button>
+                                    </Link>
+                                }
+                            </div>
+                        </div>
+                        <div className={"mt-8"}>
+
+
+                            <CompetitionUsers form={form} users={users} competitionUsers={competitionUsers} setCompetitionUsers={setCompetitionUsers} usersRef={usersRef} />
+                            <div className={`mt-4 flex flex-row flex-wrap ${defaultValues?.users ? "opacity-1" : "opacity-0"} transition-all duration-500`} ref={usersRef}>
+                                {
+                                    competitionUsers.map((user:User) => (
+                                        // eslint-disable-next-line react/jsx-key
+                                        <div className={"flex flex-row items-center mr-4 mb-2"}>
+
+                                            <Card>
+                                                <CardHeader className={"flex flex-row items-start"}>
+                                                    <CardTitle className={"flex flex-row text-[20px]"}>
+                                                        <Avatar className={"w-[32px] h-[32px] mr-2"} >
+                                                            <AvatarImage src={user.discordAvatar} />
+                                                            <AvatarFallback>CN</AvatarFallback>
+                                                        </Avatar>
+                                                        @{user.discordUsername}
+                                                        {
+                                                            user.discordDiscriminator !== "0" ? "#" + user.discordDiscriminator : ""
+                                                        }
+                                                    </CardTitle>
+                                                    <CardDescription className={"flex flex-row items-center justify-center"}>
+                                                        <Trash className={"w-[17px] h-[17px] opacity-80 ml-4"} onClick={() => {
+                                                            setCompetitionUsers(competitionUsers.filter((user2:User) => user2.discordID != user.discordID))
+                                                            if (competitionUsers.length - 1 === 0) {
+                                                                usersRef.current!.style.opacity = "0"
+                                                            }
+                                                        }} />
+                                                    </CardDescription>
+                                                </CardHeader>
+
+                                            </Card>
+                                            <div className={"ml-2 font-bold flex flex-row items-center"}>
+
+
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+
+                            <CompetitionCreateChannelSwitch form={form} createChannelSwitch={createChannelSwitch} setCreateChannelSwitch={setCreateChannelSwitch} setPreview__CreateChannel={setPreview__CreateChannel}  />
+
+                            <div className={"mb-4 mt-2 w-full"}>
+
+                                <CompetitionDescription form={form} setPreview__Description={setPreview__Description}/>
+
+                                <CompetitionLinks linksRef={linksRef}  competitionLinks={competitionLinks} setCompetitionLinks={setCompetitionLinks}/>
+
+                                <div ref={linksRef} className={`mt-4 flex flex-row flex-wrap ${defaultValues?.links ? "opacity-100" : "opacity-0"} transition-all duration-500`}>
+                                    {
+                                        competitionLinks.map((link:any) => (
+                                                // eslint-disable-next-line react/jsx-key
+                                                <div className={"flex flex-row items-center mr-4 mb-2"}>
+                                                    <Card>
+                                                        <CardHeader className={"flex flex-row items-start"}>
+                                                            <CardTitle className={"flex flex-row text-[1.2vw]"}>
+                                                                <Link target={"_blank"} href={link.link} className={"w-fit h-[32px] mr-2 flex flex-row items-center"} >
+                                                                    <LinkIcon className={"w-[12px] h-[12px] mr-2"} />
+                                                                    {link.label}
+                                                                </Link>
+                                                            </CardTitle>
+                                                            <CardDescription className={"flex flex-row items-center justify-center"}>
+                                                                <Trash className={"w-[17px] h-[17px] opacity-80 ml-4"} onClick={() => {
+                                                                    setCompetitionLinks(competitionLinks.filter((link2:any) => link2.link != link.link))
+                                                                    if (competitionLinks.length - 1 === 0) {
+                                                                        linksRef.current!.style.opacity = "0"
+                                                                    }
+                                                                }} />                                                                                    </CardDescription>
+                                                        </CardHeader>
+
+                                                    </Card>
+                                                    <div className={"ml-2 font-bold flex flex-row items-center"}>
+                                                    </div>
+                                                </div>
+                                            )
+                                        )
+                                    }
+                                </div>
+                            </div>
+
+
                         </div>
                     </TabsContent>
                 </Tabs>

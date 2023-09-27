@@ -21,26 +21,26 @@ import {signOut} from "next-auth/react";
 const UserMenu = ({session}: {session:any}) => {
     return (
         <>
-            <NavigationMenu className={"z-50 transform translate-x-[-1vw]"}>
+            <NavigationMenu className={"z-50 transform translate-x-[-16px]"}>
                 <NavigationMenuList className={"items-center flex flex-col justify-center"}>
                     <NavigationMenuItem className={""}>
 
-                                <NavigationMenuTrigger className={"NOICON mx-1 2xl:mx-[.4vw] font-bold text-[#444] dark:text-[#bbb]  border border-input bg-white dark:bg-accent   2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,1)] 2xl:text-[.94vw] transform translate-x-[1vw] "}>
+                                <NavigationMenuTrigger className={"NOICON mx-1 2xl:mx-[6px] font-bold text-[#444] dark:text-[#bbb]  border border-input bg-white dark:bg-accent   2xl:px-[16px] 2xl:py-[20px] focus:bg-[rgba(255,255,255,1)] 2xl:text-[15px] transform translate-x-[16px] "}>
 
                                 {/* eslint-disable-next-line @next/next/no-img-element*/}
                                 <img src={
                                     //@ts-ignore
-                                    session?.image ? session?.image : ""} alt={"userImage"} className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.6vw] rounded-full"} />
+                                    session?.image ? session?.image : ""} alt={"userImage"} className={"h-4 w-4 2xl:h-[16px] 2xl:w-[16px] mr-2 2xl:mr-[8px] rounded-full"} />
                                 Profil
                                 </NavigationMenuTrigger>
 
-                        <NavigationMenuContent className={"w-[10vw] p-[.3vw]  "}>
-                            <div className="w-[6vw] p-4 lg:p-[.2vw] md:w-[8vw] lg:w-[8vw] ">
+                        <NavigationMenuContent className={"w-[160px] p-[5px]  "}>
+                            <div className="w-fit p-4 lg:p-[3px]">
 
                                         <NavigationMenuLink asChild>
-                                            <Link href={"/profil"} className={"select-none rounded-md lg:pl-[1vw] p-6 lg:p-[.6vw]  no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex flex-row items-center"}>
-                                                <User2 className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/>
-                                                <div className="text-[.9vw] font-semibold">Zobrazit</div>
+                                            <Link href={"/profil"} className={"select-none rounded-md lg:pl-[16px] lg:pr-[26px] p-6 lg:p-[9px] w-fit no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex flex-row items-center"}>
+                                                <User2 className={"w-4 h-4 lg:w-[14px] lg:h-[14px] opacity-80 mr-2"}/>
+                                                <div className="text-[14px] font-semibold">Zobrazit</div>
                                             </Link>
                                         </NavigationMenuLink>
                                         <NavigationMenuLink asChild>
@@ -50,9 +50,9 @@ const UserMenu = ({session}: {session:any}) => {
                                                         window.location.href = "/"
                                                     }
                                                 )
-                                            }} className={"cursor-pointer select-none rounded-md lg:pl-[1vw] p-6 lg:p-[.6vw]  no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex flex-row items-center"}>
-                                                <LogOut className={"w-4 h-4 lg:w-[.9vw] lg:h-[.9vw] opacity-80 mr-2"}/>
-                                                <div className="text-[.9vw] font-semibold">Odhlásit</div>
+                                            }} className={"cursor-pointer select-none rounded-md lg:pl-[16px] p-6 lg:p-[9px]  no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex flex-row items-center"}>
+                                                <LogOut className={"w-4 h-4 lg:w-[14px] lg:h-[14px] opacity-80 mr-2"}/>
+                                                <div className="text-[14px] font-semibold">Odhlásit</div>
                                             </div>
                                         </NavigationMenuLink>
                             </div>

@@ -34,7 +34,7 @@ class Functions {
             // generate random id 30 characters long
             let competitionId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             switch (values.type) {
-                case "jednokolová soutěž":
+                case "soutěž":
                     newCompetition = {
                         name: values.name,
                         type: values.type,
@@ -56,7 +56,10 @@ class Functions {
                         postId: null,
                     }
                     break;
-                case "vícekolová soutěž":
+                case "přednáška":
+
+                    break;
+                case "zájezd":
 
                     break;
             }
@@ -311,7 +314,7 @@ class Functions {
         } else if (daysDifference <= 20 ) {
             const weeks = Math.floor(daysDifference / 7);
             return `Za ${weeks} ${weeks <= 1 ? 'týden' : 'týdny'}`;
-        } else if (daysDifference <= 55) {
+        } else if (daysDifference <= 334) {
             const months = Math.floor(daysDifference / 30);
             return `Za ${months} ${months <= 1 ? 'měsíc' : months <= 4 ? 'měsíce' : 'měsíců'}`;
         } else {

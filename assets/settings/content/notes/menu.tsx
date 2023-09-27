@@ -1,7 +1,7 @@
 import {Bold, Italic, List, SquareDashedBottomCode, Strikethrough, Underline} from "lucide-react";
 import React from "react";
 
-const iconClass = 'text-white w-[1.2vw] h-[1.2vw]'
+const iconClass = 'text-white w-[16px] h-[16px]'
 
 
 const menuOptions = (editor?:any) => ({

@@ -14,7 +14,7 @@ const CompetitionRegistrationDate = ({form, registrationDateRef, setPreview__Reg
             name="registrationDate"
             render={({ field }) => (
                 <FormItem className={`flex flex-col ${field.value ? "opacity-100 h-full pointer-events-all" : "opacity-0 h-0 pointer-events-none"} overflow-hidden   duration-700 transition-all mb-2`} ref={registrationDateRef}>
-                    <FormLabel>Datum registrace</FormLabel>
+                    <FormLabel className={"text-[20px]"}>Datum registrace</FormLabel>
                     <Popover>
                         <PopoverTrigger asChild>
                             <FormControl>
@@ -26,7 +26,7 @@ const CompetitionRegistrationDate = ({form, registrationDateRef, setPreview__Reg
                                     )}
                                 >
                                     {field.value ? (format(field.value, "PPP")) : <div>
-                                        Pick a date
+                                        Vyberte datum...
                                     </div>}
                                     <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                 </Button>

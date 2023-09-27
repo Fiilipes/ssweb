@@ -8,9 +8,9 @@ const CompetitionRegistrationSwitch = ({form, setPreview__Registration, registra
             control={form.control}
             name="registration"
             render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4 mr-2">
+                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4 mr-2 bg-white">
                     <div className="space-y-0.5 mr-8">
-                        <FormLabel className="text-base">
+                        <FormLabel className="text-base text-[20px]">
                             Registrace
                         </FormLabel>
                         <FormDescription>

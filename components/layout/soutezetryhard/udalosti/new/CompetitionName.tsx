@@ -9,7 +9,7 @@ const CompetitionName = ({form, setPreview__Name}: {form: any, setPreview__Name:
             name="name"
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Název</FormLabel>
+                    <FormLabel className={"text-[18px]"}>Název</FormLabel>
                     <FormControl>
                         <Input placeholder="Název soutěže..." {...field} onInput={
                             (e) => {

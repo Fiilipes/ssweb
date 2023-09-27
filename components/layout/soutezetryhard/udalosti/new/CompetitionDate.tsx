@@ -16,7 +16,7 @@ const CompetitionDate = ({form, moreDaysSwitch, setPreview__CompetitionDate, set
                     name="competitionDate"
                     render={({ field }) => (
                         <FormItem className="flex flex-col my-2" >
-                            <FormLabel>Datum konání soutěže</FormLabel>
+                            <FormLabel className={"text-[18px]"}>Datum konání soutěže</FormLabel>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <FormControl>
@@ -30,11 +30,11 @@ const CompetitionDate = ({form, moreDaysSwitch, setPreview__CompetitionDate, set
                                             {field.value? typeof field.value !== "object" ? (
                                                 format(field.value, "PPP")
                                             ) : field.value.hasOwnProperty("from") ? (
-                                                <span>Pick a date</span>
+                                                <span>Vyberte datum</span>
                                             ) : (
                                                 format(field.value, "PPP")
                                             ): (
-                                                <span>Pick a date</span>
+                                                <span>Vyberte datum</span>
                                             )}
                                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                         </Button>
@@ -72,7 +72,7 @@ const CompetitionDate = ({form, moreDaysSwitch, setPreview__CompetitionDate, set
                     name="competitionDateRange"
                     render={({ field }) => (
                         <FormItem className="flex flex-col my-2" >
-                            <FormLabel>Datum konání soutěže</FormLabel>
+                            <FormLabel className={"text-[18px]"}>Datum konání soutěže</FormLabel>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <Button
@@ -93,7 +93,7 @@ const CompetitionDate = ({form, moreDaysSwitch, setPreview__CompetitionDate, set
                                                 format(field.value.from, "LLL dd, y")
                                             )
                                         ) : (
-                                            <span>Pick a date range</span>
+                                            <span>Vyberte datový rozsah...</span>
                                         )}
                                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                     </Button>

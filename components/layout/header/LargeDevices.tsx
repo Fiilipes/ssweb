@@ -28,21 +28,21 @@ const NavMenu = () => {
                 <NavigationMenuList className={"items-start"}>
 
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[1vw] 2xl:py-[1.2vw] focus:bg-[rgba(255,255,255,0)] lg:text-[.94vw]"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[16px] 2xl:py-[20px] focus:bg-[rgba(255,255,255,0)] lg:text-[15px] font-semibold"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
                         <NavigationMenuContent>
-                            <ul className="grid gap-[1vw] lg:p-[1.2vw] md:w-[25vw] lg:w-[30vw] lg:grid-cols-[.75fr_1fr]">
+                            <ul className="grid gap-[16px] lg:p-[20px] md:w-[400px] lg:w-[550px] lg:grid-cols-[.75fr_1fr]">
                                 <li className="row-span-3">
                                     <NavigationMenuLink asChild>
                                         <Link
-                                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 2xl:p-[2vw] no-underline outline-none focus:shadow-md"
+                                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 2xl:p-[32px] no-underline outline-none focus:shadow-md"
                                             href={navigation.gettingStarted.components.widget.link}
                                             scroll={true}
                                         >
-                                            <LayoutPanelLeft className={"2xl:w-[4vw] 2xl:h-[4vw]"}/>
-                                            <div className="mb-[.6vw] mt-[1.2vw] text-[1.2vw] font-medium">
+                                            <LayoutPanelLeft className={"2xl:w-[64px] 2xl:h-[64px]"}/>
+                                            <div className="mb-[8px] mt-[20px] text-[20px] font-medium">
                                                 {navigation.gettingStarted.components.widget.title}
                                             </div>
-                                            <p className="text-[.9vw] leading-tight text-muted-foreground">
+                                            <p className="text-[15px] leading-tight text-muted-foreground">
                                                 {navigation.gettingStarted.components.widget.content}
                                             </p>
                                         </Link>
@@ -53,9 +53,9 @@ const NavMenu = () => {
                                         // eslint-disable-next-line react/jsx-key
                                         <li>
                                             <NavigationMenuLink asChild>
-                                                <Link href={route.link} className={"block select-none space-y-1 2xl:space-y-[.6vw] rounded-md p-3 2xl:p-[.6vw] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>
-                                                    <div className="text-[.95vw] font-medium leading-none">{route.title}</div>
-                                                    <p className="line-clamp-2 text-[.85vw] leading-snug text-muted-foreground">
+                                                <Link href={route.link} className={"block select-none space-y-1 2xl:space-y-[8px] rounded-md p-3 2xl:p-[8px] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}>
+                                                    <div className="text-[15px] font-medium leading-none">{route.title}</div>
+                                                    <p className="line-clamp-2 text-[13px] leading-snug text-muted-foreground">
                                                         {route.content}
                                                     </p>
                                                 </Link>
@@ -90,27 +90,27 @@ const NavMenu = () => {
                     {/*</NavigationMenuItem>*/}
                     <div className={"flex flex-row items-center"}>
                         <NavigationMenuItem  onClick={() => setOpen(!open)}>
-                            <div className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw] cursor-pointer "}>
+                            <div className={"font-semibold transition-colors hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] 2xl:py-[20px] lg:text-[15px] cursor-pointer "}>
                                 Prozkoumat
                             </div>
                         </NavigationMenuItem>
                     </div>
-                    {/*<div className={"flex flex-row items-center"}>*/}
-                    {/*    <NavigationMenuItem>*/}
-                    {/*        <Link href={navigation.ms.link} legacyBehavior passHref>*/}
-                    {/*            <NavigationMenuLink className={"transition-colors font-medium hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[1vw] 2xl:py-[1.2vw] lg:text-[.94vw]"}>*/}
-                    {/*                <Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>*/}
-                    {/*                    New*/}
-                    {/*                </Badge>*/}
-                    {/*                <div className={"font-bold"}>*/}
-                    {/*                    {navigation.ms.title}*/}
-                    {/*                </div>*/}
+                    <div className={"flex flex-row items-center"}>
+                        <NavigationMenuItem>
+                            <Link href={"/soutezetryhard"} legacyBehavior passHref>
+                                <NavigationMenuLink className={"transition-colors font-semibold hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] 2xl:py-[20px] lg:text-[15px]"}>
+                                    {/*<Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>*/}
+                                    {/*    New*/}
+                                    {/*</Badge>*/}
+                                    <div>
+                                        Soutěže Tryhard
+                                    </div>
 
 
-                    {/*            </NavigationMenuLink>*/}
-                    {/*        </Link>*/}
-                    {/*    </NavigationMenuItem>*/}
-                    {/*</div>*/}
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
+                    </div>
 
                 </NavigationMenuList>
 

@@ -16,7 +16,7 @@ export function CompetitionLinks({competitionLinks, setCompetitionLinks, linksRe
     return (
         <Dialog>
             <DialogTrigger asChild >
-                <Button variant="outline" className={"h-[6vw]"}>Přidat odkaz</Button>
+                <Button variant="outline" className={"h-[96px]"}>Přidat odkaz</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

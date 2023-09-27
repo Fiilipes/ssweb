@@ -18,7 +18,7 @@ export interface User {
 
 export interface Competition {
     name: string;
-    type: "jednokolová soutěž" | "vícekolová soutěž";
+    type: "soutěž" | "přednáška" | "zájezd";
     id: string;
     registration: {
         enabled: boolean | undefined;

@@ -89,7 +89,7 @@ const Page = () => {
                                                                 // eslint-disable-next-line react/jsx-key
                                                                 <div>
                                                                     <div className={"text-[1.5vw] mt-[2.5vw] text-[#333] font-bold"}>
-                                                                        {monthNames[comp.month]}
+                                                                        {monthNames[comp.month-1]}
                                                                     </div>
                                                                     {
                                                                         comp.competitions.map((c: any) => {

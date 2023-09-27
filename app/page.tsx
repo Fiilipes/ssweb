@@ -26,30 +26,30 @@ export default async function Home() {
 
 
             <div className={"flex flex-col items-center justify-start h-fit w-full z-10 my-[100px] lg:my-0"}>
-                <h1 className={"text-[50px] lg:text-[6vw] font-bold mt-[8vw]"}>
+                <h1 className={"text-[50px] lg:text-[96px] font-bold mt-[128px]"}>
                     {pages.homepage.title}
                 </h1>
-                <p className={"text-[15px] text-center lg:text-[1.2vw] font-bold lg:font-medium"}>
+                <p className={"text-[15px] text-center lg:text-[20px] font-bold lg:font-medium"}>
                     {pages.homepage.description}
                 </p>
 
-                <div className={"mt-[40px] lg:mt-[4vw] flex flex-row items-end"}>
+                <div className={"mt-[40px] lg:mt-[48px] flex flex-row items-end"}>
 
                     <ExploreButton/>
 
                     {
                         session ?
                             <Link href={"/profil"}>
-                                <Button variant={"outline"} className={"mx-1 2xl:px-[1vw] 2xl:py-[1.2vw] 2xl:mx-[.4vw] font-bold text-[#444] 2xl:text-[.9vw]"}>
+                                <Button variant={"outline"} className={"mx-1 2xl:px-[16px] 2xl:py-[20px] 2xl:mx-[6px] font-bold text-[#444] 2xl:text-[14px]"}>
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <UserCircle2 className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.8vw]"} />
+                                    <UserCircle2 className={"h-4 w-4 2xl:h-[16px] 2xl:w-[16px] mr-2 2xl:mr-[12px]"} />
                                     Zobrazit profil
                                 </Button>
                             </Link>
                             :
                             <SignInButton>
-                                <Button variant={"outline"}  className={"mx-1 2xl:mx-[.4vw] font-bold text-[#444] 2xl:text-[.9vw]"}>
-                                    <UserCircle2 className={"h-4 w-4 2xl:h-[1vw] 2xl:w-[1vw] mr-2 2xl:mr-[.8vw]"} />
+                                <Button variant={"outline"}  className={"mx-1 2xl:mx-[6px] font-bold text-[#444] 2xl:text-[14px]"}>
+                                    <UserCircle2 className={"h-4 w-4 2xl:h-[16px] 2xl:w-[16px] mr-2 2xl:mr-[12px]"} />
                                     Připojte se
                                 </Button>
                             </SignInButton>
@@ -65,7 +65,7 @@ export default async function Home() {
 
             <Routes />
 
-            <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[0vw] z-0 opacity-70 w-[65vw]"} />
+            <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[0vw] z-0 opacity-70 w-[1040px] select-none"} />
 
 
         </main>

@@ -6,7 +6,7 @@ import {Button} from "@/components/ui/button";
 
 const SignOutButton = ({children}: {children: React.ReactNode}) => {
     return (
-        <Button variant={"outline"} className={"mx-1 lg:text-[1vw] lg:px-[1vw] lg:py-[1.3vw]"} onClick={() => {
+        <Button variant={"outline"} className={"mx-1 lg:text-[14px] lg:px-[16px] lg:py-[21px]"} onClick={() => {
             signOut().then(
                 () => {
                     window.location.href = "/"

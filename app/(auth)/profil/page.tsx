@@ -22,6 +22,7 @@ import { User } from "@/assets/settings/interfaces";
 export default function SoutezeTryhard() {
 
     const [verified, setVerified] = React.useState(null)
+    const [users, setUsers] = React.useState<User[] | null>(null)
     const [myUser , setMyUser] = React.useState<User | null>(null)
 
     const {data:session} = useSession()
@@ -37,6 +38,8 @@ export default function SoutezeTryhard() {
                             if (verified) {
                                 // @ts-ignore
                                 setMyUser(res["users"].list.find(user => user.discordID === session.id))
+                                // @ts-ignore
+                                setUsers(res["users"].list.filter(user => user.servers.find(server => server.name === "Survival Server")?.verified || user.servers.find(server => server.name === "Soutěže Tryhard")?.verified).sort((a,b) => b.ssCoins - a.ssCoins))
                             }
                         }
                     )
@@ -53,8 +56,8 @@ export default function SoutezeTryhard() {
             {
                 verified !== false ? <>
                     <UserCard session={session} loading={verified === null}/>
-                    <UserBadges session={session} loading={verified === null}/>
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
+                    <UserBadges session={session} myUser={myUser} loading={verified === null}/>
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-[16px]">
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className="text-sm font-medium">
@@ -78,26 +81,30 @@ export default function SoutezeTryhard() {
                                 <Trophy className={"opacity-60 w-4 h-4"} />
                             </CardHeader>
                             <CardContent>
-                                <div className="text-2xl font-bold">4.</div>
+                                <div className="text-2xl font-bold">
+                                    {
+                                        users && users?.findIndex(user => user.discordID === myUser?.discordID) + 1
+                                    }.
+                                </div>
                                 <p className="text-xs text-muted-foreground">
                                     V celkovém leaderboardu
                                 </p>
                             </CardContent>
                         </Card>
-                        <Card>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">
-                                    Status
-                                </CardTitle>
-                                <Target     className={"opacity-60 w-4 h-4"} />
-                            </CardHeader>
-                            <CardContent>
-                                <div className="text-2xl font-bold">Basic</div>
-                                <p className="text-xs text-muted-foreground">
-                                    Objevte více možností s Pro
-                                </p>
-                            </CardContent>
-                        </Card>
+                        {/*<Card>*/}
+                        {/*    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">*/}
+                        {/*        <CardTitle className="text-sm font-medium">*/}
+                        {/*            Status*/}
+                        {/*        </CardTitle>*/}
+                        {/*        <Target     className={"opacity-60 w-4 h-4"} />*/}
+                        {/*    </CardHeader>*/}
+                        {/*    <CardContent>*/}
+                        {/*        <div className="text-2xl font-bold">Basic</div>*/}
+                        {/*        <p className="text-xs text-muted-foreground">*/}
+                        {/*            Objevte více možností s Pro*/}
+                        {/*        </p>*/}
+                        {/*    </CardContent>*/}
+                        {/*</Card>*/}
                     </div>
                 </> : <>
                     <NotVerified>

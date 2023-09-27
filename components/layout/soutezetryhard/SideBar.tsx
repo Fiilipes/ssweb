@@ -39,13 +39,13 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={"w-[18vw] mx-0 px-0 hidden md:flex"}>
+            <div className={"w-[288px] mx-0 px-0 hidden md:flex"}>
 
             </div>
-            <div className={"w-[18vw] flex-col hidden lg:flex fixed pt-[2.3vw] "}>
+            <div className={"w-[288px] flex-col hidden lg:flex fixed pt-[37px] "}>
                 {links.map((link, i) => (
                     <Link href={link.href} className={"w-fit"} key={i}>
-                        <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[1vw] font-bold text-[#000] text-[1vw] w-[12vw] h-[2.5vw]" : "my-1 py-[1vw] font-bold text-[#666] text-[1vw] w-[12vw] h-[2.5vw]"}>
+                        <Button variant={pathname === link.href || (link.href !== "/soutezetryhard" && pathname.startsWith(link.href)) ? "secondary" : "outline"} className={pathname === link.href ? "my-1 py-[16px] font-bold text-[#000] text-[16px] w-[192px] h-[40px]" : "my-1 py-[16px] font-bold text-[#666] text-[16px] w-[192px] h-[40px]"}>
                             {link.name}
                         </Button>
                     </Link>

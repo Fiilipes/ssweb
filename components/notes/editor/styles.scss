@@ -1,13 +1,13 @@
 
 .ProseMirror {
   > * + * {
-    margin-top: 0.75em;
+    margin-top: 0.25em;
     color: unset !important;
   }
 
   p {
-    padding: .3rem 0;
-    font-size: 1vw;
+    padding:0;
+    font-size: 16px;
   }
 
 
@@ -185,7 +185,7 @@
   font-size: 70%;
   box-decoration-break: clone;
   font-weight: 600;
-  line-height: .85vw;
+  line-height: 13px;
 }
 
 

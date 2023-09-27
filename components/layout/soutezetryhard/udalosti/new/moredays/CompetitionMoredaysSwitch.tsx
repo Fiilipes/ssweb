@@ -8,15 +8,7 @@ const CompetitionMoredaysSwitch = ({form, setPreview__MoreDays, moreDaysSwitch, 
             control={form.control}
             name="moredays"
             render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4 mx-2">
-                    <div className="space-y-0.5 mr-8">
-                        <FormLabel className="text-base">
-                            Více dní
-                        </FormLabel>
-                        <FormDescription>
-                            Soutěž probíhá déle než jeden den
-                        </FormDescription>
-                    </div>
+                <FormItem>
                     <FormControl>
                         <Switch
                             checked={field.value}

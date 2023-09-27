@@ -10,20 +10,23 @@ const BubbleMenu = ({ editor }:{editor:any}) => {
     return (
         <BubbleMenuTiptap editor={editor} tippyOptions={{ duration: 100 }}>
             <button
+                type={"button"}
                 onClick={() => editor.chain().focus().toggleBold().run()}
-                className={editor.isActive('bold') ? 'bg-black text-white border-[.1vw] mx-[.2vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw]' : 'bg-white border-[.1vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw] mx-[.2vw]'}
+                className={editor.isActive('bold') ? 'bg-black text-white border-[1.5px] mx-[3px] px-[6px] py-[3px] font-semibold border-black rounded-[3px]' : 'bg-white border-[1.5px] px-[6px] py-[3px] font-semibold border-black rounded-[3px] mx-[3px]'}
             >
                 Bold
             </button>
             <button
+                type={"button"}
                 onClick={() => editor.chain().focus().toggleItalic().run()}
-                className={editor.isActive('italic') ? 'bg-black text-white border-[.1vw] mx-[.2vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw]' : 'bg-white border-[.1vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw] mx-[.2vw]'}
+                className={editor.isActive('italic') ? 'bg-black text-white border-[1.5px] mx-[3px] px-[6px] py-[3px] font-semibold border-black rounded-[3px]' : 'bg-white border-[1.5px] px-[6px] py-[3px] font-semibold border-black rounded-[3px] mx-[3px]'}
             >
                 Italic
             </button>
             <button
+                type={"button"}
                 onClick={() => editor.chain().focus().toggleStrike().run()}
-                className={editor.isActive('strike') ? 'bg-black text-white border-[.1vw] mx-[.2vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw]' : 'bg-white border-[.1vw] px-[.4vw] py-[.2vw] font-semibold border-black rounded-[.2vw] mx-[.2vw]'}
+                className={editor.isActive('strike') ? 'bg-black text-white border-[1.5px] mx-[3px] px-[6px] py-[3px] font-semibold border-black rounded-[3px]' : 'bg-white border-[1.5px] px-[6px] py-[3px] font-semibold border-black rounded-[3px] mx-[3px]'}
             >
                 Strike
             </button>

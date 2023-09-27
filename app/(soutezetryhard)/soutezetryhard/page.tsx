@@ -56,14 +56,14 @@ export default function SoutezeTryhard() {
 
                     <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
 
-                        <div className={"font-semibold mb-[25px] lg:mb-[1vw] text-[18px] lg:text-[1vw]"}>
+                        <div className={"font-semibold mb-[25px] lg:mb-[16px] text-[18px] lg:text-[16px]"}>
                             Vítejte
-                            <span className={"font-bold  text-[25px] lg:text-[1.5vw] mx-2"}>
+                            <span className={"font-bold  text-[25px] lg:text-[25px] mx-2"}>
                                 @{session?.user?.name}
                             </span>
                         </div>
 
-                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
+                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[16px]">
                             <Card>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">

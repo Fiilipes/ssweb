@@ -34,13 +34,14 @@ const MenuBar = ({ editor, menubar }:{editor:any, menubar:any[]}) => {
     }, [editor, menubar])
 
     return (
-        <div className={"bg-[#111] flex flex-row items-center p-[.8vw] gap-x-[.5vw] "}>
+        <div className={"bg-[#111] flex flex-row items-center p-[10px] gap-x-[8px] "}>
             {
                 options.map((option, index) => (
                     <button
                         key={index}
                         onClick={option.onClick}
-                        className={editor.isActive(option.name) ? 'bg-[#333] rounded-[.2vw] p-[.2vw] transition-all duration-200' : 'rounded-[.2vw] p-[.2vw] hover:bg-[#333] transition-all duration-200'}
+                        type={"button"}
+                        className={editor.isActive(option.name) ? 'bg-[#333] rounded-[4px] p-[4px] transition-all duration-200' : 'rounded-[4px] p-[4px] hover:bg-[#333] transition-all duration-200'}
                     >
                         {option.icon}
                     </button>

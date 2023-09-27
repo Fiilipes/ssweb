@@ -77,8 +77,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                             <PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}`} buttons={[{content:"Upravit událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />
 
                             <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")} >
-                                <ScrollArea className={"h-[65vh] max-h-[65vh] min-h-[65vh]"}>
-                                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[1vw]">
+                                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[16px]">
                                         <Card>
                                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                                 <CardTitle className="text-sm font-medium">
@@ -144,20 +143,19 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                             </CardContent>
                                         </Card>
                                     </div>
-                                    <div className={"text-[1.4vw] font-bold mt-[2.5vw] mb-[1vw]"}>
+                                    <div className={"text-[24px] font-bold mt-[40px] mb-[16px]"}>
                                         Soutěžící
                                     </div>
 
                                     <DataTable columns={columns} data={users} currentUsername={"filipjarolim"} />
 
 
-                                </ScrollArea>
-          
 
-                                <Button variant={"destructive"} onClick={() => {
+
+                                <Button variant={"destructive"} className={"my-[50px]"} onClick={() => {
                                     functions.removeCompetition(myCompetition?.id!)
                                 }}>
-                                    Remove
+                                    Odstranit soutěž
                                 </Button>
 
 
