@@ -107,6 +107,8 @@ export default function Page() {
             <PageContentWrap status={verified} server={discordServers.find(server => server.name === "Soutěže Tryhard")}>
                 <CompetitionForm defaultValues={undefined} chooseType={true} users={users} />
             </PageContentWrap>
+
+
         </section>
     )
 }

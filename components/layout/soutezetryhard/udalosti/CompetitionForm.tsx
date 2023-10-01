@@ -18,7 +18,7 @@ import CompetitionRegistrationDate
 import CompetitionDate from "@/components/layout/soutezetryhard/udalosti/new/CompetitionDate";
 import CompetitionUsers from "@/components/layout/soutezetryhard/udalosti/new/CompetitionUsers";
 import {User} from "@/assets/settings/interfaces";
-import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {
     Command,
@@ -31,7 +31,19 @@ import {
     CommandSeparator,
     CommandShortcut,
 } from "@/components/ui/command"
-import {CalendarClock, CalendarPlus, LinkIcon, Plus, Trash} from "lucide-react";
+import {
+    CalendarClock,
+    CalendarIcon,
+    CalendarPlus,
+    Clock,
+    LinkIcon,
+    PlaneTakeoff,
+    Plus,
+    Speech,
+    Swords,
+    Trash,
+    Users2
+} from "lucide-react";
 import CompetitionCreateChannelSwitch
     from "@/components/layout/soutezetryhard/udalosti/new/createchannel/CompetitionCreateChannelSwitch";
 import CompetitionPlace from "@/components/layout/soutezetryhard/udalosti/new/CompetitionPlace";
@@ -53,6 +65,38 @@ import {
 } from "@/components/ui/dialog"
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
+import menuOptions from "@/assets/settings/content/notes/menu";
+import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
+import {cn} from "@/lib/utils";
+import {Calendar} from "@/components/ui/calendar";
+import CompetitionSoutezType from "@/components/layout/soutezetryhard/udalosti/new/CompetitionSoutezType";
+import {Separator} from "@/components/ui/separator";
+import { Switch } from '@/components/ui/switch';
+import {DateRange} from "react-day-picker";
+
+const milesOptionsIconClass = "w-4 h-4 mr-2"
+const milesOptionsDateUndefined = {
+    value: undefined,
+    type: "single"
+}
+const milesOptions = [
+    {
+        name: "registration",
+        label: "Registrace",
+        date: milesOptionsDateUndefined,
+        description: "Registrace na soutěž",
+        icon: <CalendarPlus className={milesOptionsIconClass} />,
+    },
+    {
+        name: "competitionDate",
+        label: "Datum soutěže",
+        date: milesOptionsDateUndefined,
+        description: "Datum konání soutěže",
+        icon: <Swords className={milesOptionsIconClass} />,
+    },
+
+]
+
 const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,chooseType: boolean, users:any}) => {
 
 
@@ -68,22 +112,24 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     const [preview__Place, setPreview__Place] = React.useState("");
     const [preview__Description, setPreview__Description] = React.useState("");
     const [preview__Type, setPreview__Type] = React.useState(defaultValues?.type ? defaultValues?.type : "");
+    const [preview__CompetitionType, setPreview__CompetitionType] = React.useState(defaultValues?.competitionType ? defaultValues?.competitionType : "");
     const [preview__Registration, setPreview__Registration] = React.useState(defaultValues?.registration ? defaultValues?.registration : false);
     const [preview__MoreDays, setPreview__MoreDays] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
     const [preview__RegistrationDate, setPreview__RegistrationDate] = React.useState(defaultValues?.registrationDate ? defaultValues?.registrationDate : undefined);
     const [preview__CompetitionDate, setPreview__CompetitionDate] = React.useState(defaultValues?.moredays ? undefined : defaultValues?.competitionDate ? defaultValues?.competitionDate : undefined);
     const [preview__CompetitionDateRange, setPreview__CompetitionDateRange] = React.useState(defaultValues?.moredays ? defaultValues?.competitionDate ? defaultValues?.competitionDate : {from: undefined, to: undefined} :  {from: undefined, to: undefined});
-
+    const [miles,setMiles] = React.useState<any[]>([])
     // ref to the registration date
     const registrationDateRef = React.useRef<HTMLDivElement>(null);
     const usersRef = React.useRef<HTMLDivElement>(null);
     const linksRef = React.useRef<HTMLDivElement>(null);
-
+    const [date, setDate] = React.useState<DateRange | Date | undefined>(undefined)
     const formSchema = z.object({
         name: z.string().min(2, {
             message: "Name must be at least 2 characters.",
         }).default(defaultValues?.name ? defaultValues?.name : undefined),
         type: z.enum(["soutěž", "přednáška", "zájezd"]).default(defaultValues?.type ? defaultValues?.type : undefined),
+        competitionType: z.enum(["jednokolová soutěž", "vícekolová soutěž"]).default(defaultValues?.competitionType ? defaultValues?.competitionType : undefined),
         registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
         moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
         registrationDate: registrationSwitch? z.date() : z.date().optional(),
@@ -102,6 +148,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         defaultValues: {
             type: defaultValues?.type ? defaultValues?.type : undefined,
             name: defaultValues?.name ? defaultValues?.name : undefined,
+            competitionType: defaultValues?.competitionType ? defaultValues?.competitionType : undefined,
             registration: defaultValues?.registration ? defaultValues?.registration : false,
             moredays: defaultValues?.moredays ? defaultValues?.moredays : false,
             createChannel: defaultValues?.createChannel ? defaultValues?.createChannel : false,
@@ -114,6 +161,19 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         }
     })
 
+    const editor = functions.createEditor({
+        originContent: "",
+        placeholder:   {
+            placeholder: ({ node }:{node:any}) => {
+                if (node.type.name !== 'heading') {
+                    return "Napište krátké info k soutěži..."
+                }
+            },
+        },
+        document: {},
+        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList],
+        editable: true,
+    })
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
@@ -125,9 +185,11 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
             functions.editCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
         } else {
             console.log("new")
-            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
+            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : ""), true)
         }
     }
+
+
 
     return (
         <Form {...form}>
@@ -149,6 +211,57 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                             </TabsList>
                         </div>
                         <CompetitionType form={form} setPreview__Type={setPreview__Type} />
+                        <div className={"h-[64px]"}></div>
+                        <Separator className={"mb-[16px]  mt-[64px]"}/>
+
+                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
+                            <Card>
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-sm font-medium">
+                                        1. typ
+                                    </CardTitle>
+                                    <Swords className={"opacity-60 w-4 h-4"}  />
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="text-2xl font-bold">
+                                        Soutěž
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">
+                                        Základní typ události
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-sm font-medium">
+                                        2. typ
+                                    </CardTitle>
+                                    <Speech className={"opacity-60 w-4 h-4"} />
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="text-2xl font-bold">Přednáška</div>
+                                    <p className="text-xs text-muted-foreground">
+                                        Událost, ve které se nesoutěží
+                                    </p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-sm font-medium">
+                                        3. typ
+                                    </CardTitle>
+                                    <PlaneTakeoff className={"opacity-60 w-4 h-4"} />
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="text-2xl font-bold">Zájezd</div>
+                                    <p className="text-xs text-muted-foreground">
+                                        Událost, která se koná mimo server
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </div>
+
 
                     </TabsContent>
                     <TabsContent value="need" className="space-y-4">
@@ -161,7 +274,9 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                             </div>
                                             <div className={"flex flex-row items-center"}>
                                                 <TabsList>
-                                                    <TabsTrigger className={"bg-black text-white"} value="miles" disabled={(!form.getValues().competitionDateRange && preview__MoreDays) || (!form.getValues().competitionDate && !preview__MoreDays) || !form.getValues().name || !form.getValues().place} >
+                                                    <TabsTrigger className={"bg-black text-white"} value="miles" disabled={ !form.getValues().name ||
+                                                        !form.getValues().competitionType
+                                                    } >
                                                         Pokračovat
                                                     </TabsTrigger>
                                                 </TabsList>
@@ -179,11 +294,12 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                         </div>
                                         <div className={"mb-4 gap-y-[16px] flex flex-col"}>
                                             <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
-                                            <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
+                                            <CompetitionSoutezType form={form} setPreview__CompetitionType={setPreview__CompetitionType} />
+                                            {/*<CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>*/}
 
                                         </div>
 
-                                    <CompetitionDate form={form} moreDaysSwitch={moreDaysSwitch} setPreview__CompetitionDate={setPreview__CompetitionDate} setPreview__CompetitionDateRange={setPreview__CompetitionDateRange} />
+                                    {/*<CompetitionDate form={form} moreDaysSwitch={moreDaysSwitch} setPreview__CompetitionDate={setPreview__CompetitionDate} setPreview__CompetitionDateRange={setPreview__CompetitionDateRange} />*/}
                                 </>:
                                 preview__Type === "přednáška" ?
                                     <>
@@ -227,51 +343,27 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
                         <Command>
                             <CommandInput placeholder="Type a command or search..." />
-                            <CommandList>
+                            <CommandList key={"newcompetition"}>
                                 <CommandEmpty>No results found.</CommandEmpty>
-                                <CommandGroup heading="Předvolby">
-                                    <Dialog>
-                                        <DialogTrigger className={"w-full"}>
-                                            <CommandItem>
-                                                <CalendarPlus className="mr-2 h-4 w-4" />
-                                                <span>Registrace</span>
-                                            </CommandItem>
-                                        </DialogTrigger>
-                                        <DialogContent className="sm:max-w-[425px]">
-                                            <DialogHeader>
-                                                <DialogTitle>Edit profile</DialogTitle>
-                                                <DialogDescription>
-                                                    Make changes to your profile here. Click save when youre done.
-                                                </DialogDescription>
-                                            </DialogHeader>
-                                            <div className="grid gap-4 py-4">
-                                                <div className="grid grid-cols-4 items-center gap-4">
-                                                    <Label htmlFor="name" className="text-right">
-                                                        Name
-                                                    </Label>
-                                                    <Input
-                                                        id="name"
-                                                        defaultValue="Pedro Duarte"
-                                                        className="col-span-3"
-                                                    />
-                                                </div>
-                                                <div className="grid grid-cols-4 items-center gap-4">
-                                                    <Label htmlFor="username" className="text-right">
-                                                        Username
-                                                    </Label>
-                                                    <Input
-                                                        id="username"
-                                                        defaultValue="@peduarte"
-                                                        className="col-span-3"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <DialogFooter>
-                                                <Button type="submit">Save changes</Button>
-                                            </DialogFooter>
-                                        </DialogContent>
-                                    </Dialog>
 
+                                <CommandGroup heading="Předvolby">
+                                    {
+                                        milesOptions.map((mile:any) => {
+                                            return (
+                                                // eslint-disable-next-line react/jsx-key
+                                                <div onClick={() => {
+                                                    let allMiles = miles
+                                                    allMiles.push(mile)
+                                                    setMiles(allMiles)
+                                                }}>
+                                                    <CommandItem>
+                                                        {mile.icon}
+                                                        <span>{mile.label}</span>
+                                                    </CommandItem>
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </CommandGroup>
                                 <CommandSeparator />
                                 <CommandGroup heading="Nové">
@@ -282,6 +374,28 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                 </CommandGroup>
                             </CommandList>
                         </Command>
+                        <div>
+                            {
+                                miles.map((mile:any) => {
+
+                                    return (
+                                        // eslint-disable-next-line react/jsx-key
+                                        <Card>
+                                            <CardHeader>
+                                                <CardTitle>{mile.label}</CardTitle>
+                                                <CardDescription>{mile.description}</CardDescription>
+                                            </CardHeader>
+                                            <CardContent>
+                                                <p>Card Content</p>
+                                            </CardContent>
+                                            <CardFooter>
+                                                <p>Card Footer</p>
+                                            </CardFooter>
+                                        </Card>
+                                    )
+                                })
+                            }
+                        </div>
                         {/*<CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />*/}
 
                         {/*<CompetitionRegistrationDate  form={form} registrationDateRef={registrationDateRef} setPreview__RegistrationDate={setPreview__RegistrationDate} />*/}
@@ -292,12 +406,10 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                     <TabsContent value={"other"}>
                         <div className={"my-[24px] flex flex-row items-center justify-between font-bold text-[28px]"}>
                             <div>
-                                Potřebné informace
+                                Dodatečné informace
                             </div>
                             <div className={"flex flex-row items-center"}>
-                                <div>
-
-                                </div>
+                                <Button className={"inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"} type="submit">Dokončit</Button>
                                 {
                                     chooseType ? <TabsList className={"mx-1"}>
                                         <TabsTrigger value="miles">
@@ -356,40 +468,40 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
                             <div className={"mb-4 mt-2 w-full"}>
 
-                                <CompetitionDescription form={form} setPreview__Description={setPreview__Description}/>
+                                <CompetitionDescription editor={editor} form={form} setPreview__Description={setPreview__Description}/>
 
-                                <CompetitionLinks linksRef={linksRef}  competitionLinks={competitionLinks} setCompetitionLinks={setCompetitionLinks}/>
+                                {/*<CompetitionLinks linksRef={linksRef}  competitionLinks={competitionLinks} setCompetitionLinks={setCompetitionLinks}/>*/}
 
-                                <div ref={linksRef} className={`mt-4 flex flex-row flex-wrap ${defaultValues?.links ? "opacity-100" : "opacity-0"} transition-all duration-500`}>
-                                    {
-                                        competitionLinks.map((link:any) => (
-                                                // eslint-disable-next-line react/jsx-key
-                                                <div className={"flex flex-row items-center mr-4 mb-2"}>
-                                                    <Card>
-                                                        <CardHeader className={"flex flex-row items-start"}>
-                                                            <CardTitle className={"flex flex-row text-[1.2vw]"}>
-                                                                <Link target={"_blank"} href={link.link} className={"w-fit h-[32px] mr-2 flex flex-row items-center"} >
-                                                                    <LinkIcon className={"w-[12px] h-[12px] mr-2"} />
-                                                                    {link.label}
-                                                                </Link>
-                                                            </CardTitle>
-                                                            <CardDescription className={"flex flex-row items-center justify-center"}>
-                                                                <Trash className={"w-[17px] h-[17px] opacity-80 ml-4"} onClick={() => {
-                                                                    setCompetitionLinks(competitionLinks.filter((link2:any) => link2.link != link.link))
-                                                                    if (competitionLinks.length - 1 === 0) {
-                                                                        linksRef.current!.style.opacity = "0"
-                                                                    }
-                                                                }} />                                                                                    </CardDescription>
-                                                        </CardHeader>
+                                {/*<div ref={linksRef} className={`mt-4 flex flex-row flex-wrap ${defaultValues?.links ? "opacity-100" : "opacity-0"} transition-all duration-500`}>*/}
+                                {/*    {*/}
+                                {/*        competitionLinks.map((link:any) => (*/}
+                                {/*                // eslint-disable-next-line react/jsx-key*/}
+                                {/*                <div className={"flex flex-row items-center mr-4 mb-2"}>*/}
+                                {/*                    <Card>*/}
+                                {/*                        <CardHeader className={"flex flex-row items-start"}>*/}
+                                {/*                            <CardTitle className={"flex flex-row text-[1.2vw]"}>*/}
+                                {/*                                <Link target={"_blank"} href={link.link} className={"w-fit h-[32px] mr-2 flex flex-row items-center"} >*/}
+                                {/*                                    <LinkIcon className={"w-[12px] h-[12px] mr-2"} />*/}
+                                {/*                                    {link.label}*/}
+                                {/*                                </Link>*/}
+                                {/*                            </CardTitle>*/}
+                                {/*                            <CardDescription className={"flex flex-row items-center justify-center"}>*/}
+                                {/*                                <Trash className={"w-[17px] h-[17px] opacity-80 ml-4"} onClick={() => {*/}
+                                {/*                                    setCompetitionLinks(competitionLinks.filter((link2:any) => link2.link != link.link))*/}
+                                {/*                                    if (competitionLinks.length - 1 === 0) {*/}
+                                {/*                                        linksRef.current!.style.opacity = "0"*/}
+                                {/*                                    }*/}
+                                {/*                                }} />                                                                                    </CardDescription>*/}
+                                {/*                        </CardHeader>*/}
 
-                                                    </Card>
-                                                    <div className={"ml-2 font-bold flex flex-row items-center"}>
-                                                    </div>
-                                                </div>
-                                            )
-                                        )
-                                    }
-                                </div>
+                                {/*                    </Card>*/}
+                                {/*                    <div className={"ml-2 font-bold flex flex-row items-center"}>*/}
+                                {/*                    </div>*/}
+                                {/*                </div>*/}
+                                {/*            )*/}
+                                {/*        )*/}
+                                {/*    }*/}
+                                {/*</div>*/}
                             </div>
 
 

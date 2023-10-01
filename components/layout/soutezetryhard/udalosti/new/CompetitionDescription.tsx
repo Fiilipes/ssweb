@@ -6,20 +6,8 @@ import NotesEditor from "@/components/notes/editor/NotesEditor";
 import functions from "@/assets/settings/functions";
 import menuOptions from "@/assets/settings/content/notes/menu";
 
-const CompetitionDescription = ({form, setPreview__Description}: {form: any, setPreview__Description: any}) => {
-    const editor = functions.createEditor({
-        originContent: "",
-        placeholder:   {
-            placeholder: ({ node }:{node:any}) => {
-                if (node.type.name !== 'heading') {
-                    return "Napište krátké info k soutěži..."
-                }
-            },
-        },
-        document: {},
-        menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList],
-        editable: true,
-    })
+const CompetitionDescription = ({form, editor, setPreview__Description}: {form: any,editor:any, setPreview__Description: any}) => {
+
     return (
         <FormField
             control={form.control}

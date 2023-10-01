@@ -28,7 +28,7 @@ import {Paragraph} from "@tiptap/extension-paragraph";
 
 
 class Functions {
-    createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, redirect: boolean) {
+    createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, description: any, redirect: boolean) {
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
             let newCompetition = {} as CompetitionFirebase
             // generate random id 30 characters long
@@ -49,7 +49,7 @@ class Functions {
                             date: values.moredays ? values.competitionDateRange ? values.competitionDateRange : null : values.competitionDate ? values.competitionDate : null,
                         },
                         place: values.place ? values.place : null,
-                        description: values.description ? values.description : null,
+                        description: description ? description : null,
                         links: competitionLinks ? competitionLinks : null,
                         users: competitionUsers ? competitionUsers : null,
                         createChannel: createChannel,
@@ -73,15 +73,17 @@ class Functions {
                 } else {
                     competitions["soutěže"].list.added.push(newCompetition)
 
-                    setDoc(doc(db, "ssbot", "soutěže"), {
-                        list: competitions["soutěže"].list,
-                    }).then(
-                        () => {
-                            if (redirect) {
-                                window.location.href = "/soutezetryhard/udalosti/" + values.name
-                            }
-                        }
-                    )
+                    console.log(newCompetition)
+
+                    // setDoc(doc(db, "ssbot", "soutěže"), {
+                    //     list: competitions["soutěže"].list,
+                    // }).then(
+                    //     () => {
+                    //         if (redirect) {
+                    //             window.location.href = "/soutezetryhard/udalosti/" + values.name
+                    //         }
+                    //     }
+                    // )
                 }
             }
         })
