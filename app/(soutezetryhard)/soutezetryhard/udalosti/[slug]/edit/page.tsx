@@ -75,8 +75,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                     {
                                         type: myCompetition?.type,
                                         name: myCompetition?.name,
-                                        registration: myCompetition?.registration?.enabled,
-                                        moredays: myCompetition?.competition?.dateType === "range",
                                         // @ts-ignore
                                         registrationDate: new Date(myCompetition?.registration.date.seconds * 1000),
                                         // @ts-ignore
