@@ -15,49 +15,27 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
             control={form.control}
             name="user"
             render={({ field }) => (
-                <FormItem className="flex flex-col">
-                    <FormLabel className={"text-[20px]"}>
-                        Účastníci soutěže</FormLabel>
+                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4 my-[10px] bg-white">
+                    <div className="flex flex-col space-y-0.5 mr-8">
+                        <FormLabel className="text-base text-[20px]">
+                            Přidat uživatele
+                        </FormLabel>
+                        <FormDescription>
+                            Vyberte uživatele, kteří se budou účastnit této soutěže.
+                        </FormDescription>
+                    </div>
+
+
                     <Popover>
                         <PopoverTrigger asChild>
                             <FormControl>
                                 <Button
                                     variant="outline"
                                     role="combobox"
-                                    className={cn(
-                                        "w-full h-[80px] justify-between",
-                                        !field.value && "text-muted-foreground"
-                                    )}
-                                >
-                                    {field.value
-                                        ? <div className={"flex flex-row justify-start items-center"}>
 
-                                            <div className={"flex flex-row items-center"}>
-                                                <Avatar className={"w-[32px] h-[32px]"} >
-                                                    <AvatarImage src={users.find(
-                                                        (user:User) => user.discordID === field.value
-                                                    )?.discordAvatar} />
-                                                    <AvatarFallback>CN</AvatarFallback>
-                                                </Avatar>
-                                                <div className={"ml-4 font-bold"}>
-                                                    @{users.find(
-                                                    (user) => user.discordID === field.value
-                                                )?.discordUsername}
-                                                    {
-                                                        users.find(
-                                                            (user) => user.discordID === field.value
-                                                        )?.discordDiscriminator !== "0" ? "#" + users.find(
-                                                            (user) => user.discordID === field.value
-                                                        )?.discordDiscriminator : ""
-                                                    }
-                                                </div>
-                                            </div>
-                                            <Separator className={"rotate-90 w-[32px] mx-4 p-0 bg-[#aaa]"} />
-                                            <div>
-                                                Vyberte dalšího uživatele...
-                                            </div>
-                                        </div>
-                                        : "Vyberte uživatele..."}
+                                >
+                                    Přidat
+
                                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                 </Button>
                             </FormControl>
@@ -107,9 +85,6 @@ const CompetitionUsers = ({form, users, competitionUsers, setCompetitionUsers, u
                             </Command>
                         </PopoverContent>
                     </Popover>
-                    <FormDescription>
-                        Přidejte uživatele, který bude v této soutěži soutěžit.
-                    </FormDescription>
                     <FormMessage />
                 </FormItem>
             )}

@@ -28,7 +28,7 @@ import {Paragraph} from "@tiptap/extension-paragraph";
 
 
 class Functions {
-    createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, description: any, redirect: boolean) {
+    createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, description: any, miles: any, redirect: boolean) {
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
             let newCompetition = {} as CompetitionFirebase
             // generate random id 30 characters long
@@ -39,15 +39,8 @@ class Functions {
                         name: values.name,
                         type: values.type,
                         id: competitionId,
-                        registration: {
-                            enabled: values.registration ? values.registration : null ,
-                            date: values.registrationDate ? values.registrationDate : null,
-                        },
-                        competition: {
-                            dateType: values.moredays ? "range" : "single",
-                            // @ts-ignore
-                            date: values.moredays ? values.competitionDateRange ? values.competitionDateRange : null : values.competitionDate ? values.competitionDate : null,
-                        },
+                        // @ts-ignore
+                        miles: miles ? miles.map(({name,label,date,description}) => ({name,label,date,description}) ) : null,
                         place: values.place ? values.place : null,
                         description: description ? description : null,
                         links: competitionLinks ? competitionLinks : null,
@@ -145,8 +138,8 @@ class Functions {
     organizeCompetitionsByDate(competitions: any) {
         const transformedArray: any[] = [];
 
-        competitions.forEach((competition: { competition: { dateType: string; date: { from: { seconds: number; }; seconds: number; }; }; }) => {
-            const competitionDate = new Date(competition.competition.dateType === "range" ? competition.competition.date.from.seconds * 1000    :competition.competition.date.seconds * 1000); // Convert timestamp to Date object
+        competitions.forEach((competition: any) => {
+            const competitionDate = new Date(competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "range" ? competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds * 1000    :competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds * 1000); // Convert timestamp to Date object
             const year = competitionDate.getFullYear();
             const month = competitionDate.getMonth() + 1; // Months are 0-indexed, so add 1
 

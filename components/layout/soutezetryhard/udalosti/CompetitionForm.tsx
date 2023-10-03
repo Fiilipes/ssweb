@@ -73,24 +73,27 @@ import CompetitionSoutezType from "@/components/layout/soutezetryhard/udalosti/n
 import {Separator} from "@/components/ui/separator";
 import { Switch } from '@/components/ui/switch';
 import {DateRange} from "react-day-picker";
+import CompetitionMiles from "@/components/layout/soutezetryhard/udalosti/new/CompetitionMiles";
 
 const milesOptionsIconClass = "w-4 h-4 mr-2"
-const milesOptionsDateUndefined = {
-    value: undefined,
-    type: "single"
-}
 const milesOptions = [
     {
         name: "registration",
         label: "Registrace",
-        date: milesOptionsDateUndefined,
+        date: {
+            value: undefined,
+            type: "single"
+        },
         description: "Registrace na soutěž",
         icon: <CalendarPlus className={milesOptionsIconClass} />,
     },
     {
         name: "competitionDate",
         label: "Datum soutěže",
-        date: milesOptionsDateUndefined,
+        date: {
+            value: undefined,
+            type: "single"
+        },
         description: "Datum konání soutěže",
         icon: <Swords className={milesOptionsIconClass} />,
     },
@@ -104,25 +107,15 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     const [competitionLinks, setCompetitionLinks] = React.useState(defaultValues?.links ? defaultValues?.links : []);
 
     const [preview__CreateChannel, setPreview__CreateChannel] = React.useState(false);
-    const [registrationSwitch, setRegistrationSwitch] = React.useState(defaultValues?.registration ? defaultValues?.registration : false);
-    const [moreDaysSwitch, setMoreDaysSwitch] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
     const [createChannelSwitch, setCreateChannelSwitch] = React.useState(defaultValues?.createChannel ? defaultValues?.createChannel : false);
     const [preview__Name, setPreview__Name] = React.useState(defaultValues?.name ? defaultValues?.name : "");
-    const [preview__Theme, setPreview__Theme] = React.useState(defaultValues?.theme ? defaultValues?.theme : "");
     const [preview__Place, setPreview__Place] = React.useState("");
     const [preview__Description, setPreview__Description] = React.useState("");
     const [preview__Type, setPreview__Type] = React.useState(defaultValues?.type ? defaultValues?.type : "");
     const [preview__CompetitionType, setPreview__CompetitionType] = React.useState(defaultValues?.competitionType ? defaultValues?.competitionType : "");
-    const [preview__Registration, setPreview__Registration] = React.useState(defaultValues?.registration ? defaultValues?.registration : false);
-    const [preview__MoreDays, setPreview__MoreDays] = React.useState(defaultValues?.moredays ? defaultValues?.moredays : false);
-    const [preview__RegistrationDate, setPreview__RegistrationDate] = React.useState(defaultValues?.registrationDate ? defaultValues?.registrationDate : undefined);
-    const [preview__CompetitionDate, setPreview__CompetitionDate] = React.useState(defaultValues?.moredays ? undefined : defaultValues?.competitionDate ? defaultValues?.competitionDate : undefined);
-    const [preview__CompetitionDateRange, setPreview__CompetitionDateRange] = React.useState(defaultValues?.moredays ? defaultValues?.competitionDate ? defaultValues?.competitionDate : {from: undefined, to: undefined} :  {from: undefined, to: undefined});
     const [miles,setMiles] = React.useState<any[]>([])
     // ref to the registration date
-    const registrationDateRef = React.useRef<HTMLDivElement>(null);
     const usersRef = React.useRef<HTMLDivElement>(null);
-    const linksRef = React.useRef<HTMLDivElement>(null);
     const [date, setDate] = React.useState<DateRange | Date | undefined>(undefined)
     const formSchema = z.object({
         name: z.string().min(2, {
@@ -130,12 +123,6 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
         }).default(defaultValues?.name ? defaultValues?.name : undefined),
         type: z.enum(["soutěž", "přednáška", "zájezd"]).default(defaultValues?.type ? defaultValues?.type : undefined),
         competitionType: z.enum(["jednokolová soutěž", "vícekolová soutěž"]).default(defaultValues?.competitionType ? defaultValues?.competitionType : undefined),
-        registration: z.boolean().default(defaultValues?.registration ? defaultValues?.registration : false).optional(),
-        moredays: z.boolean().default(defaultValues?.moredays ? defaultValues?.moredays : false).optional(),
-        registrationDate: registrationSwitch? z.date() : z.date().optional(),
-        competitionDate: !moreDaysSwitch ? z.date() : z.date().optional(),
-        // object of two dates
-        competitionDateRange: moreDaysSwitch ? z.object({ from: z.date(), to: z.date() }) : z.object({ from: z.date().optional(), to: z.date().optional() }).optional(),
         user: z.string().optional(),
         createChannel: z.boolean().default(defaultValues?.createChannel ? defaultValues?.createChannel : false).optional(),
         place: z.string().default(defaultValues?.place ? defaultValues?.place : undefined),
@@ -149,12 +136,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
             type: defaultValues?.type ? defaultValues?.type : undefined,
             name: defaultValues?.name ? defaultValues?.name : undefined,
             competitionType: defaultValues?.competitionType ? defaultValues?.competitionType : undefined,
-            registration: defaultValues?.registration ? defaultValues?.registration : false,
-            moredays: defaultValues?.moredays ? defaultValues?.moredays : false,
             createChannel: defaultValues?.createChannel ? defaultValues?.createChannel : false,
-            registrationDate: defaultValues?.registrationDate ? defaultValues?.registrationDate : undefined,
-            competitionDate: defaultValues?.moredays ? undefined : defaultValues?.competitionDate ? defaultValues?.competitionDate : undefined,
-            competitionDateRange: defaultValues?.moredays ? defaultValues?.competitionDate ? defaultValues?.competitionDate : {from: undefined, to: undefined} :  {from: undefined, to: undefined},
             place: defaultValues?.place ? defaultValues?.place : undefined,
             description: defaultValues?.description ? defaultValues?.description : undefined,
 
@@ -185,7 +167,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
             functions.editCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
         } else {
             console.log("new")
-            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : ""), true)
+            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : ""),miles, true)
         }
     }
 
@@ -295,7 +277,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                         <div className={"mb-4 gap-y-[16px] flex flex-col"}>
                                             <CompetitionName form={form} setPreview__Name={setPreview__Name}/>
                                             <CompetitionSoutezType form={form} setPreview__CompetitionType={setPreview__CompetitionType} />
-                                            {/*<CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>*/}
+                                            <CompetitionPlace  form={form} setPreview__Place={setPreview__Place}/>
 
                                         </div>
 
@@ -341,61 +323,9 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                             </div>
                         </div>
 
-                        <Command>
-                            <CommandInput placeholder="Type a command or search..." />
-                            <CommandList key={"newcompetition"}>
-                                <CommandEmpty>No results found.</CommandEmpty>
+                       <CompetitionMiles date={date} setDate={setDate}  milesOptions={milesOptions} miles={miles} setMiles={setMiles} />
 
-                                <CommandGroup heading="Předvolby">
-                                    {
-                                        milesOptions.map((mile:any) => {
-                                            return (
-                                                // eslint-disable-next-line react/jsx-key
-                                                <div onClick={() => {
-                                                    let allMiles = miles
-                                                    allMiles.push(mile)
-                                                    setMiles(allMiles)
-                                                }}>
-                                                    <CommandItem>
-                                                        {mile.icon}
-                                                        <span>{mile.label}</span>
-                                                    </CommandItem>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </CommandGroup>
-                                <CommandSeparator />
-                                <CommandGroup heading="Nové">
-                                    <CommandItem>
-                                        <Plus className="mr-2 h-4 w-4" />
-                                        <span>Přidat</span>
-                                    </CommandItem>
-                                </CommandGroup>
-                            </CommandList>
-                        </Command>
-                        <div>
-                            {
-                                miles.map((mile:any) => {
 
-                                    return (
-                                        // eslint-disable-next-line react/jsx-key
-                                        <Card>
-                                            <CardHeader>
-                                                <CardTitle>{mile.label}</CardTitle>
-                                                <CardDescription>{mile.description}</CardDescription>
-                                            </CardHeader>
-                                            <CardContent>
-                                                <p>Card Content</p>
-                                            </CardContent>
-                                            <CardFooter>
-                                                <p>Card Footer</p>
-                                            </CardFooter>
-                                        </Card>
-                                    )
-                                })
-                            }
-                        </div>
                         {/*<CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />*/}
 
                         {/*<CompetitionRegistrationDate  form={form} registrationDateRef={registrationDateRef} setPreview__RegistrationDate={setPreview__RegistrationDate} />*/}
@@ -426,6 +356,8 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
 
                             <CompetitionUsers form={form} users={users} competitionUsers={competitionUsers} setCompetitionUsers={setCompetitionUsers} usersRef={usersRef} />
+                            <CompetitionCreateChannelSwitch form={form} createChannelSwitch={createChannelSwitch} setCreateChannelSwitch={setCreateChannelSwitch} setPreview__CreateChannel={setPreview__CreateChannel}  />
+
                             <div className={`mt-4 flex flex-row flex-wrap ${defaultValues?.users ? "opacity-1" : "opacity-0"} transition-all duration-500`} ref={usersRef}>
                                 {
                                     competitionUsers.map((user:User) => (
@@ -464,7 +396,6 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                 }
                             </div>
 
-                            <CompetitionCreateChannelSwitch form={form} createChannelSwitch={createChannelSwitch} setCreateChannelSwitch={setCreateChannelSwitch} setPreview__CreateChannel={setPreview__CreateChannel}  />
 
                             <div className={"mb-4 mt-2 w-full"}>
 

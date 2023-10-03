@@ -20,14 +20,7 @@ export interface Competition {
     name: string;
     type: "soutěž" | "přednáška" | "zájezd";
     id: string;
-    registration: {
-        enabled: boolean | undefined;
-        date: Date | undefined;
-    };
-    competition: {
-        dateType: string | undefined;
-        date: Date | { from: Date | undefined; to: Date | undefined } | undefined;
-    }
+    miles:  {type: "single" | "range", date: Date | undefined | { from?: Date | undefined;     to?: Date | undefined; }}[];
     place: string | undefined;
     description: string | undefined;
     links: {label:string, link:string}[] | undefined;
@@ -39,14 +32,7 @@ export interface CompetitionFirebase {
     name?: string;
     type: string;
     id: string;
-    registration: {
-        enabled: boolean | null;
-        date: Date | null;
-    };
-    competition: {
-        dateType: string | null;
-        date: Date | { from: Date | null; to: Date | null } | null;
-    }
+    miles: {type: string, date: Date}[];
     place: string | null;
     description: string | null;
     links: {label:string, link:string}[] | null;

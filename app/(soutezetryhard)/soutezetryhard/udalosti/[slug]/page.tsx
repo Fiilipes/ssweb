@@ -109,13 +109,13 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                 <div className="text-2xl font-bold">{
 
                                                     // @ts-ignore
-                                                 functions.getTimeDifferenceDescription(new Date(myCompetition?.competition.dateType === "range" ? myCompetition?.competition.date.from.seconds * 1000 : myCompetition?.competition.date.seconds  * 1000), new Date())
+                                                 functions.getTimeDifferenceDescription(new Date(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "range" ? myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds * 1000 : myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds  * 1000), new Date())
 
                                                 }</div>
                                                 <p className="text-xs text-muted-foreground">
                                                     {
                                                         // @ts-ignore
-                                                        myCompetition?.competition.dateType === "single" ? functions.getDateArrayFromTimestamp(myCompetition?.competition.date.seconds).reverse().join(". ") : `${functions.getDateArrayFromTimestamp(myCompetition?.competition.date.from.seconds).reverse().join(". ")} - ${functions.getDateArrayFromTimestamp(myCompetition?.competition.date.to.seconds).reverse().join(". ")}`}
+                                                        myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds).reverse().join(". ") : `${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds).reverse().join(". ")} - ${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.to.seconds).reverse().join(". ")}`}
 
                                                 </p>
                                             </CardContent>
@@ -131,13 +131,13 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                 <div className="text-2xl font-bold">
                                                     {
                                                         // @ts-ignore
-                                                        myCompetition?.registration?.enabled ? functions.getDateArrayFromTimestamp(myCompetition?.registration?.date?.seconds).reverse().join(". ") : "Není potřeba"}
+                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.seconds).reverse().join(". ") : "Není potřeba"}
                                                 </div>
                                                 <p className="text-xs text-muted-foreground">
                                                     {
                                                         // check if you can still register
                                                         // @ts-ignore
-                                                        myCompetition?.registration?.enabled ? new Date() < myCompetition?.registration?.date * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : "Není potřeba"
+                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : "Není potřeba"
                                                     }
                                                 </p>
                                             </CardContent>

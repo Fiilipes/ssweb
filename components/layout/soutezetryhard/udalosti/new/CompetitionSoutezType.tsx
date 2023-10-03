@@ -9,7 +9,7 @@ const CompetitionSoutezType = ({form, setPreview__CompetitionType}: {form: any, 
             name="competitionType"
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Typ soutěže</FormLabel>
+                    <FormLabel className={"text-[18px]"}>Typ soutěže</FormLabel>
                     <Select onValueChange={(event) => {
                         field.onChange(event)
                         setPreview__CompetitionType(event)

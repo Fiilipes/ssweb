@@ -19,6 +19,7 @@ import {Button} from "@/components/ui/button";
 import UserAvatar from "@/components/reusable/profil/UserAvatar";
 
 const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}) => {
+    console.log(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value)
     return (
         <ContextMenu>
             <ContextMenuTrigger>
@@ -45,11 +46,11 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                             <div className={"flex flex-row items-center"}>
                                 <div className={"flex flex-col items-center justify-center min-w-[48px] min-h-[64px] rounded-xl"}>
                                     <div>
-                                        {competition.competition.dateType === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.date.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.date.from.seconds))}`}
+                                        {competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds))}`}
 
                                     </div>
                                     <div className={"font-semibold text-[32px]"}>
-                                        {competition.competition.dateType === "single" ? functions.getDateArrayFromTimestamp(competition.competition.date.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.competition.date.from.seconds)[2]}`}
+                                        {competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds)[2]}`}
                                     </div>
                                 </div>
                                 <Separator className={"transform rotate-90 w-[64px] opacity-100 bg-[#ccc]"} />
@@ -129,6 +130,7 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
 
             </ContextMenuContent>
         </ContextMenu>
+
     )
 }
 export default CompetitionBlob
