@@ -128,6 +128,7 @@ const [count, setCount] = useState(0)
                                             // @ts-ignore
                                             name: document.getElementById("name")!.value.toLowerCase().replace(/\s/g, ""),
                                             // @ts-ignore
+
                                             label: document.getElementById("name")!.value ,
                                             date: {
                                                 value: undefined,

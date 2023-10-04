@@ -29,6 +29,7 @@ import {Paragraph} from "@tiptap/extension-paragraph";
 
 class Functions {
     createCompetition (values: CompetitionValues, competitionUsers: User[] | null, competitionLinks: {label:string,link:string}[] | null, createChannel: boolean, description: any, miles: any, redirect: boolean) {
+        console.log("yooooo")
         getSS(["soutěže"]).then((competitions:{"soutěže":{list: {added:CompetitionFirebase[], removed:CompetitionFirebase[]}}, id:string}) => {
             let newCompetition = {} as CompetitionFirebase
             // generate random id 30 characters long
@@ -68,15 +69,15 @@ class Functions {
 
                     console.log(newCompetition)
 
-                    // setDoc(doc(db, "ssbot", "soutěže"), {
-                    //     list: competitions["soutěže"].list,
-                    // }).then(
-                    //     () => {
-                    //         if (redirect) {
-                    //             window.location.href = "/soutezetryhard/udalosti/" + values.name
-                    //         }
-                    //     }
-                    // )
+                    setDoc(doc(db, "ssbot", "soutěže"), {
+                        list: competitions["soutěže"].list,
+                    }).then(
+                        () => {
+                            if (redirect) {
+                                window.location.href = "/soutezetryhard/udalosti/" + values.name
+                            }
+                        }
+                    )
                 }
             }
         })

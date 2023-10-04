@@ -105,7 +105,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
 
     const [competitionUsers, setCompetitionUsers] = React.useState(defaultValues?.users ? defaultValues?.users : []);
     const [competitionLinks, setCompetitionLinks] = React.useState(defaultValues?.links ? defaultValues?.links : []);
-
+    const [submit, setSubmit] = React.useState(false);
     const [preview__CreateChannel, setPreview__CreateChannel] = React.useState(false);
     const [createChannelSwitch, setCreateChannelSwitch] = React.useState(defaultValues?.createChannel ? defaultValues?.createChannel : false);
     const [preview__Name, setPreview__Name] = React.useState(defaultValues?.name ? defaultValues?.name : "");
@@ -158,19 +158,29 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
     })
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+        if (submit) {
+            // Do something with the form values.
+            // ✅ This will be type-safe and validated.
+            console.log(values)
 
-        if (defaultValues) {
-            console.log("old")
-            functions.editCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
+            if (defaultValues) {
+                console.log("old")
+                functions.editCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, true)
+            } else {
+                console.log("new")
+                functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : ""),miles, true)
+            }
         } else {
-            console.log("new")
-            functions.createCompetition(values, competitionUsers, competitionLinks, createChannelSwitch, functions.convertHtmlToMarkdown(editor?.editor?.getHTML() ? editor?.editor?.getHTML() : ""),miles, true)
+            console.log("not submit")
         }
+
     }
 
+    React.useEffect(() => {
+        setInterval(() => {
+            setSubmit(false)
+        }, 1000)
+    },[])
 
 
     return (
@@ -339,7 +349,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                 Dodatečné informace
                             </div>
                             <div className={"flex flex-row items-center"}>
-                                <Button className={"inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"} type="submit">Dokončit</Button>
+                                <Button className={"inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"} type="submit" onClick={() => setSubmit(true)}>Dokončit</Button>
                                 {
                                     chooseType ? <TabsList className={"mx-1"}>
                                         <TabsTrigger value="miles">
