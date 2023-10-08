@@ -31,6 +31,7 @@ export interface Competition {
 export interface CompetitionFirebase {
     name?: string;
     type: string;
+    competitionType: string;
     id: string;
     miles: {type: string, date: Date}[];
     place: string | null;
@@ -45,6 +46,7 @@ export interface CompetitionValues {
     theme?: string,
     name?: string,
     type: string,
+    competitionType: string,
     registration?: boolean | undefined,
     registrationDate?: Date | undefined,
     moredays?: boolean | undefined,

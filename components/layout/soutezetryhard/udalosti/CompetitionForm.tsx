@@ -74,31 +74,49 @@ import {Separator} from "@/components/ui/separator";
 import { Switch } from '@/components/ui/switch';
 import {DateRange} from "react-day-picker";
 import CompetitionMiles from "@/components/layout/soutezetryhard/udalosti/new/CompetitionMiles";
+import competitionSoutezType from "@/components/layout/soutezetryhard/udalosti/new/CompetitionSoutezType";
 
 const milesOptionsIconClass = "w-4 h-4 mr-2"
-const milesOptions = [
-    {
-        name: "registration",
-        label: "Registrace",
-        date: {
-            value: undefined,
-            type: "single"
+const milesOptions = {
+    "jednokolová soutěž": [
+        {
+            name: "registration",
+            label: "Registrace",
+            date: {
+                value: undefined,
+                type: "single"
+            },
+            description: "Registrace na soutěž",
+            icon: <CalendarPlus className={milesOptionsIconClass} />,
+            important: false,
         },
-        description: "Registrace na soutěž",
-        icon: <CalendarPlus className={milesOptionsIconClass} />,
-    },
-    {
-        name: "competitionDate",
-        label: "Datum soutěže",
-        date: {
-            value: undefined,
-            type: "single"
+        {
+            name: "competitionDate",
+            label: "Datum soutěže",
+            date: {
+                value: undefined,
+                type: "single"
+            },
+            description: "Datum konání soutěže",
+            icon: <Swords className={milesOptionsIconClass} />,
+            important: true,
         },
-        description: "Datum konání soutěže",
-        icon: <Swords className={milesOptionsIconClass} />,
-    },
 
-]
+    ],
+    "vícekolová soutěž": [
+        {
+            name: "registration",
+            label: "Registrace",
+            date: {
+                value: undefined,
+                type: "single"
+            },
+            description: "Registrace na soutěž",
+            icon: <CalendarPlus className={milesOptionsIconClass} />,
+            important: false
+        }
+        ]
+}
 
 const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,chooseType: boolean, users:any}) => {
 
@@ -267,7 +285,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                             <div className={"flex flex-row items-center"}>
                                                 <TabsList>
                                                     <TabsTrigger className={"bg-black text-white"} value="miles" disabled={ !form.getValues().name ||
-                                                        !form.getValues().competitionType
+                                                        !form.getValues().competitionType || !form.getValues().type || !form.getValues().place
                                                     } >
                                                         Pokračovat
                                                     </TabsTrigger>
@@ -333,7 +351,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                             </div>
                         </div>
 
-                       <CompetitionMiles date={date} setDate={setDate}  milesOptions={milesOptions} miles={miles} setMiles={setMiles} />
+                       <CompetitionMiles date={date} setDate={setDate}  milesOptions={milesOptions} miles={miles} setMiles={setMiles} competitionSoutezType={preview__CompetitionType} />
 
 
                         {/*<CompetitionRegistrationSwitch  form={form} setPreview__Registration={setPreview__Registration} registrationSwitch={registrationSwitch} setRegistrationSwitch={setRegistrationSwitch} registrationDateRef={registrationDateRef} />*/}

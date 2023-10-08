@@ -46,7 +46,9 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                             <div className={"flex flex-row items-center"}>
                                 <div className={"flex flex-col items-center justify-center min-w-[48px] min-h-[64px] rounded-xl"}>
                                     <div>
-                                        {competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds))}`}
+                                        {
+                                            competition.miles.find((mile:any) => mile.name === "competitionDate") ? competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds))}` : "N/A"
+                                        }
 
                                     </div>
                                     <div className={"font-semibold text-[32px]"}>

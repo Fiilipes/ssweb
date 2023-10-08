@@ -39,9 +39,10 @@ class Functions {
                     newCompetition = {
                         name: values.name,
                         type: values.type,
+                        competitionType: values.competitionType,
                         id: competitionId,
                         // @ts-ignore
-                        miles: miles ? miles.map(({name,label,date,description}) => ({name,label,date,description}) ) : null,
+                        miles: miles ? miles.map(({name,label,date,description,important}) => ({name,label,date,description,important}) ) : null,
                         place: values.place ? values.place : null,
                         description: description ? description : null,
                         links: competitionLinks ? competitionLinks : null,

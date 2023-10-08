@@ -10,7 +10,7 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {CalendarIcon, Plus, Sparkle, Swords, Trash} from "lucide-react";
+import {CalendarIcon, FilePlus2, Plus, Sparkle, Swords, Trash} from "lucide-react";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -40,28 +40,35 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-const CompetitionMiles = ({milesOptions, miles, setMiles, date, setDate}: {milesOptions: any, miles: any, setMiles: any, date:any, setDate:any}) => {
-const setMileDate = (date:Date, mile:any) => {
-    let allMiles = miles
-    let myMile = allMiles.find((m:any) => m.name === mile?.name)
-    let myMileIndex = allMiles.indexOf(myMile)
-    myMile.date.value = date
-    allMiles[myMileIndex] = myMile
-    setMiles(allMiles)
-}
-const [count, setCount] = useState(0)
+import competitionSoutezType from "@/components/layout/soutezetryhard/udalosti/new/CompetitionSoutezType";
+const CompetitionMiles = ({milesOptions, miles, setMiles, date, setDate, competitionSoutezType}: {milesOptions: any, miles: any, setMiles: any, date:any, setDate:any, competitionSoutezType: any,}) => {
+    const setMileDate = (date:Date, mile:any) => {
+        let allMiles = miles
+        let myMile = allMiles.find((m:any) => m.name === mile?.name)
+        let myMileIndex = allMiles.indexOf(myMile)
+        myMile.date.value = date
+        allMiles[myMileIndex] = myMile
+        setMiles(allMiles)
+    }
 
+    const [count, setCount] = useState(0)
 
     return (
         <>
+            {/*{*/}
+            {/*    competitionSoutezType*/}
+            {/*}*/}
+            {/*{*/}
+            {/*    count*/}
+            {/*}*/}
             <Command>
                 <CommandInput placeholder="Type a command or search..." />
                 <CommandList key={"newcompetition"}>
-                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandEmpty>Nenašli jsme pro hledaný výraz žádný výsledek :(</CommandEmpty>
 
                     <CommandGroup heading="Předvolby" >
                         {
-                            milesOptions.map((mile:any) => {
+                            milesOptions[competitionSoutezType].map((mile:any) => {
                                 if (!miles.some((m:any) => m.name === mile.name)) {
                                     return (
                                         // eslint-disable-next-line react/jsx-key
@@ -82,19 +89,87 @@ const [count, setCount] = useState(0)
 
                             })
                         }
-                        <Sheet>
+                        {
+                            competitionSoutezType === "vícekolová soutěž" &&
+                            <Sheet>
 
                                 <SheetTrigger className={"w-full"}>
                                     <CommandItem>
-                                    <Sparkle className={"w-4 h-4 mr-2"} />
-                                    <span>
-                                        Vlastní milník
+                                        <FilePlus2 className={"w-4 h-4 mr-2"} />
+                                        <span>
+                                        Nové kolo soutěže
                                     </span>
                                     </CommandItem>
 
                                 </SheetTrigger>
 
-                        <SheetContent>
+                                <SheetContent>
+                                    <SheetHeader>
+                                        <SheetTitle>Nové kolo soutěže</SheetTitle>
+                                        <SheetDescription>
+                                            Přidejte nové kolo pro soutěž
+                                        </SheetDescription>
+                                    </SheetHeader>
+                                    <div className="grid gap-4 py-4">
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="nameNewRound" className="text-right">
+                                                Název
+                                            </Label>
+                                            <Input id="nameNewRound"  placeholder={
+                                                "Zde zadejte název nového kola"
+                                            } className="col-span-3" />
+                                        </div>
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="descriptionNewRound" className="text-right">
+                                                Popis
+                                            </Label>
+                                            <Input id="descriptionNewRound"  placeholder={
+                                                "Zde zadejte popis nového kola"
+                                            } className="col-span-3" />
+                                        </div>
+                                    </div>
+
+                                    <SheetClose onClick={() => {
+                                        console.log("HEEEYq")
+                                        let allMiles = miles
+                                        allMiles.push({
+                                            // @ts-ignore
+                                            name: document.getElementById("nameNewRound")!.value.toLowerCase().replace(/\s/g, ""),
+                                            // @ts-ignore
+
+                                            label: document.getElementById("nameNewRound")!.value ,
+                                            date: {
+                                                value: undefined,
+                                                type: "single"
+                                            },
+                                            // @ts-ignore
+                                            description: document.getElementById("descriptionNewRound")!.value,
+                                            icon: <Sparkle className={"w-4 h-4 mr-2"} />,
+                                            important: true
+                                        })
+                                        setMiles(allMiles)
+                                        setCount(count + 1)
+                                    }}>
+                                        <Button>
+                                            Přidat milník
+                                        </Button>
+                                    </SheetClose>
+                                </SheetContent>
+                            </Sheet>
+                        }
+                        <Sheet>
+
+                            <SheetTrigger className={"w-full"}>
+                                <CommandItem>
+                                    <Sparkle className={"w-4 h-4 mr-2"} />
+                                    <span>
+                                        Vlastní milník
+                                    </span>
+                                </CommandItem>
+
+                            </SheetTrigger>
+
+                            <SheetContent>
                                 <SheetHeader>
                                     <SheetTitle>Vlastní milník</SheetTitle>
                                     <SheetDescription>
@@ -103,47 +178,48 @@ const [count, setCount] = useState(0)
                                 </SheetHeader>
                                 <div className="grid gap-4 py-4">
                                     <div className="grid grid-cols-4 items-center gap-4">
-                                        <Label htmlFor="name" className="text-right">
+                                        <Label htmlFor="nameCustomMile" className="text-right">
                                             Název
                                         </Label>
-                                        <Input id="name"  placeholder={
-                                            "Zde zadejte název soutěže"
+                                        <Input id="nameCustomMile"  placeholder={
+                                            "Zde zadejte název milníku"
                                         } className="col-span-3" />
                                     </div>
                                     <div className="grid grid-cols-4 items-center gap-4">
-                                        <Label htmlFor="description" className="text-right">
+                                        <Label htmlFor="descriptionCustomMile" className="text-right">
                                             Popis
                                         </Label>
-                                        <Input id="description"  placeholder={
-                                            "Zde zadejte popis soutěže"
+                                        <Input id="descriptionCustomMile"  placeholder={
+                                            "Zde zadejte popis milníku"
                                         } className="col-span-3" />
                                     </div>
                                 </div>
 
-                                    <SheetClose onClick={() => {
-                                        console.log("HEEEYq")
-                                        setCount(count + 1)
-                                        let allMiles = miles
-                                        allMiles.push({
-                                            // @ts-ignore
-                                            name: document.getElementById("name")!.value.toLowerCase().replace(/\s/g, ""),
-                                            // @ts-ignore
+                                <SheetClose onClick={() => {
+                                    console.log("HEEEYq")
+                                    let allMiles = miles
+                                    allMiles.push({
+                                        // @ts-ignore
+                                        name: document.getElementById("nameCustomMile")!.value.toLowerCase().replace(/\s/g, ""),
+                                        // @ts-ignore
 
-                                            label: document.getElementById("name")!.value ,
-                                            date: {
-                                                value: undefined,
-                                                type: "single"
-                                            },
-                                            // @ts-ignore
-                                            description: document.getElementById("description")!.value,
-                                            icon: <Sparkle className={"w-4 h-4 mr-2"} />,
-                                        })
-                                        setMiles(allMiles)
-                                    }}>
-                                            <Button>
-                                                Přidat milník
-                                            </Button>
-                                    </SheetClose>
+                                        label: document.getElementById("nameCustomMile")!.value ,
+                                        date: {
+                                            value: undefined,
+                                            type: "single"
+                                        },
+                                        // @ts-ignore
+                                        description: document.getElementById("descriptionCustomMile")!.value,
+                                        icon: <Sparkle className={"w-4 h-4 mr-2"} />,
+                                        important: false
+                                    })
+                                    setMiles(allMiles)
+                                    setCount(count + 1)
+                                }}>
+                                    <Button>
+                                        Přidat milník
+                                    </Button>
+                                </SheetClose>
                             </SheetContent>
                         </Sheet>
 
@@ -168,25 +244,25 @@ const [count, setCount] = useState(0)
                                 <CardContent className={"flex flex-col gap-y-8"}>
                                     <div className={"flex flex-row gap-x-[100px]"}>
                                         <button className="flex flex-row items-center ">
-                                        <div className="text-left w-fit pr-8 font-semibold text-[14px]">Více dní</div>
-                                        <Switch id="more-days" defaultChecked={
-                                            mile.date.type === "range"
-                                        } onCheckedChange={
-                                            (event) => {
-                                                console.log(event)
-                                                // edit the current mile's date
-                                                let allMiles = miles
-                                                let myMile = allMiles.find((m:any) => m.name === mile.name)
-                                                let myMileIndex = allMiles.indexOf(myMile)
-                                                myMile.date.type = event ? "range" : "single"
-                                                allMiles[myMileIndex] = myMile
-                                                setMiles(allMiles)
-                                                // if event is true hide single date and show range date and if not hide range date and show single date
+                                            <div className="text-left w-fit pr-8 font-semibold text-[14px]">Více dní</div>
+                                            <Switch id="more-days" defaultChecked={
+                                                mile.date.type === "range"
+                                            } onCheckedChange={
+                                                (event) => {
+                                                    console.log(event)
+                                                    // edit the current mile's date
+                                                    let allMiles = miles
+                                                    let myMile = allMiles.find((m:any) => m.name === mile.name)
+                                                    let myMileIndex = allMiles.indexOf(myMile)
+                                                    myMile.date.type = event ? "range" : "single"
+                                                    allMiles[myMileIndex] = myMile
+                                                    setMiles(allMiles)
+                                                    // if event is true hide single date and show range date and if not hide range date and show single date
 
 
 
-                                            }
-                                        } />
+                                                }
+                                            } />
                                         </button>
                                         <button className="flex flex-row items-center">
                                             <div className="text-left w-fit pr-8 font-semibold text-[14px]">

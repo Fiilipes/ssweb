@@ -29,8 +29,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
     React.useEffect(
         () => {
+            console.log(functions.removeDiacritics(decodeURIComponent(params.slug).toLowerCase()))
+
             if (session) {
                 getSS(["users", "soutěže"]).then((res: any) => {
+                    console.log(functions.removeDiacritics(decodeURIComponent(res["soutěže"].list.added[0].name).toLowerCase()))
+                    console.log(functions.removeDiacritics(decodeURIComponent(params.slug).toLowerCase()) === functions.removeDiacritics(decodeURIComponent(res["soutěže"].list.added[0].name).toLowerCase()))
 
                     // @ts-ignore
                     functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
@@ -39,7 +43,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
                             setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
 
                             const myCompetition = res["soutěže"].list.added.find((c:Competition) => functions.removeDiacritics(c.name.toLowerCase()) === functions.removeDiacritics(decodeURIComponent(params.slug).toLowerCase()))
-
                             // Create a set of discordIDs from array1 for efficient lookup
                             const discordIDsSet = new Set(myCompetition.users.map((item:any) => item.discordID));
 
@@ -131,13 +134,14 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                                 <div className="text-2xl font-bold">
                                                     {
                                                         // @ts-ignore
-                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.seconds).reverse().join(". ") : "Není potřeba"}
+                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.seconds : myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to.seconds).reverse().join(". ") : "Není potřeba"}
                                                 </div>
                                                 <p className="text-xs text-muted-foreground">
                                                     {
                                                         // check if you can still register
                                                         // @ts-ignore
-                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : "Není potřeba"
+                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená"
+                                                            : "Není potřeba"
                                                     }
                                                 </p>
                                             </CardContent>
