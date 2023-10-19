@@ -75,6 +75,7 @@ import { Switch } from '@/components/ui/switch';
 import {DateRange} from "react-day-picker";
 import CompetitionMiles from "@/components/layout/soutezetryhard/udalosti/new/CompetitionMiles";
 import competitionSoutezType from "@/components/layout/soutezetryhard/udalosti/new/CompetitionSoutezType";
+import competitionType from "@/components/layout/soutezetryhard/udalosti/new/CompetitionType";
 
 const milesOptionsIconClass = "w-4 h-4 mr-2"
 const milesOptions = {
@@ -225,7 +226,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                         <Separator className={"mb-[16px]  mt-[64px]"}/>
 
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
-                            <Card>
+                            <Card className={`${preview__Type === "soutěž" && "border-blue-500 bg-blue-500/10"} transition-colors duration-500`}>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">
                                         1. typ
@@ -242,7 +243,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                 </CardContent>
                             </Card>
 
-                            <Card>
+                            <Card className={`${preview__Type === "přednáška" && "border-blue-500 bg-blue-500/10"} transition-colors duration-500`}>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">
                                         2. typ
@@ -256,7 +257,7 @@ const CompetitionForm = ({defaultValues,chooseType, users}:{defaultValues:any,ch
                                     </p>
                                 </CardContent>
                             </Card>
-                            <Card>
+                            <Card className={`${preview__Type === "zájezd" && "border-blue-500 bg-blue-500/10"} transition-colors duration-500`}>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">
                                         3. typ

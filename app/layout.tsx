@@ -11,6 +11,8 @@ const inter = Inter({ subsets: ['latin'] })
 import notesLogo from "@/assets/img/notes2.png";
 import { Analytics } from '@vercel/analytics/react';
 import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
+import React from "react";
+import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: 'Survival Server',
@@ -28,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}
       >
+
       <Provider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
 

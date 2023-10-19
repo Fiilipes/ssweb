@@ -9,16 +9,31 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import Link from "next/link";
-import {LayoutPanelLeft} from "lucide-react";
+import {ArrowLeftRight, LayoutPanelLeft, Search, Sparkles} from "lucide-react";
 import navigation from "@/assets/settings/content/navigation";
 import {Badge} from "@/components/ui/badge";
 import {CommandDialogDemo} from "@/components/layout/wrap/CommandMenu";
+import { usePathname } from "next/navigation";
 
 
 
 const NavMenu = () => {
+    const pathname = usePathname();
+    const [webPart, setWebPart] = React.useState({
+        name: "Survival Server",
+        href: "/"
+    })
+    useEffect(() => {
+        pathname.startsWith("/soutezetryhard") ? setWebPart({
+            name: "Survival Server",
+            href: "/"
+        }) : setWebPart({
+            name: "Soutěže Tryhard",
+            href: "/soutezetryhard"
+        })
+    }, [pathname])
 
     const [open, setOpen] = React.useState(false)
     return (
@@ -28,7 +43,10 @@ const NavMenu = () => {
                 <NavigationMenuList className={"items-start"}>
 
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)] 2xl:px-[16px] 2xl:py-[20px] focus:bg-[rgba(255,255,255,0)] lg:text-[15px] font-semibold"}>{navigation.gettingStarted.title}</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className={"bg-[rgba(255,255,255,0)]  2xl:py-[20px] focus:bg-[rgba(255,255,255,0)] lg:text-[13px] font-semibold NOICON"}>
+                            <Sparkles className={"2xl:w-[16px] 2xl:h-[16px] mr-[12px]"} />
+                            {navigation.gettingStarted.title}
+                        </NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid gap-[16px] lg:p-[20px] md:w-[400px] lg:w-[550px] lg:grid-cols-[.75fr_1fr]">
                                 <li className="row-span-3">
@@ -90,20 +108,27 @@ const NavMenu = () => {
                     {/*</NavigationMenuItem>*/}
                     <div className={"flex flex-row items-center"}>
                         <NavigationMenuItem  onClick={() => setOpen(!open)}>
-                            <div className={"font-semibold transition-colors hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] 2xl:py-[20px] lg:text-[15px] cursor-pointer "}>
-                                Prozkoumat
+                            <div className={"bg-[rgba(255,255,255,0)]  2xl:py-[20px] focus:bg-[rgba(255,255,255,0)] lg:text-[13px] font-semibold transition-colors hover:bg-accent hover:text-accent-foreground  h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] cursor-pointer "}>
+                                <Search className={"2xl:w-[16px] 2xl:h-[16px] mr-[12px]"} />
+                                Hledat
                             </div>
                         </NavigationMenuItem>
                     </div>
                     <div className={"flex flex-row items-center"}>
                         <NavigationMenuItem>
-                            <Link href={"/soutezetryhard"} legacyBehavior passHref>
-                                <NavigationMenuLink className={"transition-colors font-semibold hover:bg-accent hover:text-accent-foreground bg-[rgba(255,255,255,0)] focus:bg-[rgba(255,255,255,0)] h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] 2xl:py-[20px] lg:text-[15px]"}>
+                            <Link href={
+                                webPart.href
+                            } legacyBehavior passHref>
+                                <NavigationMenuLink className={"bg-[rgba(255,255,255,0)]  2xl:py-[20px] focus:bg-[rgba(255,255,255,0)] lg:text-[13px] font-semibold transition-colors hover:bg-accent hover:text-accent-foreground  h-10 rounded-md px-4 py-2 group inline-flex items-center justify-center 2xl:px-[16px] cursor-pointer "}>
                                     {/*<Badge variant={"secondary"} className={`animate-pulse mr-[.6vw]`}>*/}
                                     {/*    New*/}
                                     {/*</Badge>*/}
+                                    <ArrowLeftRight className={"2xl:w-[16px] 2xl:h-[16px] mr-[12px]"} />
+
                                     <div>
-                                        Soutěže Tryhard
+                                        {
+                                            webPart.name
+                                        }
                                     </div>
 
 

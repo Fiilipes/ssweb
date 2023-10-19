@@ -6,10 +6,10 @@
   fill: white
 }
 .zindexchanger {
-    z-index: 1
+  z-index: 1
 }
 .zindexchanger:hover {
-    z-index: 1000000000000
+  z-index: 1000000000000
 }
 .svgIcon * {
   fill: white

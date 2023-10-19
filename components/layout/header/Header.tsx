@@ -34,12 +34,11 @@ const Header = async () => {
 
                 <section className={"flex-row w-fit hidden lg:flex 2xl:px-[12px] items-start h-full"}>
                     <LargeDevices />
-                    <section className={"lg:ml-[30px] lg:mr-[20px] flex flex-row h-full"}>
-                        <SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />
-                        {/*<SocialIcon icon={imgWigym} alt={"wigym"} link={"https://wigym.cz"} title={"Wichterlovo Gymnázium"} />*/}
-                        {/*/!*<ThemeSwitcher />*!/*/}
+                    {/*<section className={"lg:ml-[30px] lg:mr-[20px] flex flex-row h-full"}>*/}
+                    {/*    /!*<SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />*!/*/}
+                    {/*    /!*<SocialIcon icon={imgWigym} alt={"wigym"} link={"https://wigym.cz"} title={"Wichterlovo Gymnázium"} />*!/*/}
 
-                    </section>
+                    {/*</section>*/}
                     {
                         !session ?
                             <SignInButton>
