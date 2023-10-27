@@ -14,7 +14,6 @@ import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 import React from "react";
 import Script from 'next/script';
 import Cursor from "@/components/layout/wrap/Cursor";
-import {Html} from "next/document";
 
 export const metadata: Metadata = {
     title: 'Survival Server',
