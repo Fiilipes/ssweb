@@ -13,6 +13,8 @@ import { Analytics } from '@vercel/analytics/react';
 import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 import React from "react";
 import Script from 'next/script';
+import Cursor from "@/components/layout/wrap/Cursor";
+import {Html} from "next/document";
 
 export const metadata: Metadata = {
     title: 'Survival Server',
@@ -28,8 +30,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}
-      >
+      <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}>
+      <Cursor />
 
       <Provider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>

@@ -1,6 +1,8 @@
+"use client"
+
 import Image from 'next/image'
 import backgroundBlur from "../assets/img/backgroundBlur.png";
-import React from "react";
+import React, {useEffect} from "react";
 
 
 import ExploreButton from "@/components/layout/homepage/Explore"
@@ -15,15 +17,27 @@ import {UserCircle2} from "lucide-react";
 import SignInButton from "@/components/reusable/auth/SignInButton";
 import pages from "@/assets/settings/content/pages";
 import Routes from "@/components/layout/homepage/Routes";
+import {useSession} from "next-auth/react";
+import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
+import Cursor from "@/components/layout/wrap/Cursor";
 
 
-export default async function Home() {
+export default function Home() {
 
-    const session = await getServerSession()
+    useEffect(
+        () => {
+            (
+                async () => {
+                    const LocomotiveScroll = (await import('locomotive-scroll')).default
+                    const locomotiveScroll = new LocomotiveScroll();
+                }
+            )()
+        },[]
+    )
+    const {data:session} = useSession()
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-center lg:justify-start scroll-smooth">
-
 
             <div className={"flex flex-col items-center justify-start h-fit w-full z-10 my-[100px] lg:my-0"}>
                 <h1 className={"text-[50px] lg:text-[96px] font-bold mt-[128px]"}>
@@ -59,11 +73,18 @@ export default async function Home() {
             </div>
 
 
-            <Content />
+            {/*<Content />*/}
 
-            <Introduction />
+            {/*<Introduction />*/}
 
-            <Routes />
+            {/*<Routes />*/}
+
+            <div className={"h-[50vh]"}></div>
+
+            <div className={"w-[90%] mx-auto"}>
+                <UnderConstruction />
+            </div>
+            <div className={"h-[50vh]"}></div>
 
             <Image src={backgroundBlur} alt={"background"} className={"hidden lg:block absolute top-[0vw] z-0 opacity-70 w-[1040px] select-none"} />
 

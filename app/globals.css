@@ -94,20 +94,9 @@
   }
 }
 
-body {
-  padding: 0;
-  scroll-behavior: smooth;
-  margin:  0
-
-
-}
 
 
 
-
-* {
-  scroll-behavior: smooth;
-}
 
 @layer base {
   * {
@@ -215,4 +204,16 @@ body {
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  background-color: white; /* Default background color */
+  mix-blend-mode: difference; /* Blend mode for inverting colors */
+
 }
