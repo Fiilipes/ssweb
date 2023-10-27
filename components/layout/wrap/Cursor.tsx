@@ -43,6 +43,7 @@ const Cursor = () => {
         const buttonTags = document.querySelectorAll("button");
 
         // combine them
+        // @ts-ignore
         const allTags = [...aTags, ...buttonTags]
         allTags.forEach(a => {
             if (a.closest("form") === null) {
