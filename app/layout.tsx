@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 import notesLogo from "@/assets/img/notes2.png";
 import { Analytics } from '@vercel/analytics/react';
 import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
-import React from "react";
+import React, {useEffect} from "react";
 import Script from 'next/script';
 import Cursor from "@/components/layout/wrap/Cursor";
 
@@ -27,7 +27,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
+    // @ts-ignore
+
+    return (
     <html lang="en">
       <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}>
       <Cursor />

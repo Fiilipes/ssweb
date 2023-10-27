@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {Accordion} from "@/components/ui/accordion";
@@ -25,7 +25,17 @@ import {columns} from "./columns";
 const Page = () => {
 
     const {data:session} = useSession()
-
+    useEffect(
+        () => {
+            (
+                async () => {
+                    // @ts-ignore
+                    const LocomotiveScroll = (await import('locomotive-scroll')).default
+                    const locomotiveScroll = new LocomotiveScroll();
+                }
+            )()
+        },[]
+    )
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<Competition[]>([])
     const [competitionsOrganized, setCompetitionsOrganized] = React.useState<Competition[]>([])

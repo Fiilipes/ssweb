@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, {useEffect} from "react";
 import {getSS} from "@/assets/settings/firebase";
 
 import {
@@ -25,7 +25,17 @@ import {Competition} from "@/assets/settings/interfaces";
 export default function SoutezeTryhard() {
 
     const {data:session} = useSession()
-
+    useEffect(
+        () => {
+            (
+                async () => {
+                    // @ts-ignore
+                    const LocomotiveScroll = (await import('locomotive-scroll')).default
+                    const locomotiveScroll = new LocomotiveScroll();
+                }
+            )()
+        },[]
+    )
 
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<any[] | null>(null)

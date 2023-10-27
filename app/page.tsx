@@ -28,6 +28,7 @@ export default function Home() {
         () => {
             (
                 async () => {
+                    // @ts-ignore
                     const LocomotiveScroll = (await import('locomotive-scroll')).default
                     const locomotiveScroll = new LocomotiveScroll();
                 }
