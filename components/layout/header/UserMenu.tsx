@@ -19,6 +19,7 @@ import {LayoutPanelLeft, LogOut, User2} from "lucide-react";
 import {signOut} from "next-auth/react";
 
 const UserMenu = ({session}: {session:any}) => {
+
     return (
         <>
             <NavigationMenu className={"z-50 transform translate-x-[-16px]"}>
@@ -28,9 +29,7 @@ const UserMenu = ({session}: {session:any}) => {
                                 <NavigationMenuTrigger className={"NOICON mx-1 2xl:mx-[6px] font-bold text-[#444] dark:text-[#bbb]  border border-input bg-white dark:bg-accent   2xl:px-[16px] 2xl:py-[20px] focus:bg-[rgba(255,255,255,1)] 2xl:text-[15px] transform translate-x-[16px] "}>
 
                                 {/* eslint-disable-next-line @next/next/no-img-element*/}
-                                <img src={
-                                    //@ts-ignore
-                                    session?.image ? session?.image : ""} alt={"userImage"} className={"h-4 w-4 2xl:h-[16px] 2xl:w-[16px] mr-2 2xl:mr-[8px] rounded-full"} />
+                                <img src={session?.image} alt={"userImage"} className={"h-4 w-4 2xl:h-[16px] 2xl:w-[16px] mr-2 2xl:mr-[8px] rounded-full"} />
                                 Profil
                                 </NavigationMenuTrigger>
 
@@ -64,4 +63,5 @@ const UserMenu = ({session}: {session:any}) => {
 
     )
 }
+// @ts-ignore
 export default UserMenu

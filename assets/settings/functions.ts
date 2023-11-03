@@ -141,27 +141,100 @@ class Functions {
         const transformedArray: any[] = [];
 
         competitions.forEach((competition: any) => {
-            const competitionDate = new Date(competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "range" ? competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds * 1000    :competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds * 1000); // Convert timestamp to Date object
-            const year = competitionDate.getFullYear();
-            const month = competitionDate.getMonth() + 1; // Months are 0-indexed, so add 1
+            console.log(competition)
+            if (competition.competitionType === "jednokolová soutěž") {
+                const competitionDate = new Date(competition.miles.find((mile:any) => mile.important).date.type === "range" ? competition.miles.find((mile:any) => mile.important).date.value.from.seconds * 1000    :competition.miles.find((mile:any) => mile.important).date.value.seconds * 1000); // Convert timestamp to Date object
+                const year = competitionDate.getFullYear();
+                const month = competitionDate.getMonth() + 1; // Months are 0-indexed, so add 1
 
-            // Check if the year entry already exists in the transformed array
-            let yearEntry = transformedArray.find(entry => entry.year === year);
-            if (!yearEntry) {
-                yearEntry = { year: year, competitions: [] };
-                transformedArray.push(yearEntry);
+                // Check if the year entry already exists in the transformed array
+                let yearEntry = transformedArray.find(entry => entry.year === year);
+                if (!yearEntry) {
+                    yearEntry = { year: year, competitions: [] };
+                    transformedArray.push(yearEntry);
+                }
+
+                // Check if the month entry already exists for the year
+                let monthEntry = yearEntry.competitions.find((entry: { month: number; }) => entry.month === month);
+                if (!monthEntry) {
+                    monthEntry = { month: month, competitions: [] };
+                    yearEntry.competitions.push(monthEntry);
+                }
+
+                // Add the competition to the appropriate month's competitions array
+                monthEntry.competitions.push({
+                    competition: competition,
+                    type: "jednokolová soutěž",
+                });
+                // sort monthEntry by date
+                monthEntry.competitions.sort((a:any,b:any) => {
+                    let aDate = new Date();
+                    let bDate = new Date();
+                    if (a.type === "jednokolová soutěž") {
+                        aDate = new Date(a.competition.miles.find((mile:any) => mile.important).date.type === "range" ? a.competition.miles.find((mile:any) => mile.important).date.value.from.seconds * 1000    :a.competition.miles.find((mile:any) => mile.important).date.value.seconds * 1000); // Convert timestamp to Date object
+                    } else {
+                        aDate = new Date(a.mile.date.type === "range" ? a.mile.date.value.from.seconds * 1000    :a.mile.date.value.seconds * 1000); // Convert timestamp to Date object
+                    }
+                    if (b.type === "jednokolová soutěž") {
+                        bDate = new Date(b.competition.miles.find((mile:any) => mile.important).date.type === "range" ? b.competition.miles.find((mile:any) => mile.important).date.value.from.seconds * 1000    :b.competition.miles.find((mile:any) => mile.important).date.value.seconds * 1000); // Convert timestamp to Date object
+                    } else {
+                        bDate = new Date(b.mile.date.type === "range" ? b.mile.date.value.from.seconds * 1000    :b.mile.date.value.seconds * 1000); // Convert timestamp to Date object
+                    }
+
+                    return aDate - bDate
+                })
+            } else {
+                const competitionMiles = competition.miles.filter(mile => mile.important);
+                competitionMiles.forEach((mile: any) => {
+                    const competitionDate = new Date(mile.date.type === "range" ? mile.date.value.from.seconds * 1000    :mile.date.value.seconds * 1000); // Convert timestamp to Date object
+                    const year = competitionDate.getFullYear();
+                    const month = competitionDate.getMonth() + 1; // Months are 0-indexed, so add 1
+
+                    // Check if the year entry already exists in the transformed array
+                    let yearEntry = transformedArray.find(entry => entry.year === year);
+                    if (!yearEntry) {
+                        yearEntry = { year: year, competitions: [] };
+                        transformedArray.push(yearEntry);
+                    }
+
+                    // Check if the month entry already exists for the year
+                    let monthEntry = yearEntry.competitions.find((entry: { month: number; }) => entry.month === month);
+                    if (!monthEntry) {
+                        monthEntry = { month: month, competitions: [] };
+                        yearEntry.competitions.push(monthEntry);
+                    }
+
+                    // Add the competition to the appropriate month's competitions array
+                    monthEntry.competitions.push({
+                        competition: competition,
+                        type: "vícekolová soutěž",
+                        mile: mile,
+
+                    });
+                    // sort monthEntry by date
+                    monthEntry.competitions.sort((a:any,b:any) => {
+                        let aDate = new Date();
+                        let bDate = new Date();
+                        if (a.type === "jednokolová soutěž") {
+                            aDate = new Date(a.competition.miles.find((mile:any) => mile.important).date.type === "range" ? a.competition.miles.find((mile:any) => mile.important).date.value.from.seconds * 1000    :a.competition.miles.find((mile:any) => mile.important).date.value.seconds * 1000); // Convert timestamp to Date object
+                        } else {
+                            aDate = new Date(a.mile.date.type === "range" ? a.mile.date.value.from.seconds * 1000    :a.mile.date.value.seconds * 1000); // Convert timestamp to Date object
+                        }
+                        if (b.type === "jednokolová soutěž") {
+                            bDate = new Date(b.competition.miles.find((mile:any) => mile.important).date.type === "range" ? b.competition.miles.find((mile:any) => mile.important).date.value.from.seconds * 1000    :b.competition.miles.find((mile:any) => mile.important).date.value.seconds * 1000); // Convert timestamp to Date object
+                        } else {
+                            bDate = new Date(b.mile.date.type === "range" ? b.mile.date.value.from.seconds * 1000    :b.mile.date.value.seconds * 1000); // Convert timestamp to Date object
+                        }
+
+                        return aDate - bDate
+                    })
+                });
+
             }
 
-            // Check if the month entry already exists for the year
-            let monthEntry = yearEntry.competitions.find((entry: { month: number; }) => entry.month === month);
-            if (!monthEntry) {
-                monthEntry = { month: month, competitions: [] };
-                yearEntry.competitions.push(monthEntry);
-            }
-
-            // Add the competition to the appropriate month's competitions array
-            monthEntry.competitions.push(competition);
         });
+
+        console.log(transformedArray)
 
         return transformedArray;
     }

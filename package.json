@@ -71,7 +71,7 @@
     "locomotive-scroll": "^5.0.0-beta.8",
     "lowlight": "^2.9.0",
     "lucide-react": "^0.279.0",
-    "next": "^13.4.17",
+    "next": "^13.4.6",
     "next-auth": "^4.23.0",
     "next-themes": "^0.2.1",
     "node-mcstatus": "^1.1.0",

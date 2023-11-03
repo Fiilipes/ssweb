@@ -50,6 +50,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                             const transformedArray = res["users"].list.filter((item: User) => discordIDsSet.has(item.discordID));
 
                             if (myCompetition) {
+                                console.log(myCompetition)
                                 setMyCompetition(myCompetition)
                                 console.log(transformedArray)
                                 setUsers(transformedArray.map((obj:any) => {
@@ -57,6 +58,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                         username: obj.discordUsername,
                                         avatar: obj.discordAvatar,
                                         id: obj.discordID,
+                                        numberOfCompetitions: res["soutěže"].list.added.filter((competition:any) => competition.users.find((user:any) => user.discordID === obj.discordID)).length
                                     };
                                 }))
                             }
@@ -71,16 +73,41 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
     return (
         <div>
-            <div className="flex-1 space-y-4 p-8 pt-6">
+            <div className="flex-1 space-y-4 pt-6 ">
 
                 {
                     // @ts-ignore
                     myCompetition !== false ?
                         <>
-                            <PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}`} buttons={[{content:"Upravit událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />
+                            {/*<PageTitle status={ verified } title={myCompetition?.name!} description={`Bližší informace k události ${myCompetition?.name}`} buttons={[{content:"Upravit událost", link:`/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`, variant:"default"}]} />*/}
 
                             <PageContentWrap status={ verified } server={discordServers.find(server => server.name === "Soutěže Tryhard")} >
-                                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-[16px]">
+                                <Card className={"p-8"} style={
+                                    // @ts-ignore
+                                    myCompetition?.competitionType !== "jednokolová soutěž" ?
+                                        {
+                                            background: "linear-gradient(180deg, rgba(85,40,255,0.5) 0px, #fff 150px)",
+                                            // filter: "blur(100px)",
+                                            backdropFilter: "blur(100px)",
+
+                                        } : {
+                                            background: "linear-gradient(180deg, rgba(250, 150, 50, .4) 0px, #fff 150px)",
+                                            // filter: "blur(100px)",
+                                            backdropFilter: "blur(100px)",
+
+                                        }
+                                }>
+                                    <h1 className={"text-[30px] lg:text-[38px] font-bold"}>
+                                        {myCompetition?.name!}
+                                    </h1>
+                                    {
+                                        verified &&
+                                        <p className={"font-semibold lg:font-medium text-[12px] lg:text-[14px] text-[#333] dark:text-[#ccc]"}>
+                                            {`Všechny informace k této události`}
+                                        </p>
+                                    }
+
+                                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-[40px] mb-[16px]">
                                         <Card>
                                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                                 <CardTitle className="text-sm font-medium">
@@ -103,55 +130,88 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                             </CardContent>
                                         </Card>
 
-                                        <Card>
-                                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                                <CardTitle className="text-sm font-medium">Datum konání</CardTitle>
-                                                <CalendarClock className={"opacity-60 w-4 h-4"} />
-                                            </CardHeader>
-                                            <CardContent>
-                                                <div className="text-2xl font-bold">{
+                                        {
+                                            //@ts-ignore
+                                            myCompetition?.competitionType === "jednokolová soutěž" ? <>
+                                                    <Card>
+                                                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                                            <CardTitle className="text-sm font-medium">Datum konání</CardTitle>
+                                                            <CalendarClock className={"opacity-60 w-4 h-4"} />
+                                                        </CardHeader>
+                                                        <CardContent>
+                                                            <div className="text-2xl font-bold">{
 
-                                                    // @ts-ignore
-                                                 functions.getTimeDifferenceDescription(new Date(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "range" ? myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds * 1000 : myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds  * 1000), new Date())
+                                                                // @ts-ignore
+                                                                functions.getTimeDifferenceDescription(new Date(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "range" ? myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds * 1000 : myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds  * 1000), new Date())
 
-                                                }</div>
-                                                <p className="text-xs text-muted-foreground">
-                                                    {
-                                                        // @ts-ignore
-                                                        myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds).reverse().join(". ") : `${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds).reverse().join(". ")} - ${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.to.seconds).reverse().join(". ")}`}
+                                                            }</div>
+                                                            <p className="text-xs text-muted-foreground">
+                                                                {
+                                                                    // @ts-ignore
+                                                                    myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds).reverse().join(". ") : `${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds).reverse().join(". ")} - ${functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "competitionDate").date.value.to.seconds).reverse().join(". ")}`}
 
-                                                </p>
-                                            </CardContent>
-                                        </Card>
-                                        <Card>
-                                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                                <CardTitle className="text-sm font-medium">
-                                                    Registrace
-                                                </CardTitle>
-                                                <UserPlus2 className={"opacity-60 w-4 h-4"} />
-                                            </CardHeader>
-                                            <CardContent>
-                                                <div className="text-2xl font-bold">
-                                                    {
-                                                        // @ts-ignore
-                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.seconds : myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to.seconds).reverse().join(". ") : "Není potřeba"}
-                                                </div>
-                                                <p className="text-xs text-muted-foreground">
-                                                    {
-                                                        // check if you can still register
-                                                        // @ts-ignore
-                                                        myCompetition?.miles.find((mile:any) => mile.name === "registration").date ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená"
-                                                            : "Není potřeba"
-                                                    }
-                                                </p>
-                                            </CardContent>
-                                        </Card>
+                                                            </p>
+                                                        </CardContent>
+                                                    </Card>
+                                                    <Card>
+                                                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                                            <CardTitle className="text-sm font-medium">
+                                                                Registrace
+                                                            </CardTitle>
+                                                            <UserPlus2 className={"opacity-60 w-4 h-4"} />
+                                                        </CardHeader>
+                                                        <CardContent>
+                                                            <div className="text-2xl font-bold">
+                                                                {
+                                                                    // @ts-ignore
+                                                                    myCompetition?.miles.find((mile:any) => mile.name === "registration") ? functions.getDateArrayFromTimestamp(myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.seconds : myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to.seconds).reverse().join(". ") : "Není potřeba"}
+                                                            </div>
+                                                            <p className="text-xs text-muted-foreground">
+                                                                {
+                                                                    // check if you can still register
+                                                                    // @ts-ignore
+                                                                    myCompetition?.miles.find((mile:any) => mile.name === "registration") ? myCompetition?.miles.find((mile:any) => mile.name === "registration").date.type === "single" ? new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená" : new Date() < myCompetition?.miles.find((mile:any) => mile.name === "registration").date.value.to * 1000 ? "Stále se můžete registrovat" : "Registrace je již uzavřená"
+                                                                        : "Soutěž probíhá bez registrace"
+                                                                }
+                                                            </p>
+                                                        </CardContent>
+                                                    </Card>
+                                                </> :
+                                                <>
+                                                    <Card>
+                                                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                                            <CardTitle className="text-sm font-medium">
+                                                                Počet milníků
+                                                            </CardTitle>
+                                                            <UserPlus2 className={"opacity-60 w-4 h-4"} />
+                                                        </CardHeader>
+                                                        <CardContent>
+                                                            <div className="text-2xl font-bold">
+                                                                {
+                                                                    // @ts-ignore
+                                                                    myCompetition?.miles.filter(mile => mile.important).length
+                                                                }
+                                                            </div>
+                                                            <p className="text-xs text-muted-foreground">
+                                                                Více informací níže
+                                                            </p>
+                                                        </CardContent>
+                                                    </Card>
+                                                </>
+                                        }
                                     </div>
+
                                     <div className={"text-[24px] font-bold mt-[40px] mb-[16px]"}>
                                         Soutěžící
                                     </div>
 
                                     <DataTable columns={columns} data={users} currentUsername={"filipjarolim"} />
+
+
+
+
+                                </Card>
+                                    
 
 
 

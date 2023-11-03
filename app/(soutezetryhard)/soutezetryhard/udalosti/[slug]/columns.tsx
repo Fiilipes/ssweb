@@ -32,6 +32,7 @@ export type User = {
     username: string
     avatar: string
     id: string
+    numberOfCompetitions: number
 }
 
 export const columns: ColumnDef<User|any>[] = [
@@ -49,6 +50,20 @@ export const columns: ColumnDef<User|any>[] = [
             return <div className="text-left font-medium">@{row.getValue("username")}</div>
         },
 
+    },
+    {
+        accessorKey: "role",
+        header: () => <div className="text-left">Role</div>,
+        cell: ({ row }) => {
+            return <div className="text-left font-medium">Soutěžící</div>
+        },
+    },
+    {
+        accessorKey: "numberOfCompetitions",
+        header: () => <div className="text-left">Počet soutěží</div>,
+        cell: ({ row }) => {
+            return <div className="text-left font-medium">{row.getValue("numberOfCompetitions")}</div>
+        },
     },
     {
         id: "actions",

@@ -19,12 +19,12 @@ import {Button} from "@/components/ui/button";
 import UserAvatar from "@/components/reusable/profil/UserAvatar";
 
 const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}) => {
-    console.log(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value)
+    console.log(competition)
     return (
         <ContextMenu>
             <ContextMenuTrigger>
                 <Alert className={"mt-4 px-[48px] py-[8px] overflow-hidden"} style={
-                    competition.type !== "olympiáda" ?
+                    competition.type !== "jednokolová soutěž" ?
                         {
                             backgroundImage: "linear-gradient(310deg, #fff 60%, rgba(85,40,255,0.5) 100%)",
                             // filter: "blur(100px)",
@@ -39,33 +39,52 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                 }>
 
                     <AccordionItem value={
-                        competition.name.toLowerCase().replace(/\s/g, '')
+                        competition.type === "jednokolová soutěž"?
+                        competition.competition.name.toLowerCase().replace(/\s/g, ''):
+                        competition.mile.name.toLowerCase().replace(/\s/g, '')
                     } className={"border-none"} >
 
                         <AccordionTrigger className={"hover:no-underline z-10"}>
                             <div className={"flex flex-row items-center"}>
                                 <div className={"flex flex-col items-center justify-center min-w-[48px] min-h-[64px] rounded-xl"}>
                                     <div>
+
                                         {
-                                            competition.miles.find((mile:any) => mile.name === "competitionDate") ? competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds))}` : "N/A"
+                                            competition.type === "jednokolová soutěž" ? competition.competition.miles.find((mile:any) => mile.name === "competitionDate") ? competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds))}` : "N/A" :
+                                            competition.mile.date.type === "single" ? functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.mile.date.value.seconds)) : ` ${functions.getDayOfWeekFromDateArray(functions.getDateArrayFromTimestamp(competition.mile.date.value.from.seconds))}`
                                         }
 
                                     </div>
                                     <div className={"font-semibold text-[32px]"}>
-                                        {competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds)[2]}`}
+                                        {
+                                            competition.type === "jednokolová soutěž"?competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.type === "single" ? functions.getDateArrayFromTimestamp(competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.competition.miles.find((mile:any) => mile.name === "competitionDate").date.value.from.seconds)[2]}` : competition.mile.date.type === "single" ? functions.getDateArrayFromTimestamp(competition.mile.date.value.seconds)[2] : ` ${functions.getDateArrayFromTimestamp(competition.mile.date.value.from.seconds)[2]}`
+                                        }
                                     </div>
                                 </div>
                                 <Separator className={"transform rotate-90 w-[64px] opacity-100 bg-[#ccc]"} />
-                                <div className={"text-[24px] h-[32px] font-bold w-[240px] max-w-[240px] overflow-hidden flex-row justify-start text-left"}>
-                                    {competition.name}
-                                </div>
+                                {
+
+                                    competition.type === "vícekolová soutěž" ?
+                                        <div className={"flex flex-col"}>
+                                            <div className={"text-[24px] h-[32px] font-bold w-[240px] max-w-[240px] overflow-hidden flex-row justify-start text-left"}>
+                                                {competition.mile.label}
+                                            </div>
+                                            <div className={"text-[16px] h-[24px] font-medium w-[240px] max-w-[240px] overflow-hidden flex-row justify-start text-left"}>
+                                                {competition.competition.name}
+                                            </div>
+                                        </div> : <div className={"text-[24px] h-[32px] font-bold w-[240px] max-w-[240px] overflow-hidden flex-row justify-start text-left"}>
+                                            {competition.competition.name}
+                                        </div>
+                                }
+
+
                                 <Separator className={"transform rotate-90 w-[64px]"} />
                                 <div className={"grid grid-cols-2 gap-x-[64px]"}>
                                     <div className={"flex flex-row items-center my-1"}>
                                         <Shapes className={"w-[12px] h-[12px] opacity-70 mr-2"} />
                                         <div className={"text-[12px]"}>
                                             {//first letter capitalized
-                                                competition.type.charAt(0).toUpperCase() + competition.type.slice(1)
+                                                competition.competition.type.charAt(0).toUpperCase() + competition.competition.type.slice(1)
                                             }
                                         </div>
                                     </div>
@@ -73,7 +92,7 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                                         <Users2 className={"w-[12px] h-[12px] opacity-70 mr-2"} />
                                         <div className={"flex flex-row items-center w-fit text-[12px]"}>
                                             {
-                                                competition.users.length >= 0 ? competition.users.length >= 1 ? competition.users.length >= 5 ? competition.users.length + " účastníků" : competition.users.length + " účastníci" : competition.users.length + " účastník" : "Nikdo se neúčastní"
+                                                competition.competition.users.length >= 0 ? competition.competition.users.length >= 1 ? competition.competition.users.length >= 5 ? competition.competition.users.length + " účastníků" : competition.competition.users.length + " účastníci" : competition.competition.users.length + " účastník" : "Nikdo se neúčastní"
                                             }
                                         </div>
                                     </div>
@@ -81,7 +100,7 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                                         <MapPin className={"w-[12px] h-[12px] opacity-70 mr-2"} />
                                         <div className={"text-[12px]"}>
                                             {
-                                                competition.place.charAt(0).toUpperCase() + competition.place.slice(1)
+                                                competition.competition.place.charAt(0).toUpperCase() + competition.competition.place.slice(1)
                                             }
                                         </div>
                                     </div>
@@ -93,12 +112,12 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
                         </AccordionTrigger>
                         <AccordionContent className={"pt-[16px]"}>
                             <div className={"flex flex-row gap-x-[16px]"}>
-                                <Link href={"/soutezetryhard/udalosti/" + competition.name}>
+                                <Link href={"/soutezetryhard/udalosti/" + competition.competition.name}>
                                     <Button variant={"outline"} className={"flex flex-row items-center"}>
                                         <Info className={"w-[14px] h-[14px] opacity-80 mr-2"}/> Zobrazit bližší informace
                                     </Button>
                                 </Link>
-                                <Link target={"_blank"} href={"https://discord.com/channels/1130637842276683909/" + competition.postId}>
+                                <Link target={"_blank"} href={"https://discord.com/channels/1130637842276683909/" + competition.competition.postId}>
                                     <Button variant={"outline"} className={"flex flex-row items-center"}>
                                         <MessagesSquare className={"w-[14px] h-[14px] opacity-80 mr-2"}/> Discord
                                     </Button>

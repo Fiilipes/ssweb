@@ -45,6 +45,7 @@ const Page = () => {
         () => {
             if (session) {
                 getSS(["users", "soutěže"]).then((res: any) => {
+                    console.log(res["soutěže"].list.added)
 
                     // @ts-ignore
                     functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
