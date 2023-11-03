@@ -202,6 +202,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                     </div>
 
                                     <div className={"text-[24px] font-bold mt-[40px] mb-[16px]"}>
+                                        <Users2 className={"opacity-60 w-4 h-4 mr-2"}/>
                                         Soutěžící
                                     </div>
 

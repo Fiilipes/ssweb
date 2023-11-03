@@ -180,10 +180,11 @@ class Functions {
                     } else {
                         bDate = new Date(b.mile.date.type === "range" ? b.mile.date.value.from.seconds * 1000    :b.mile.date.value.seconds * 1000); // Convert timestamp to Date object
                     }
-
+                    // @ts-ignore
                     return aDate - bDate
                 })
             } else {
+                // @ts-ignore
                 const competitionMiles = competition.miles.filter(mile => mile.important);
                 competitionMiles.forEach((mile: any) => {
                     const competitionDate = new Date(mile.date.type === "range" ? mile.date.value.from.seconds * 1000    :mile.date.value.seconds * 1000); // Convert timestamp to Date object
@@ -225,7 +226,7 @@ class Functions {
                         } else {
                             bDate = new Date(b.mile.date.type === "range" ? b.mile.date.value.from.seconds * 1000    :b.mile.date.value.seconds * 1000); // Convert timestamp to Date object
                         }
-
+                        // @ts-ignore
                         return aDate - bDate
                     })
                 });
