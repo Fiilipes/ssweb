@@ -19,10 +19,10 @@ export default async function Layout({
         <div>
             <BasicWrap>
 
-                <div className={"flex flex-row w-full"}>
+                <div className={"flex flex-row w-full "}>
                     <SideBar />
 
-                    <div className={"w-full"}>
+                    <div className={"w-full transition-all duration-500"}>
                         {children}
                     </div>
                 </div>

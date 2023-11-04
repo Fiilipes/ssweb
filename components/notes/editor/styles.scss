@@ -2,7 +2,6 @@
 .ProseMirror {
   > * + * {
     margin-top: 0.25em;
-    color: unset !important;
   }
 
   p {
@@ -130,9 +129,9 @@
 
   .Tiptap-mathematics-render {
     cursor: pointer;
-    padding: 0.5rem 0.25rem;
+    padding: 0 0.5rem;
     transition: background 0.2s;
-
+    color: #fff;
   }
 
   .Tiptap-mathematics-editor,
@@ -189,7 +188,5 @@
 }
 
 
-span{
-  color: unset !important ;
-}
+
 

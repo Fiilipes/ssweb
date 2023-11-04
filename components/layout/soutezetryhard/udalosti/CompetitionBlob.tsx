@@ -79,7 +79,7 @@ const CompetitionBlob = ({competition, users}: {competition: any, users: User[]}
 
 
                                 <Separator className={"transform rotate-90 w-[64px]"} />
-                                <div className={"grid grid-cols-2 gap-x-[64px]"}>
+                                <div className={"grid grid-cols-2 gap-x-[32px] w-[500px]"}>
                                     <div className={"flex flex-row items-center my-1"}>
                                         <Shapes className={"w-[12px] h-[12px] opacity-70 mr-2"} />
                                         <div className={"text-[12px]"}>

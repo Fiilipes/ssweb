@@ -5,11 +5,11 @@ import {DiscordServer} from "@/assets/settings/interfaces";
 
 const PageContentWrap = ({status, server, children}: {status: null | boolean, server: DiscordServer | undefined, children: React.ReactNode}) => {
     return (
-        <div className={`pr-[2vw]`}>
+        <div className={`pr-[2vw] transition-all duration-500`}>
             {
                 status === null ?
                     <Loading>
-                        Načítání...
+                        <div className="spinner"></div>
                     </Loading> :
                     !status ?
                         <NotVerifiedWithServerCard discordServer={server} />

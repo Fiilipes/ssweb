@@ -366,34 +366,55 @@ class Functions {
         return `https://cdn.discordapp.com/avatars/${discordID}/${discordAvatar}.png?size=128`
     }
 
-    getTimeDifferenceDescription(inputDate:any) {
+    getTimeDifferenceDescription(inputDate: any) {
         const currentDate = new Date();
         // @ts-ignore
         const timeDifference = inputDate - currentDate;
 
         const millisecondsPerDay = 24 * 60 * 60 * 1000;
-        const daysDifference = Math.floor(timeDifference / millisecondsPerDay) + 1;
+        const daysDifference = Math.floor(Math.abs(timeDifference) / millisecondsPerDay);
 
+        console.log(daysDifference);
 
-        console.log(daysDifference)
-        if (daysDifference === 0) {
-            return 'Dnes';
-        } else if (daysDifference === 1) {
-            return 'Zítra';
-        } else if (daysDifference <= 6) {
-            return `Za ${daysDifference} ${daysDifference >= 5 ? 'dní' : 'dny'}`;
-        } else if (daysDifference <= 20 ) {
-            const weeks = Math.floor(daysDifference / 7);
-            return `Za ${weeks} ${weeks <= 1 ? 'týden' : 'týdny'}`;
-        } else if (daysDifference <= 334) {
-            const months = Math.floor(daysDifference / 30);
-            return `Za ${months} ${months <= 1 ? 'měsíc' : months <= 4 ? 'měsíce' : 'měsíců'}`;
+        if (timeDifference < 0) {
+            if (daysDifference === 0) {
+                return 'Dnes';
+            } else if (daysDifference === 1) {
+                return 'Včera';
+            } else if (daysDifference <= 6) {
+                return `Před ${daysDifference} ${daysDifference >= 5 ? 'dny' : 'dny'}`;
+            } else if (daysDifference <= 20) {
+                const weeks = Math.floor(daysDifference / 7);
+                return `Před ${weeks} ${weeks <= 1 ? 'týdnem' : 'týdny'}`;
+            } else if (daysDifference <= 334) {
+                const months = Math.floor(daysDifference / 30);
+                return `Před ${months} ${months <= 1 ? 'měsícem' : months <= 4 ? 'měsíci' : 'měsíci'}`;
+            } else {
+                const months = Math.floor(daysDifference / 30);
+                const years = Math.floor(months / 12);
+                return `Příští rok`;
+            }
         } else {
-            const months = Math.floor(daysDifference / 30);
-            const years = Math.floor(months / 12);
-            return `Příští rok`;
+            if (daysDifference === 0) {
+                return 'Dnes';
+            } else if (daysDifference === 1) {
+                return 'Zítra';
+            } else if (daysDifference <= 6) {
+                return `Za ${daysDifference} ${daysDifference >= 5 ? 'dní' : 'dny'}`;
+            } else if (daysDifference <= 20) {
+                const weeks = Math.floor(daysDifference / 7);
+                return `Za ${weeks} ${weeks <= 1 ? 'týden' : 'týdny'}`;
+            } else if (daysDifference <= 334) {
+                const months = Math.floor(daysDifference / 30);
+                return `Za ${months} ${months <= 1 ? 'měsíc' : months <= 4 ? 'měsíce' : 'měsíců'}`;
+            } else {
+                const months = Math.floor(daysDifference / 30);
+                const years = Math.floor(months / 12);
+                return `Příští rok`;
+            }
         }
     }
+
 
     getRandomQuestion(questions: any[]) {
         // Get a random key from the 'questions' object

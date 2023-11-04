@@ -95,16 +95,21 @@ const Page = () => {
                     </div>
 
                     {
-                        questions["Fyziklání Online"].series.map((serie, index) => {
+                        questions["fyziklanionline"].series.map((serie, index) => {
                             return (
                                 // eslint-disable-next-line react/jsx-key
                                 <div>
                                     {
                                         serie.questions.map((question, index) => {
                                             let editor   = functions.createEditor({
-                                                originContent: `<h1>${question?.name.charAt(0).toUpperCase() + question?.name.slice(1)}</h1><p>${question?.task}</p><p class="special">${
-                                                    // replace all $$ with $
-                                                    question?.process.replace(/\$\$/g, "$")}</p>`,
+                                                originContent: `
+                                                <h1>
+                                                    ${question?.name.charAt(0).toUpperCase() + question?.name.slice(1)}
+                                                </h1>
+                                                <p class="special">
+                                                       ${
+                                                    question?.task.replace(/\$\$/g, "$")
+                                                }</p>`,
                                                 placeholder: {},
                                                 document: {},
                                                 menubar: [menuOptions().bold, menuOptions().italic, menuOptions().strike, menuOptions().bulletList],

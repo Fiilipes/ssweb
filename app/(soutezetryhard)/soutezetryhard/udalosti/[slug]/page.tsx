@@ -73,7 +73,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
     return (
         <div>
-            <div className="flex-1 space-y-4 pt-6 ">
+            <div className="flex-1 space-y-4 pt-6 ml-6 ">
 
                 {
                     // @ts-ignore
@@ -86,12 +86,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                     // @ts-ignore
                                     myCompetition?.competitionType !== "jednokolová soutěž" ?
                                         {
-                                            background: "linear-gradient(180deg, rgba(85,40,255,0.5) 0px, #fff 150px)",
+                                            background: "linear-gradient(180deg, rgba(85,40,255,.35) 0px, #fff 150px)",
                                             // filter: "blur(100px)",
                                             backdropFilter: "blur(100px)",
 
                                         } : {
-                                            background: "linear-gradient(180deg, rgba(250, 150, 50, .4) 0px, #fff 150px)",
+                                            background: "linear-gradient(180deg, rgba(250, 150, 50, .35) 0px, #fff 150px)",
                                             // filter: "blur(100px)",
                                             backdropFilter: "blur(100px)",
 
@@ -201,8 +201,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                         }
                                     </div>
 
-                                    <div className={"text-[24px] font-bold mt-[40px] mb-[16px]"}>
-                                        <Users2 className={"opacity-60 w-4 h-4 mr-2"}/>
+                                    <div className={"flex flex-row items-center text-[24px] font-bold mt-[40px] mb-[16px]"}>
+                                        {/*<Users2 className={"opacity-90 w-4 h-4 mr-2"}/>*/}
                                         Soutěžící
                                     </div>
 
