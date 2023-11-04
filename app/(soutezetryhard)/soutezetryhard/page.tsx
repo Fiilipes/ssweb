@@ -7,13 +7,14 @@ import {
     Card,
     CardContent,
     CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 
 
 import Image from "next/image";
-import {Activity, CalendarClock, Clock, Terminal, Users2} from "lucide-react";
+import {Activity, Book, CalendarClock, Clock, Terminal, Users2} from "lucide-react";
 
 import {useSession} from "next-auth/react";
 import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
@@ -21,6 +22,8 @@ import discordServers from "@/assets/settings/content/discordServers";
 import UnderConstruction from "@/components/reusable/composition/UnderConstruction";
 import functions from "@/assets/settings/functions";
 import {Competition} from "@/assets/settings/interfaces";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 export default function SoutezeTryhard() {
 
@@ -142,8 +145,31 @@ export default function SoutezeTryhard() {
                         {/*        </CardContent>*/}
                         {/*    </Card>*/}
                         {/*</div>*/}
-                        <UnderConstruction />
+                        <article className={"flex flex-col w-full"}>
 
+                            <Card className={"w-full mt-[32px] bg-black text-white flex flex-row"} style={
+                                {
+                                    backgroundImage: `linear-gradient(310deg, #000 40%, rgba(200, 20,80,0.4) 100%)`,
+                                    backdropFilter: "blur(100px)",
+                                }
+                            }>
+                                <div className={"mr-[192px]"}>
+                                    <CardHeader>
+                                        <CardTitle>Procvičování soutěžní fyziky</CardTitle>
+                                        <CardDescription className={"opacity-100 text-[#ccc]"}>Nová možnost jak procvičit své znalosti fyziky a připravit se na mnohé soutěže!</CardDescription>
+                                    </CardHeader>
+                                    <CardFooter className={"mt-[25px]"}>
+                                        {/*@ts-ignore*/}
+                                        <Link href={"/soutezetryhard/psf"}>
+                                            <Button variant={"secondary"} className={"flex flex-row items-center"}>
+                                                <Book className={"w-[14px] h-[14px] opacity-80 mr-2"}/> Přejít na PSF
+                                            </Button>
+                                        </Link>
+                                    </CardFooter>
+                                </div>
+
+                            </Card>
+                        </article>
                     </PageContentWrap>
 
                 </div>

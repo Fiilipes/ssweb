@@ -74,11 +74,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                 <CompetitionForm defaultValues={
                                     {
                                         type: myCompetition?.type,
+                                        // @ts-ignore
+                                        competitionType: myCompetition?.competitionType,
                                         name: myCompetition?.name,
-                                        // @ts-ignore
-                                        registrationDate: new Date(myCompetition?.registration.date.seconds * 1000),
-                                        // @ts-ignore
-                                        competitionDate: myCompetition?.competition?.dateType === "range" ? {from: new Date(myCompetition?.competition?.date?.from?.seconds * 1000), to: new Date(myCompetition?.competition?.date?.to?.seconds * 1000)} : new Date(myCompetition?.competition?.date?.seconds *1000),
+                                        miles: myCompetition?.miles,
                                         place: myCompetition?.place,
                                         description: myCompetition?.description,
                                         createChannel: myCompetition?.createChannel,

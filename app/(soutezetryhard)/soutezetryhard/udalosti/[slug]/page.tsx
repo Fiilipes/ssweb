@@ -12,11 +12,12 @@ import PageContentWrap from "@/components/layout/wrap/PageContentWrap";
 import {useRouter} from "next/navigation";
 import CompetitionNotFound from "@/components/layout/soutezetryhard/udalosti/CompetitionNotFound";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {CalendarClock, Clock, Shapes, UserPlus2, Users2} from "lucide-react";
+import {CalendarClock, Clock, Settings2, Shapes, UserPlus2, Users2} from "lucide-react";
 import {DataTable} from "./data-table";
 import {columns} from "./columns";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const {data:session} = useSession()
@@ -24,7 +25,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     const [verified, setVerified] = React.useState(null)
     const [competitions, setCompetitions] = React.useState<Competition[]>([])
     const [myCompetition, setMyCompetition] = React.useState<Competition | null>(null)
-
+    const [currentUser, setCurrentUser] = React.useState<User | null>(null)
     const [users, setUsers] = React.useState<User[]>([])
 
     React.useEffect(
@@ -39,6 +40,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     // @ts-ignore
                     functions.verifyUserById(res["users"],session.id,"Soutěže Tryhard").then(verified => {
                         setVerified(verified)
+                        console.log(verified)
+                        // @ts-ignore
+                        setCurrentUser(res["users"].list.find((user:any) => user.discordID === session?.id))
                         if (verified) {
                             setCompetitions(functions.organizeCompetitionsByDate(res["soutěže"].list.added))
 
@@ -206,7 +210,16 @@ const Page = ({ params }: { params: { slug: string } }) => {
                                         Soutěžící
                                     </div>
 
-                                    <DataTable columns={columns} data={users} currentUsername={"filipjarolim"} />
+                                    <DataTable columns={columns} data={users} currentUsername={currentUser?currentUser.discordUsername:""} />
+
+                                    <Link href={
+                                        `/soutezetryhard/udalosti/${decodeURIComponent(params.slug)}/edit`
+                                    }>
+                                        <Button className={"flex flex-row items-center my-8"}>
+                                            <Settings2 className={"opacity-60 w-4 h-4 mr-2"}/>
+                                            Upravit soutěž
+                                        </Button>
+                                    </Link>
 
 
 
@@ -217,11 +230,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
 
 
-                                <Button variant={"destructive"} className={"my-[50px]"} onClick={() => {
-                                    functions.removeCompetition(myCompetition?.id!)
-                                }}>
-                                    Odstranit soutěž
-                                </Button>
+                                {/*<Button variant={"destructive"} className={"my-[50px]"} onClick={() => {*/}
+                                {/*    functions.removeCompetition(myCompetition?.id!)*/}
+                                {/*}}>*/}
+                                {/*    Odstranit soutěž*/}
+                                {/*</Button>*/}
 
 
                             </PageContentWrap>
