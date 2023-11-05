@@ -1,10 +1,11 @@
+"use client"
 import React from 'react'
 import Link from "next/link";
 import imgGithub from "@/assets/img/github.svg";
 import imgDiscord from "@/assets/img/discord.svg";
 import imgWigym from "@/assets/img/wigym.svg";
 import {Button} from "@/components/ui/button";
-import {UserCircle2} from "lucide-react";
+import {PanelBottomOpen, PanelTopOpen, UserCircle2} from "lucide-react";
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(auth)/api/auth/[...nextauth]/route'
 
@@ -18,17 +19,33 @@ import HeightGap from "@/components/reusable/composition/HeightGap";
 import UserMenu from './UserMenu';
 import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 import WebTitle from "@/components/layout/header/WebTitle";
-const Header = async () => {
+import {useSession} from "next-auth/react";
+import {usePathname} from "next/navigation";
+const Header =  () => {
 
     // @ts-ignore
-    const session = await getServerSession(authOptions)
+    // const session = await getServerSession(authOptions)
 
+    const {data:session} = useSession()
+    const [open, setOpen] = React.useState(true);
+    const headerRef = React.useRef<HTMLDivElement>(null);
+    const invisibleRef = React.useRef<HTMLDivElement>(null);
 
+    // check if pathname is /piskvorky
+    const pathname = usePathname();
 
+    React.useEffect(() => {
+        if (pathname === "/piskvorky") {
+            headerRef.current!.style.opacity = "0"
+            headerRef.current!.style.height = "0px"
+            invisibleRef.current!.style.height = "0px"
+            setOpen(false)
+        }
+    }, [pathname])
 
     return (
         <>
-            <header className={"fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[36px] lg:pb-[16px] backdrop-blur-xl bg-slate-50/70 dark:bg-[#0d1117]/70"}>
+            <header ref={headerRef}  className={"transition-all duration-500 fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[36px] lg:pb-[16px] backdrop-blur-xl bg-slate-50/70 dark:bg-[#0d1117]/70"}>
 
                 <WebTitle />
 
@@ -53,8 +70,31 @@ const Header = async () => {
                     }
                 </section>
                 <SmallDevices session={session} />
+
             </header>
-            <HeightGap height={"h-[120px]"} />
+            <Button variant={"outline"} className={"fixed right-[16px] w-[40px] p-0 top-[36px]"} style={{
+                zIndex: "100000000000"
+            }} onClick={() => {
+                console.log(headerRef.current)
+                console.log(invisibleRef.current)
+                if (!open) {
+                    headerRef.current!.style.height = "120px"
+                    invisibleRef.current!.style.height = "120px"
+                    // opacity: 0
+                    headerRef.current!.style.opacity = "1"
+                } else {
+                    headerRef.current!.style.height = "0px"
+                    invisibleRef.current!.style.height = "0px"
+                    // opacity: 0
+                    headerRef.current!.style.opacity = "0"
+                }
+                setOpen(!open)
+
+            }}>
+                {!open ? <PanelTopOpen className={"w-6 h-6 opacity-80"} /> : <PanelBottomOpen className={"w-6 h-6 opacity-80"} />}
+            </Button>
+            <HeightGap reference={invisibleRef} height={"h-[120px] transition-all duration-500"} />
+
         </>
     )
 }
