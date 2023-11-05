@@ -71,7 +71,7 @@ export default function SoutezeTryhard() {
 
                         <div className={"font-semibold mb-[25px] lg:mb-[16px] text-[18px] lg:text-[16px]"}>
                             Vítejte
-                            <span className={"font-bold  text-[25px] lg:text-[25px] mx-2"}>
+                            <span className={"font-bold text-[25px] lg:text-[25px] mx-2"}>
                                 @{session?.user?.name}
                             </span>
                         </div>
