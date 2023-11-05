@@ -6,8 +6,6 @@ import imgDiscord from "@/assets/img/discord.svg";
 import imgWigym from "@/assets/img/wigym.svg";
 import {Button} from "@/components/ui/button";
 import {PanelBottomOpen, PanelTopOpen, UserCircle2} from "lucide-react";
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/(auth)/api/auth/[...nextauth]/route'
 
 import SignInButton from "@/components/reusable/auth/SignInButton";
 import SmallDevices from "@/components/layout/header/SmallDevices";
