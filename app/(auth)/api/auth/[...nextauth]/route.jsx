@@ -3,7 +3,7 @@ import prisma from "app/(auth)/libs/prismadb";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import DiscordProvider from "next-auth/providers/discord";
 
-export const authOptions = {
+const authOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
         DiscordProvider({
