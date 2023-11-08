@@ -5,7 +5,7 @@ import imgGithub from "@/assets/img/github.svg";
 import imgDiscord from "@/assets/img/discord.svg";
 import imgWigym from "@/assets/img/wigym.svg";
 import {Button} from "@/components/ui/button";
-import {PanelBottomOpen, PanelTopOpen, UserCircle2} from "lucide-react";
+import {ArrowUp, PanelBottomOpen, PanelTopOpen, UserCircle2} from "lucide-react";
 
 import SignInButton from "@/components/reusable/auth/SignInButton";
 import SmallDevices from "@/components/layout/header/SmallDevices";
@@ -28,6 +28,7 @@ const Header =  () => {
     const [open, setOpen] = React.useState(true);
     const headerRef = React.useRef<HTMLDivElement>(null);
     const invisibleRef = React.useRef<HTMLDivElement>(null);
+    const scrollToTopRef = React.useRef<HTMLDivElement>(null);
 
     // check if pathname is /piskvorky
     const pathname = usePathname();
@@ -40,10 +41,26 @@ const Header =  () => {
             setOpen(false)
         }
     }, [pathname])
+    function handleScroll(e:any)  {
+        console.log(e.target.scrollingElement.scrollTop)
+        if (e.target.scrollingElement.scrollTop >= 500) {
+            // @ts-ignore
+            scrollToTopRef.current.style.opacity = "1"
+        } else {
+            // @ts-ignore
+            scrollToTopRef.current.style.opacity = "0"
+        }
+    }
+    React.useEffect(() => {
+        window.addEventListener("scroll", (e) => handleScroll(e))
+       return () => {
+           window.removeEventListener("scroll", (e) => handleScroll(e))
+       }
+    },[scrollToTopRef])
 
     return (
         <>
-            <header ref={headerRef}  className={"transition-all duration-500 fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[36px] lg:pb-[16px] backdrop-blur-xl bg-slate-50/70 dark:bg-[#0d1117]/70"}>
+            <header ref={headerRef}  className={"transition-all duration-500 fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[20px] lg:pb-[10px] backdrop-blur-xl bg-slate-50/70 dark:bg-[#0d1117]/70"}>
 
                 <WebTitle />
 
@@ -70,18 +87,16 @@ const Header =  () => {
                 <SmallDevices session={session} />
 
             </header>
-            <Button variant={"outline"} className={"fixed right-[16px] w-[40px] p-0 top-[36px]"} style={{
+            <Button variant={"outline"} className={"fixed right-[16px] w-[40px] p-0 top-[20px]"} style={{
                 zIndex: "100000000000"
             }} onClick={() => {
                 console.log(headerRef.current)
                 console.log(invisibleRef.current)
                 if (!open) {
-                    headerRef.current!.style.height = "120px"
-                    invisibleRef.current!.style.height = "120px"
+                    invisibleRef.current!.style.height = "60px"
                     // opacity: 0
                     headerRef.current!.style.opacity = "1"
                 } else {
-                    headerRef.current!.style.height = "0px"
                     invisibleRef.current!.style.height = "0px"
                     // opacity: 0
                     headerRef.current!.style.opacity = "0"
@@ -91,7 +106,14 @@ const Header =  () => {
             }}>
                 {!open ? <PanelTopOpen className={"w-6 h-6 opacity-80"} /> : <PanelBottomOpen className={"w-6 h-6 opacity-80"} />}
             </Button>
-            <HeightGap reference={invisibleRef} height={"h-[120px] transition-all duration-500"} />
+            <HeightGap reference={invisibleRef} height={"h-[60px] transition-all duration-500"} />
+            {/*@ts-ignore*/}
+            <Button variant={"outline"} ref={scrollToTopRef}  onClick={() => {
+                window.scrollTo(0,0)
+            }} className={"fixed bottom-2 right-2 opacity-0 transition-all duration-800 w-[28px] h-[28px] rounded-full p-0"}>
+                <ArrowUp className={"w-4 h-4 opacity-80"}/>
+            </Button>
+
 
         </>
     )

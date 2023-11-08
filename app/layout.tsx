@@ -35,7 +35,7 @@ export default function RootLayout({
       {/*<Cursor />*/}
 
       <Provider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
 
           <Header />
 
