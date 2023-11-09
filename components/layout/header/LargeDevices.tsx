@@ -16,6 +16,7 @@ import navigation from "@/assets/settings/content/navigation";
 import {Badge} from "@/components/ui/badge";
 import {CommandDialogDemo} from "@/components/layout/wrap/CommandMenu";
 import { usePathname } from "next/navigation";
+import {ThemeSwitcher} from "@/components/layout/header/ThemeSwitcher";
 
 
 
