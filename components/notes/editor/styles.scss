@@ -131,8 +131,15 @@
     cursor: pointer;
     padding: 0 0.5rem;
     transition: background 0.2s;
-    color: #202020;
+    color:#444;
+    mix-blend-mode: difference;
   }
+
+  .katex-html  {
+    color: #fff;
+  }
+
+
 
   .Tiptap-mathematics-editor,
   .Tiptap-mathematics-render {

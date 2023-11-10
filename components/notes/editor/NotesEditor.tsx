@@ -102,7 +102,7 @@ const NotesEditor = ({editor, menubar, props}:{editor:any, menubar:any[], props:
     return (
         <section className={`${
             props.editable ? "border-[2px] border-[#111]" : ""
-        } rounded-[16px] min-h-[320px] overflow-hidden bg-white`}>
+        } rounded-[16px] min-h-[320px] overflow-hidden bg-white dark:bg-black`}>
             <BubbleMenu editor={editor} />
 
             {/*<ContentSpecs editor={editor} />*/}
@@ -114,7 +114,7 @@ const NotesEditor = ({editor, menubar, props}:{editor:any, menubar:any[], props:
             }
 
             <div className={"p-[16px]"}>
-                <EditorContent editor={editor} />
+                <EditorContent  editor={editor} />
             </div>
         </section>
     )

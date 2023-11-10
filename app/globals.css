@@ -24,7 +24,6 @@
 .biggerText * {
   font-size: 16px !important;
   font-weight: 600;
-  color: #444;
   padding: 0;
   line-height: 1rem;
 
@@ -259,4 +258,9 @@
   background-color: white; /* Default background color */
   mix-blend-mode: difference; /* Blend mode for inverting colors */
 
+}
+
+
+.katex-html  {
+  color: #fff;
 }

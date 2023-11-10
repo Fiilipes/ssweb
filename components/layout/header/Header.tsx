@@ -63,11 +63,8 @@ const Header =  () => {
             <header ref={headerRef}  className={"transition-all duration-500 fixed z-50 flex flex-row justify-between w-[100vw] ml-0 px-[20px] pt-[10px] pb-[5px] lg:px-[5vw] lg:pt-[20px] lg:pb-[10px] backdrop-blur-xl bg-slate-50/70 dark:bg-[#0d1117]/70"}>
 
                 <WebTitle />
-                <section className={"flex-row w-fit hidden lg:flex 2xl:px-[12px]  items-start h-full"}>
+                <section className={"flex-row w-fit hidden lg:flex 2xl:px-[24px]  items-center h-full"}>
                     <LargeDevices />
-                    <div className={"flex flex-row items-center justify-center h-full p-0 m-0"}>
-                        <ThemeSwitcher />
-                    </div>
 
                     {/*<section className={"lg:ml-[30px] lg:mr-[20px] flex flex-row h-full"}>*/}
                     {/*    /!*<SocialIcon icon={imgDiscord} alt={"discord"} link={discordServers.find(server => server.name === "Survival Server")?.link ?  discordServers.find(server => server.name === "Survival Server")?.link : ""} title={"Discord server"} />*!/*/}
@@ -109,6 +106,8 @@ const Header =  () => {
             }}>
                 {!open ? <PanelTopOpen className={"w-6 h-6 opacity-80"} /> : <PanelBottomOpen className={"w-6 h-6 opacity-80"} />}
             </Button>
+            <ThemeSwitcher />
+
             <HeightGap reference={invisibleRef} height={"h-[60px] transition-all duration-500"} />
             {/*@ts-ignore*/}
             <Button variant={"outline"} ref={scrollToTopRef}  onClick={() => {
